@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>아코디언 형식 표준화</title>
+  <!-- jQuery CDN -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js'></script>
+  <style>
+    /* reset.css 에서 초기화 */
+    * {
+      box-sizing: border-box;
+    }
+
+    ul,li {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    /* style.css */
+    .container {
+      width: 1000px;
+      margin: 0 auto;
+    }
+
+    .faq__list .faq__item {
+      margin-bottom: 20px;
+    }
+
+    .faq__item-title {
+      cursor: pointer;
+      padding: 8px;
+      border: 1px solid #ddd;
+    }
+
+    .faq__item-answer {
+      /* faq 답변은 초기에 display: none 처리 */
+      display: none;
+      padding: 8px 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="faq">
+      <ul class="faq__list">
+        <li class="faq__item">
+          <div class="faq__item-title">
+            <span>질문1</span>
+          </div>
+          <div class="faq__item-answer">
+            <p>답변1</p>
+          </div>
+        </li>
+        <li class="faq__item">
+          <div class="faq__item-title">
+            <span>질문2</span>
+          </div>
+          <div class="faq__item-answer">
+            <p>답변2</p>
+          </div>
+        </li>
+        <li class="faq__item">
+          <div class="faq__item-title">
+            <span>질문3</span>
+          </div>
+          <div class="faq__item-answer">
+            <p>답변3</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    $(function() {
+      $('.faq__item-title').click(function() {
+        // 클릭한 요소 제외는 slideUp
+        $('.faq__item-answer').not($(this).siblings()).slideUp()
+        // 클릭한 요소 제외는 slideToggle
+        $(this).siblings().slideToggle()
+      })
+    })
+  </script>
+</body>
+
+</html>
