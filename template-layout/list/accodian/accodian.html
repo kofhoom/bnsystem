@@ -81,7 +81,7 @@
       $('.faq__item-title').click(function() {
         // 클릭한 요소 제외는 slideUp
         $('.faq__item-answer').not($(this).siblings()).slideUp()
-        // 클릭한 요소 제외는 slideToggle
+        // 클릭한 요소는 slideToggle
         $(this).siblings().slideToggle()
       })
     })
