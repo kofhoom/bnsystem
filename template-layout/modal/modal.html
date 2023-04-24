@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            /* 모달 팝업 스타일 */
+            .modal {
+                display: none; /* 초기에는 숨김 처리 */
+                position: fixed; /* 화면에 고정 */
+                z-index: 1; /* 다른 요소보다 앞에 표시 */
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto; /* 스크롤바 생성 */
+                background-color: rgba(0, 0, 0, 0.4); /* 배경색과 투명도 설정 */
+            }
+            .modal-content {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: #fefefe; /* 팝업창 배경색 */
+                padding: 20px;
+                border: 1px solid #888;
+                width: 80%; /* 팝업창 크기 조정 */
+            }
+            .close {
+                color: #aaa;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+            }
+            .close:hover, .close:focus {
+                color: black;
+                text-decoration: none;
+                cursor: pointer;
+            }
+        
+        </style>
+    </head>
+    <body>
+        <!-- 모달 팝업 버튼 -->
+        <button id="modal-toggle">모달 팝업 열기</button>
+
+        <!-- 모달 팝업 -->
+        <div id="modal-window" class="modal">
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <p>모달 팝업 내용</p>
+            </div>
+        </div>
+
+        <script>
+          // 모달 팝업 열기 버튼 클릭 시 이벤트 처리
+          var modal = document.getElementById("modal-window");
+          var modalToggle = document.getElementById("modal-toggle");
+          var modalClose = document.getElementsByClassName("close")[0];
+
+          modalToggle.onclick = function () {
+              modal.style.display = "block";          
+          };
+
+          // 모달 팝업 닫기 버튼 클릭 시 이벤트 처리
+          modalClose.onclick = function () {
+              modal.style.display = "none";
+          };
+
+          // 모달 팝업 외부 클릭 시 이벤트 처리
+          window.onclick = function (event) {
+              if (event.target == modal) {
+                  modal.style.display = "none";
+              }
+          };
+
+
+          /* 스크롤 고정용 */
+          modalToggle.onclick = function () {
+              modal.style.display = "block";          
+              document.body.style.overflow = "hidden";
+          };
+
+          // 모달 팝업 닫기 버튼 클릭 시 이벤트 처리
+          modalClose.onclick = function () {
+              modal.style.display = "none";
+              document.body.style.overflow = "visible"; 
+          };
+
+          // 모달 팝업 외부 클릭 시 이벤트 처리
+          window.onclick = function (event) {
+              if (event.target == modal) {
+                  modal.style.display = "none";
+                  document.body.style.overflow = "visible"; 
+              }
+          };
+
+
+        </script>
+    </body>
+</html>
