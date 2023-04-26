@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>토글버튼 형식 표준화 작업</title>
     <style>
+      
       *{
         padding:0;
         margin:0;
@@ -16,6 +17,7 @@
         display: flex;
         justify-content: center;
       }
+
       /* 둥근 토글버튼 */
       .toggle-box__swich {
         width: 100px;
@@ -39,6 +41,7 @@
         border-radius: 50%;
         background: #f03d3d9b;
       }
+
       /* 네모 토글버튼 */
       .toggle-box__swich.square{
         width: 90px;
@@ -53,6 +56,15 @@
         border-radius: 0;
       }
 
+      
+      /* 버튼 눌렀을때 움직이는 값 */
+      .toggle-box__swich.active .toggle-box__btn{left: calc(100% - 44px);}
+      .toggle-box__swich.square.active .toggle-box__btn.square{left: calc(100% - 36px);}
+
+      .toggle-box__swich, .toggle-box__btn  {
+        transition: 0.25s ease-out ;
+      }
+      /* 버튼 배경 및 색상 */
       .toggle-box__swich.active {
         background: #f03d3d9b;
       }
@@ -60,13 +72,6 @@
       .toggle-box__swich.active .toggle-box__btn,
       .toggle-box__swich.square.active .toggle-box__btn.square {
         background: #fff ; 
-      }
-
-      .toggle-box__swich.active .toggle-box__btn{left: calc(100% - 44px);}
-      .toggle-box__swich.square.active .toggle-box__btn.square{left: calc(100% - 36px);}
-
-      .toggle-box__swich, .toggle-box__btn  {
-        transition: 0.25s ease-out ;
       }
 
       .toggle-box__swich.square.active,
@@ -91,6 +96,8 @@
         <div>
 
     </div>
+
+    <!-- script source -->
     <script>
      const toggleList = document.querySelectorAll(".toggle-box__swich");
      toggleList.forEach(($toggle) => {
