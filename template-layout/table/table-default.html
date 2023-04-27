@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>table</title>
+</head>
+<style>
+    *{margin: 0; padding: 0;}
+    a{text-decoration: none; color: inherit;}
+    li{list-style: none;}
+    .blind{
+        width: 1px;
+        height: 1px;
+        position: absolute;
+        margin: 1px;
+        overflow: hidden;
+    }
+    .wrap{width: 600px;}
+    h1{font-size: 24px; margin-bottom: 30px;}
+    h2{font-size: 18px; margin-bottom: 15px;}
+
+    /* 기본 */
+    .c-table{width: 600px; margin-bottom: 30px;}
+    table{border-collapse: collapse; text-align: center; width: 100%;}
+    table tr{height: 30px;}
+    table th, td{border: 1px solid #707070;}
+    table thead th{border-bottom: none;}
+    table th{background: #efefef;}
+
+    /* 옵션 */
+    .c-table__top{display: flex; justify-content: space-between; margin-bottom: 10px;}
+    .c-table__bottom {position: relative; margin-top: 15px;}
+    .pagination{display: flex; justify-content: center; align-items: center;}
+    .pagination .page__list{display: flex; justify-content: center; align-items: center; gap: 0 20px; margin: 0 20px;}
+    .pagination .page__link{width: 20px; height:20px; font-size: 12px;}
+    .pagination .page__link>a{display: block; text-align: center; line-height: 20px;}
+    .pagination .page__link.on{background: #efefef;}
+    .button__wrap{
+        position: absolute;
+        right: 0;
+        bottom: 0;
+    }
+
+    /* 스크롤 */
+    .scroll__wrap{height: 300px; overflow: auto;}
+    .c-table--scroll table{border-collapse: separate; border-spacing: 0;}
+    .c-table--scroll table thead th{position: sticky; left: 0; top: 0; border-top: 1px solid #707070;}
+    .c-table--scroll table th{border:none; border-right: 1px solid #707070; border-bottom: 1px solid #707070;}
+    .c-table--scroll table th:first-child{border-left: 1px solid #707070;}
+    .c-table--scroll table td{border:none; border-right: 1px solid #707070; border-bottom: 1px solid #707070;}
+    .c-table--scroll table td:first-child{border-left: 1px solid #707070;}
+
+</style>
+<body>
+    <div class="wrap">
+        <h1>테이블</h1>
+        <h2>기본</h2>
+        <div class="c-table">
+            <table>
+                <!-- caption태그를 실제로 화면상에 거의 표시하진 않으나, 
+                    웹 접근성을 준수하기 위해 표에 대한 설명을 작성하고 숨김처리함 -->
+                <caption class="blind">상품 판매량</caption>
+                <colgroup>
+                    <col style="width:16%">
+                    <col style="width:21%">
+                    <col style="width:21%">
+                    <col style="width:21%">
+                    <col style="width:21%">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <!-- scope: th 항목의 방향을 설정 (웹 접근성 준수) -->
+                        <th scope="row">-</th>
+                        <th scope="row">A제품</th>
+                        <th scope="row">B제품</th>
+                        <th scope="row">C제품</th>
+                        <th scope="row">D제품</th>
+                    </tr>
+                </thead>
+                <!-- tfoot까지는 사용하는 경우가 드물지만, 사용하게 된다면 thead 아래에 마크업해준다
+                    (사용자 입장에서 결과정보를 먼저 제공받을 수 있도록 함) -->
+                <tfoot>
+                    <tr>
+                        <th scope="col">재고량</th>
+                        <td>100</td>
+                        <td colspan="2">50</td>
+                        <td>0</td>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    <tr>
+                        <th scope="col">제작량</th>
+                        <td>500</td>
+                        <td>600</td>
+                        <td>450</td>
+                        <td rowspan="2">
+                            <div class="td__div">
+                                <p>500</p>
+                                <button type="button">수량보기</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="col">판매량</th>
+                        <td>400</td>
+                        <td>550</td>
+                        <td>400</td>
+                    </tr>
+                </tbody>
+    
+            </table>
+            <!-- id, headers 속성은 상당히 복잡한 table이 아니면 잘 쓰이지는 않는 것 같음 -->
+    
+        </div>
+        <hr>
+    
+        <h2>옵션 테이블</h2>
+        <div class="c-table c-table--opt">
+            <div class="c-table__top">
+                <p class="c-table__text">목록 <span class="c-table__count">10</span>개</p>
+                <div class="c-table__select">
+                    <select name="" id="" class="select-box">
+                        <option value="10">10개씩보기</option>
+                        <option value="30">30개씩보기</option>
+                        <option value="50">50개씩보기</option>
+                        <option value="100">100개씩보기</option>
+                    </select>
+                </div>
+            </div>
+            <table>
+                <caption class="blind">상품 판매량</caption>
+                <colgroup>
+                    <col style="width:16%">
+                    <col style="width:21%">
+                    <col style="width:21%">
+                    <col style="width:21%">
+                    <col style="width:21%">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th scope="row">-</th>
+                        <th scope="row">A제품</th>
+                        <th scope="row">B제품</th>
+                        <th scope="row">C제품</th>
+                        <th scope="row">D제품</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th scope="col">재고량</th>
+                        <td>100</td>
+                        <td colspan="2">50</td>
+                        <td>0</td>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    <tr>
+                        <th scope="col">제작량</th>
+                        <td>500</td>
+                        <td>600</td>
+                        <td>450</td>
+                        <td rowspan="2">500</td>
+                    </tr>
+                    <tr>
+                        <th scope="col">판매량</th>
+                        <td>400</td>
+                        <td>550</td>
+                        <td>400</td>
+                    </tr>
+                </tbody>
+    
+            </table>
+            <div class="c-table__bottom">
+                <div class="empty"></div>
+                <div class="pagination">
+                    <button type="button" class="page__btn btn--next"><</button>
+                    <ul class="page__list">
+                        <li class="page__link on">
+                            <a href="#">1</a>
+                        </li>
+                        <li class="page__link">
+                            <a href="#">2</a>
+                        </li>
+                        <li class="page__link">
+                            <a href="#">3</a>
+                        </li>
+                        <li class="page__link">
+                            <a href="#">4</a>
+                        </li>
+                        <li class="page__link">
+                            <a href="#">5</a>
+                        </li>
+                    </ul>
+                    <button type="button" class="page__btn btn--next">></button>
+                </div>
+                <div class="button__wrap">
+                    <button type="button">삭제</button>
+                    <button type="button">등록</button>
+                </div>
+            </div>
+    
+        </div>
+    
+        <hr>
+        <h2>스크롤 테이블</h2>
+        <div class="c-table c-table--scroll">
+            <div class="scroll__wrap">
+                <table>
+                    <caption class="blind">상품 판매량</caption>
+                    <colgroup>
+                        <col style="width:16%">
+                        <col style="width:21%">
+                        <col style="width:21%">
+                        <col style="width:21%">
+                        <col style="width:21%">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th scope="row">-</th>
+                            <th scope="row">A제품</th>
+                            <th scope="row">B제품</th>
+                            <th scope="row">C제품</th>
+                            <th scope="row">D제품</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th scope="col">총 계</th>
+                            <td>100</td>
+                            <td colspan="2">50</td>
+                            <td>0</td>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        <tr>
+                            <th scope="col">A</th>
+                            <td>300</td>
+                            <td>500</td>
+                            <td>410</td>
+                            <td>150</td>
+                        </tr>
+                        <tr>
+                            <th scope="col">B</th>
+                            <td>500</td>
+                            <td>600</td>
+                            <td>450</td>
+                            <td rowspan="2">500</td>
+                        </tr>
+                        <tr>
+                            <th scope="col">C</th>
+                            <td>400</td>
+                            <td>550</td>
+                            <td>400</td>
+                        </tr>
+                        <tr>
+                            <th scope="col">D</th>
+                            <td>500</td>
+                            <td>600</td>
+                            <td>450</td>
+                            <td rowspan="2">500</td>
+                        </tr>
+                        <tr>
+                            <th scope="col">E</th>
+                            <td>400</td>
+                            <td>550</td>
+                            <td>400</td>
+                        </tr>
+                        <tr>
+                            <th scope="col">F</th>
+                            <td>500</td>
+                            <td>600</td>
+                            <td>450</td>
+                            <td rowspan="2">500</td>
+                        </tr>
+                        <tr>
+                            <th scope="col">G</th>
+                            <td>400</td>
+                            <td>550</td>
+                            <td>400</td>
+                        </tr>
+                        <tr>
+                            <th scope="col">H</th>
+                            <td>500</td>
+                            <td>600</td>
+                            <td>450</td>
+                            <td rowspan="2">500</td>
+                        </tr>
+                        <tr>
+                            <th scope="col">I</th>
+                            <td>400</td>
+                            <td>550</td>
+                            <td>400</td>
+                        </tr>
+                        <tr>
+                            <th scope="col">J</th>
+                            <td>500</td>
+                            <td>600</td>
+                            <td>450</td>
+                            <td rowspan="2">500</td>
+                        </tr>
+                        <tr>
+                            <th scope="col">K</th>
+                            <td>400</td>
+                            <td>550</td>
+                            <td>400</td>
+                        </tr>
+                    </tbody>
+        
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
