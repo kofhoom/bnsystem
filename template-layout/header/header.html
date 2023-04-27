@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Header Demo</title>
+</head>
+<style>
+  /* 디폴트 리셋 */
+* {
+      padding:0;
+      margin:0;
+      box-sizing: border-box;
+}
+ul,li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+a {
+  text-decoration:none;
+  color: inherit;
+}
+/* 헤더 스타일 */
+.header {
+  width: 100%;
+  background-color: #333;
+}
+.header__nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  max-height: 80px;
+  margin: 0 auto;
+  padding: 20px 0px;
+  color: #fff;
+}
+.header__logo-link {
+  display: block;
+  padding: 10px;
+  max-height: 80px;
+}
+.header__logo-img {
+  display: block;
+  max-height: 40px;
+}
+.header__nav-list {
+  display: flex;
+  font-size: 20px;
+}
+.header__nav-link {
+  display: block;
+  padding: 10px;
+  margin: 0px 10px;
+  border-radius: 4px;
+  transition: background-color .3s ease, color .3s ease;
+}
+.header__nav-link:hover {
+  background-color: #444;
+  color: red;
+}
+</style>
+
+<body>
+  <header class="header">
+    <nav class="header__nav">
+      <!-- 로고 -->
+      <div class="header__logo">
+        <a class="header__logo-link" href="#">
+          <img class="header__logo-img" src="./logo.png" alt="logo"/>
+        </a>
+      </div>
+      <!-- 메뉴 리스트 -->
+      <ul class="header__nav-list">
+        <li class="header__nav-item">
+          <a class="header__nav-link" href="#">Home</a>
+        </li>
+        <li class="header__nav-item">
+          <a class="header__nav-link" href="#">About</a>
+        </li>
+        <li class="header__nav-item">
+          <a class="header__nav-link" href="#">Services</a>
+        </li>
+        <li class="header__nav-item">
+          <a class="header__nav-link" href="#">Contact</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+</body>
+</html>
