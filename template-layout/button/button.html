@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>버튼 형식 표준화</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      ul,
+      li {
+        list-style: none;
+      }
+      button,
+      input[type="submit"],
+      input[type="reset"] {
+        outline: none;
+        background-color: #fff;
+        cursor: pointer;
+        border-width: 2px;
+        border-style: solid;
+      }
+
+      .btn-box {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .btn-box_inner button:nth-child(1) {
+        width: 120px;
+        height: 55px;
+        border-color: royalblue;
+      }
+
+      .btn-box_inner button:nth-child(2) {
+        width: 100px;
+        height: 45px;
+        border-color: rgb(65, 198, 225);
+      }
+
+      .btn-box_inner button:nth-child(3) {
+        border-color: rgb(127, 221, 45);
+      }
+
+      .btn-box_inner button:nth-child(4) {
+        width: 60px;
+        height: 35px;
+        border-color: rgb(157, 16, 157);
+      }
+
+      .btn-box_inner button:nth-child(5) {
+        border-color: #333;
+      }
+
+      .btn-box_inner button:nth-child(6) {
+        border-color: rgba(255, 0, 255, 0.348);
+        border-radius: 30px;
+      }
+
+      input[type="submit"] {
+        border-color: yellowgreen;
+      }
+      input[type="reset"] {
+        border-color: rosybrown;
+      }
+
+      /* common */
+      .btn-box_inner button:nth-child(1),
+      .btn-box_inner button:nth-child(2),
+      .btn-box_inner button:nth-child(3),
+      .btn-box_inner button:nth-child(4),
+      .btn-box_inner button:nth-child(5),
+      .btn-box_inner button:nth-child(6),
+      input[type="submit"],
+      input[type="reset"] {
+        border-width: 2px;
+        border-style: solid;
+      }
+
+      .btn-box_inner button:nth-child(3),
+      input[type="submit"],
+      input[type="reset"] {
+        width: 80px;
+        height: 40px;
+      }
+      .btn-box_inner button:nth-child(5),
+      .btn-box_inner button:nth-child(6) {
+        width: 100px;
+        height: 50px;
+      }
+
+      :is(
+          .btn-box__big,
+          .btn-box__mid,
+          .btn-box__sm,
+          .btn-box__mini,
+          .btn-box__square,
+          .btn-box__round,
+          .btn-box__submit,
+          .btn-box__reset
+        ) {
+        margin-right: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="btn-box">
+      <div class="btn-box_inner">
+        <button class="btn-box__big">큰버튼</button>
+        <button class="btn-box__mid">중간버튼</button>
+        <button class="btn-box__sm">작은버튼</button>
+        <button class="btn-box__mini">미니버튼</button>
+        <button class="btn-box__square">네모버튼</button>
+        <button class="btn-box__round">둥근버튼</button>
+        <input type="submit" value="제출버튼" class="btn-box__submit" />
+        <input type="reset" value="초기화버튼" class="btn-box__reset" />
+      </div>
+    </div>
+  </body>
+</html>
