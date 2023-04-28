@@ -45,7 +45,7 @@ const valueReset = (targetName) => {
     inputs.setAttribute("onkeyup", "keyEvents('" + targetName + "')");
   else if (inputs.type == "radio") {
     let radioArrs = document.querySelectorAll(".radio_gender_check");
-    console.log(radioArrs);
+
     for (i = 0; i < radioArrs.length; i++) {
       radioArrs[i].addEventListener("click", () => {
         if (event.target.value == "on") {
@@ -166,14 +166,14 @@ function form_submit() {
     return false;
   }
 
-  if (form.email1.value == "") {
+  if (!form.email1.value) {
     alert("이메일을 입력해주세요.");
     form.email1.focus();
     errorText("email", "이메일을 입력 해주세요.");
 
     return false;
   }
-  if (form.email2.value == "") {
+  if (!form.email2.value) {
     alert("이메일을 입력해주세요.");
     form.email2.focus();
     errorText("email", "이메일 상세를 입력 해주세요.");
