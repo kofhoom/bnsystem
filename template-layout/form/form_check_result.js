@@ -319,7 +319,7 @@ function emailTypeSelect() {
     form.email2.readOnly = false;
     form.email2.value = "";
     form.email2.focus();
-  } else if (f.user_email3.value == "b") {
+  } else if (form.user_email3.value == "b") {
     form.email2.readOnly = true;
     form.email2.value = "";
   } else {
