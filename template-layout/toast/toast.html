@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>toast</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">        
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+        <style>
+            .container {
+                box-sizing: border-box;
+                position: absolute;
+                bottom: 1rem;
+                right: 1rem;
+                display: flex;
+                flex-flow: column;
+                width: 10%;                
+            }
+            .toast {
+                -ms-flex-preferred-size: 350px;
+                max-width: 350px;
+                max-height: fit-content;
+                font-size: .875rem;
+                background-color: rgba(255,255,255,.85);
+                background-clip: padding-box;
+                border: 1px solid rgba(0,0,0,.1);
+                box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,.1);
+                opacity: 0;
+                border-radius: 0.25rem;
+                margin-bottom: 0.5rem;
+            }
+            .toast:last-child{
+                margin-bottom: 0;
+            }
+            .toast__header {
+                display: -ms-flexbox;
+                display: flex;
+                -ms-flex-align: center;
+                align-items: center;
+                padding: 0.5rem;
+                position: relative;
+                color: #6c757d;
+                background-color: rgba(255,255,255,.85);
+                background-clip: padding-box;
+                border-bottom: 1px solid rgba(0,0,0,.05);
+                border-top-left-radius: calc(0.25rem - 1px);
+                border-top-right-radius: calc(0.25rem - 1px);
+            }
+            strong.toast__header-title{
+                color: #007bff;
+                margin-right: auto;
+                font-weight: bolder;
+            }
+            small.toast__header-time {
+                margin-right: 0.5rem;
+                font-size: 80%;
+                font-size: .875em;
+                font-weight: 400;  
+                color: inherit;
+            }
+            .toast__body {
+                padding: 0 0.5rem;
+                border-bottom-left-radius: calc(0.25rem - 1px);
+                border-bottom-right-radius: calc(0.25rem - 1px);
+            }
+            .toast__body p {
+                line-height: 1.5em;
+            }
+            button.toast__header-close {
+                display: block;
+                font-size: 1rem;
+                cursor: pointer;
+                width: 1rem;
+                padding: 0;                
+                border: 0;
+                background-color: transparent;
+            }
+            .toast.show {
+                display: block;
+                opacity: 1;
+            }
+            .fade {
+                transition: opacity .15s linear;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <!-- 시간 지나면 자동으로 사라지는 토스트 -->
+            <!-- data-autohide(자동 숨김)="true(숨김)" data-bs-delay(유지 시간)="ms" -->
+            <div class="toast auto" data-bs-autohide="true">
+                <div class="toast__header">
+                    <!-- 토스트 타이틀 -->
+                    <strong class="toast__header-title">알림</strong>
+                    <!-- 시간 데이터 값 호출 -->
+                    <small class="toast__header-time">Just now</small>                    
+                </div>
+                <div class="toast__body">
+                    <p>새로운 메세지가 도착했습니다.</p>
+                </div>
+            </div>
+            <div class="toast auto" data-bs-autohide="true">
+                <div class="toast__header">
+                    <strong class="toast__header-title">알림</strong>
+                    <small class="toast__header-time">a few ago</small>                    
+                </div>
+                <div class="toast__body">
+                    <p>새로운 메세지가 도착했습니다.</p>
+                </div>
+            </div>
+
+            <!-- 닫기 버튼 눌러야 사라지는 토스트 -->
+            <!-- data-autohide(자동 숨김)="false(유지)" -->
+            <div class="toast manual" data-bs-autohide="false">
+                <div class="toast__header">
+                    <strong class="toast__header-title">알림</strong>
+                    <!-- 시간 데이터 값 호출 -->
+                    <small class="toast__header-time">5 mins ago</small>
+                    <!-- 닫기 버튼 -->
+                    <button type="button" class="toast__header-close" data-dismiss="toast">&times;</button>                     
+                </div>
+                <div class="toast__body">
+                    <p>(๑•̀ㅂ•́)و 두둠칫 에디션 신규 입고</p>
+                </div>
+            </div>
+            <div class="toast manual" data-bs-autohide="false">
+                <div class="toast__header">
+                    <strong class="toast__header-title">공지사항</strong>
+                    <small class="toast__header-time">10 mins ago</small>
+                    <button type="button" class="toast__header-close" data-dismiss="toast">&times;</button>                     
+                </div>
+                <div class="toast__body">
+                    <p>조선의 궁궐에 당도한 것을 환영하오, 낯선이여. 나는 나의 훌륭한 백성들을 굽어살피는 깨우친 임금, 세종이오.</p>
+                </div>
+            </div>
+        </div>
+        <script>
+            // 자동 숨김 토스트 상단부터 세팅한 시간대로 하나씩 숨김 함수
+            const autoHideToastList = document.querySelectorAll(".toast.auto");
+            var autoHideTime = 3000; // 단위 ms (3000ms = 3sec)
+            autoHideToastList.forEach(function(autoToast) {
+                autoToast.dataset.bsDelay = autoHideTime;
+                autoHideTime += autoHideTime;
+            });
+            // 토스트 보이기
+            $(document).ready(function(){
+                $(".toast").toast("show");
+                $(".toast2").toast("show");
+            });
+        </script>
+    </body>
+</html>
