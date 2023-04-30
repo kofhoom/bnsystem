@@ -7,16 +7,18 @@
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
         <style>
-            .container {
+            .area__toast {
                 box-sizing: border-box;
                 position: absolute;
                 bottom: 1rem;
                 right: 1rem;
                 display: flex;
                 flex-flow: column;
-                width: 10%;                
+                width: 10%;
+                min-width: 300px;
             }
             .toast {
+                display: none;
                 -ms-flex-preferred-size: 350px;
                 max-width: 350px;
                 max-height: fit-content;
@@ -85,7 +87,8 @@
         </style>
     </head>
     <body>
-        <div class="container">
+        <div class="area__toast">
+            <!-- toast와 manual은 서로 구분하기 위해 임의로 넣음 -->
             <!-- 시간 지나면 자동으로 사라지는 토스트 -->
             <!-- data-autohide(자동 숨김)="true(숨김)" data-bs-delay(유지 시간)="ms" -->
             <div class="toast auto" data-bs-autohide="true">
@@ -108,9 +111,18 @@
                     <p>새로운 메세지가 도착했습니다.</p>
                 </div>
             </div>
+            <div class="toast auto" data-bs-autohide="true">
+                <div class="toast__header">
+                    <strong class="toast__header-title">알림</strong>
+                    <small class="toast__header-time">5 mins ago</small>                    
+                </div>
+                <div class="toast__body">
+                    <p>새로운 메세지가 도착했습니다.</p>
+                </div>
+            </div>
 
             <!-- 닫기 버튼 눌러야 사라지는 토스트 -->
-            <!-- data-autohide(자동 숨김)="false(유지)" -->
+            <!-- data-autohide(자동 숨김)="false(유지)" -->            
             <div class="toast manual" data-bs-autohide="false">
                 <div class="toast__header">
                     <strong class="toast__header-title">알림</strong>
@@ -137,16 +149,30 @@
         <script>
             // 자동 숨김 토스트 상단부터 세팅한 시간대로 하나씩 숨김 함수
             const autoHideToastList = document.querySelectorAll(".toast.auto");
+            console.log(autoHideToastList);
             var autoHideTime = 3000; // 단위 ms (3000ms = 3sec)
-            autoHideToastList.forEach(function(autoToast) {
-                autoToast.dataset.bsDelay = autoHideTime;
-                autoHideTime += autoHideTime;
-            });
+            var autoToastCount = 1;
+            for(var idx = autoHideToastList.length - 1; idx >= 0; idx--){
+                console.log(idx);     
+                autoHideToastList[idx].dataset.bsDelay = autoHideTime * autoToastCount;
+                autoToastCount++;
+            }
+
             // 토스트 보이기
             $(document).ready(function(){
                 $(".toast").toast("show");
-                $(".toast2").toast("show");
+                // jQuery 형식 닫기 클릭
+                $(".toast.manual").click( function(){
+                    $(this).removeClass("show");
+                });
             });
+
+            // JavaScript 형식 닫기 클릭
+            const manualToast = document.querySelector(".toast.manual");
+            const manualToastClose = document.querySelector(".toast__header-close");
+            manualToastClose.onclick = function(){
+                manualToast.classList.remove("show");
+            }
         </script>
     </body>
 </html>
