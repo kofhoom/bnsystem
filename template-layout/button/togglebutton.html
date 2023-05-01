@@ -6,107 +6,140 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>토글버튼 형식 표준화 작업</title>
     <style>
-      
-      *{
-        padding:0;
-        margin:0;
+      * {
+        padding: 0;
+        margin: 0;
         box-sizing: border-box;
       }
 
-      .container{
+      .area__toggle-btn {
         display: flex;
         justify-content: center;
+        flex-direction: column;
+        align-items: center;
       }
 
+      .swich-btn__inner {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
       /* 둥근 토글버튼 */
-      .toggle-box__swich {
+      .swich-btn__home {
         width: 100px;
         margin: 30px 0;
         height: 50px;
-        display: block;
-        position: relative;
         border-radius: 30px;
-        background-color: #fff;
-        box-shadow: 0 0 16px 3px rgba(0 0 0 / 15%);
-        cursor: pointer;
       }
 
-      .toggle-box__btn {
+      .swich-btn__toggle {
         width: 40px;
         height: 40px;
-        position: absolute;
-        top: 50%;
-        left: 4px;
-        transform: translateY(-50%);
         border-radius: 50%;
-        background: #f03d3d9b;
       }
-
       /* 네모 토글버튼 */
-      .toggle-box__swich.square{
+      .swich-btn__home--square {
         width: 90px;
         height: 40px;
-        border-radius:0px;
-        margin:30px auto;
+        border-radius: 0px;
       }
 
-      .toggle-box__btn.square{
+      .swich-btn__toggle--square {
         width: 30px;
         height: 30px;
         border-radius: 0;
       }
 
-      
-      /* 버튼 눌렀을때 움직이는 값 */
-      .toggle-box__swich.active .toggle-box__btn{left: calc(100% - 44px);}
-      .toggle-box__swich.square.active .toggle-box__btn.square{left: calc(100% - 36px);}
-
-      .toggle-box__swich, .toggle-box__btn  {
-        transition: 0.25s ease-out ;
+      /* 버튼 홈 common */
+      .swich-btn__home,
+      .swich-btn__home--square {
+        display: block;
+        position: relative;
+        box-shadow: 0 0 16px 3px rgba(0 0 0 / 15%);
+        cursor: pointer;
       }
-      /* 버튼 배경 및 색상 */
-      .toggle-box__swich.active {
+
+      /* 스위치 common */
+      .swich-btn__toggle,
+      .swich-btn__toggle--square {
+        position: absolute;
+        top: 50%;
+        left: 4px;
+        transform: translateY(-50%);
+      }
+
+      /* 토글 액티브 bg */
+
+      /* .swich-btn__home .swich-btn__toggle.active, */
+      /* 토글 액트브 흰색 */
+
+      .swich-btn__home .swich-btn__toggle.active {
+        left: calc(100% - 44px);
+      }
+      .swich-btn__home--square .swich-btn__toggle--square.active {
+        left: calc(100% - 36px);
+      }
+
+      .swich-btn__home,
+      .swich-btn__toggle,
+      .swich-btn__home--square,
+      .swich-btn__toggle--square {
+        transition: 0.25s ease-out;
+      }
+
+      .swich-btn__toggle {
+        background: #f03d3d9b;
+      }
+      .swich-btn__toggle.active {
+        background: #fff;
+      }
+      .swich-btn__home {
+        background: #fff;
+      }
+      .swich-btn__home.active {
         background: #f03d3d9b;
       }
 
-      .toggle-box__swich.active .toggle-box__btn,
-      .toggle-box__swich.square.active .toggle-box__btn.square {
-        background: #fff ; 
+      .swich-btn__toggle--square {
+        background: #1f1f9984;
       }
-
-      .toggle-box__swich.square.active,
-      .toggle-box__swich.square .toggle-box__btn  {
+      .swich-btn__toggle--square.active {
+        background: #fff;
+      }
+      .swich-btn__home--square {
+        background: #fff;
+      }
+      .swich-btn__home--square.active {
         background: #1f1f9984;
       }
     </style>
   </head>
 
   <body>
-    <div class="container">
-      <div class="toggle-box">
-        <label for="togleBtn" class="toggle-box__swich">
-          <span class="toggle-box__btn"></span>
+    <div class="area__toggle-btn">
+      <div class="swich-btn__inner">
+        <label for="togleBtn" class="swich-btn__home">
+          <span class="swich-btn__toggle"></span>
         </label>
-      <div>
 
-        <div class="toggle-box">
-          <label for="togleBtn" class="toggle-box__swich square">
-            <span class="toggle-box__btn square"></span>
-          </label>
-        <div>
-
+        <label for="togleBtn" class="swich-btn__home--square">
+          <span class="swich-btn__toggle--square"></span>
+        </label>
+      </div>
     </div>
-
-    <!-- script source -->
     <script>
-     const toggleList = document.querySelectorAll(".toggle-box__swich");
-     toggleList.forEach(($toggle) => {
-      $toggle.onclick = () =>{
-        $toggle.classList.toggle("active");
-      }
+      const toggleCircle = document.querySelector(".area__toggle-btn span");
+      const toggleSquare = document.querySelector(".swich-btn__toggle--square");
 
-     });
+      toggleCircle.onclick = () => {
+        toggleCircle.parentNode.classList.toggle("active");
+        toggleCircle.classList.toggle("active");
+      };
 
+      toggleSquare.onclick = () => {
+        toggleSquare.parentNode.classList.toggle("active");
+        toggleSquare.classList.toggle("active");
+      };
     </script>
   </body>
 </html>
