@@ -12,7 +12,16 @@
     /* reset.css 에서 초기화 */
     * {
       box-sizing: border-box;
+      margin: 0; padding: 0;
     }
+
+    /* ----- 공통 ------ */
+
+    .wrap{width:100%; max-width: 1200px; margin: 0 auto; padding-top: 50px;}
+    .title{font-size: 30px; margin-bottom: 30px; text-align: center; padding: 30px 0; border-bottom: 2px solid royalblue;}
+    .sub-title{font-size: 18px; margin-top: 30px; margin-bottom: 15px; color: darkblue;}
+
+    /* ---------- */
 
     ul,li {
       list-style: none;
@@ -96,67 +105,69 @@
 
 <body>
   <!-- #### 조정원 사원 #### -->
-  <div class="container">
-    <h2>아코디언 예제(ex) FAQ)</h2>
-
-    <div class="accodian type1">
-      <h3>type1. 기본 아코디언 구조</h3>  
-      <ul class="name-list">
-        <li class="name-item">
-          <div class="name-item__title">
-            <span>질문1</span>
-          </div>
-          <div class="name-item__answer">
-            <p>답변1</p>
-          </div>
-        </li>
-        <li class="name-item">
-          <div class="name-item__title">
-            <span>질문2</span>
-          </div>
-          <div class="name-item__answer">
-            <p>답변2</p>
-          </div>
-        </li>
-        <li class="name-item">
-          <div class="name-item__title">
-            <span>질문3</span>
-          </div>
-          <div class="name-item__answer">
-            <p>답변3</p>
-          </div>
-        </li>
-      </ul>
-    </div>
-
-    <div class="faq type2">
-      <h3>type2. 아코디언 추가 디자인 구조</h3>
-      <ul class="faq-list">
-        <li class="faq-item">
-          <div class="faq-item__title">
-            <span>질문1질문1질문1질문1질문1질문1질문1질문1질문1질문1질문1질문1질문1질문1질문1질문1질문1질문1질문1질문1질문1질문1질문1</span>
-          </div>
-          <div class="faq-item__answer">
-            <p>답변1</p>
-          </div>
-        </li>
-        <li class="faq-item">
-          <div class="faq-item__title">
-            <span>질문2</span>
-          </div>
-          <div class="faq-item__answer">
-            <p>답변2</p>
-          </div>
-        </li>
-        <li class="faq-item">
-          <div class="faq-item__title">
-            <span>질문3</span>
-          </div>
-          <div class="faq-item__answer">
-            <p>답변3</p>
-          </div>
-        </li>
-      </ul>
+  <div class="wrap">
+    <h1 class="title">list 퍼블리싱 가이드(아코디언)</h1>
+    <div class="container">
+      <h2>아코디언 예제(ex) FAQ)</h2>
+      <div class="accodian type1">
+        <h3 class="sub-title">type1. 기본 아코디언 구조</h3>  
+        <ul class="name-list">
+          <li class="name-item">
+            <div class="name-item__title">
+              <span>질문1</span>
+            </div>
+            <div class="name-item__answer">
+              <p>답변1</p>
+            </div>
+          </li>
+          <li class="name-item">
+            <div class="name-item__title">
+              <span>질문2</span>
+            </div>
+            <div class="name-item__answer">
+              <p>답변2</p>
+            </div>
+          </li>
+          <li class="name-item">
+            <div class="name-item__title">
+              <span>질문3</span>
+            </div>
+            <div class="name-item__answer">
+              <p>답변3</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <hr>
+      <div class="faq type2">
+        <h3 class="sub-title">type2. 아코디언 추가 디자인 구조</h3>
+        <ul class="faq-list">
+          <li class="faq-item">
+            <div class="faq-item__title">
+              <span>질문1질문1질문1질문1질문1질문1질문1질문1질문1질문1질문1질문1질문1질문1질문1질문1질문1질문1질문1질문1질문1질문1질문1</span>
+            </div>
+            <div class="faq-item__answer">
+              <p>답변1</p>
+            </div>
+          </li>
+          <li class="faq-item">
+            <div class="faq-item__title">
+              <span>질문2</span>
+            </div>
+            <div class="faq-item__answer">
+              <p>답변2</p>
+            </div>
+          </li>
+          <li class="faq-item">
+            <div class="faq-item__title">
+              <span>질문3</span>
+            </div>
+            <div class="faq-item__answer">
+              <p>답변3</p>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 

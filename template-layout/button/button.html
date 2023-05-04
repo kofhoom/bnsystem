@@ -10,6 +10,15 @@
         padding: 0;
         margin: 0;
       }
+
+    /* ----- 공통 ------ */
+
+    .wrap{width:100%; max-width: 1200px; margin: 0 auto; padding-top: 50px;}
+    .title{font-size: 30px; margin-bottom: 30px; text-align: center; padding: 30px 0; border-bottom: 2px solid royalblue;}
+    .sub-title{font-size: 18px; margin-top: 30px; margin-bottom: 15px; color: darkblue;}
+
+    /* ---------- */
+
       ul,
       li {
         list-style: none;
@@ -26,38 +35,39 @@
 
       .btn-box {
         width: 100%;
-        height: 100vh;
-        display: flex;
+        /* height: 100vh; */
+        /* display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: center; */
+        margin-bottom: 30px;
       }
-      .btn-box_inner button:nth-child(1) {
+      .btn-box_inner .btn-box__big {
         width: 120px;
         height: 55px;
         border-color: royalblue;
       }
 
-      .btn-box_inner button:nth-child(2) {
+      .btn-box_inner .btn-box__mid {
         width: 100px;
         height: 45px;
         border-color: rgb(65, 198, 225);
       }
 
-      .btn-box_inner button:nth-child(3) {
+      .btn-box_inner .btn-box__sm {
         border-color: rgb(127, 221, 45);
       }
 
-      .btn-box_inner button:nth-child(4) {
+      .btn-box_inner .btn-box__mini {
         width: 60px;
         height: 35px;
         border-color: rgb(157, 16, 157);
       }
 
-      .btn-box_inner button:nth-child(5) {
+      .btn-box_inner .btn-box__square {
         border-color: #333;
       }
 
-      .btn-box_inner button:nth-child(6) {
+      .btn-box_inner .btn-box__round {
         border-color: rgba(255, 0, 255, 0.348);
         border-radius: 30px;
       }
@@ -70,26 +80,26 @@
       }
 
       /* common */
-      .btn-box_inner button:nth-child(1),
-      .btn-box_inner button:nth-child(2),
-      .btn-box_inner button:nth-child(3),
-      .btn-box_inner button:nth-child(4),
-      .btn-box_inner button:nth-child(5),
-      .btn-box_inner button:nth-child(6),
+      .btn-box_inner .btn-box__big,
+      .btn-box_inner .btn-box__mid,
+      .btn-box_inner .btn-box__sm,
+      .btn-box_inner .btn-box__mini,
+      .btn-box_inner .btn-box__square,
+      .btn-box_inner .btn-box__round,
       input[type="submit"],
       input[type="reset"] {
         border-width: 2px;
         border-style: solid;
       }
 
-      .btn-box_inner button:nth-child(3),
+      .btn-box_inner .btn-box__sm,
       input[type="submit"],
       input[type="reset"] {
         width: 80px;
         height: 40px;
       }
-      .btn-box_inner button:nth-child(5),
-      .btn-box_inner button:nth-child(6) {
+      .btn-box_inner .btn-box__square,
+      .btn-box_inner .btn-box__round {
         width: 100px;
         height: 50px;
       }
@@ -109,16 +119,62 @@
     </style>
   </head>
   <body>
-    <div class="btn-box">
-      <div class="btn-box_inner">
-        <button class="btn-box__big">큰버튼</button>
-        <button class="btn-box__mid">중간버튼</button>
-        <button class="btn-box__sm">작은버튼</button>
-        <button class="btn-box__mini">미니버튼</button>
-        <button class="btn-box__square">네모버튼</button>
-        <button class="btn-box__round">둥근버튼</button>
-        <input type="submit" value="제출버튼" class="btn-box__submit" />
-        <input type="reset" value="초기화버튼" class="btn-box__reset" />
+    <div class="wrap">
+      <h1 class="title">button 퍼블리싱 가이드</h1>
+      <div class="btn-box">
+        <h2 class="sub-title">1. 큰 버튼 (btn-box__big)</h2>
+        <div class="btn-box_inner">
+          <button class="btn-box__big">큰버튼</button>
+        </div>
+      </div>
+      <hr>
+      <div class="btn-box">
+        <h2 class="sub-title">2. 중간 버튼 (btn-box__mid)</h2>
+        <div class="btn-box_inner">
+          <button class="btn-box__mid">중간버튼</button>
+        </div>
+      </div>
+      <hr>
+      <div class="btn-box">
+        <h2 class="sub-title">3. 작은 버튼 (btn-box__sm)</h2>
+        <div class="btn-box_inner">
+          <button class="btn-box__sm">작은버튼</button>
+        </div>
+      </div>
+      <hr>
+      <div class="btn-box">
+        <h2 class="sub-title">4. 미니 버튼 (btn-box__mini)</h2>
+        <div class="btn-box_inner">
+          <button class="btn-box__mini">미니버튼</button>
+        </div>
+      </div>
+      <hr>
+      <div class="btn-box">
+        <h2 class="sub-title">5. 네모 버튼 (btn-box__square)</h2>
+        <div class="btn-box_inner">
+          <button class="btn-box__square">네모버튼</button>
+        </div>
+      </div>
+      <hr>
+      <div class="btn-box">
+        <h2 class="sub-title">6. 둥근 버튼 (btn-box__round)</h2>
+        <div class="btn-box_inner">
+          <button class="btn-box__round">둥근버튼</button>
+        </div>
+      </div>
+      <hr>
+      <div class="btn-box">
+        <h2 class="sub-title">7. 제출버튼 (btn-box__submit)</h2>
+        <div class="btn-box_inner">
+          <input type="submit" value="제출버튼" class="btn-box__submit" />
+        </div>
+      </div>
+      <hr>
+      <div class="btn-box">
+        <h2 class="sub-title">8. 초기화버튼 (btn-box__reset)</h2>
+        <div class="btn-box_inner">
+          <input type="reset" value="초기화버튼" class="btn-box__reset" />
+        </div>
       </div>
     </div>
   </body>

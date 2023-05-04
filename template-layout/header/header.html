@@ -22,6 +22,18 @@ a {
   text-decoration:none;
   color: inherit;
 }
+
+/* ----- 공통 ------ */
+
+.wrap{
+  /* width:100%; max-width: 1200px; margin: 0 auto; */
+  padding-top: 50px;
+}
+.title{font-size: 30px; margin-bottom: 30px; text-align: center; padding: 30px 0; border-bottom: 2px solid royalblue;}
+.sub-title{font-size: 18px; margin-top: 30px; margin-bottom: 15px; color: darkblue;}
+
+/* ---------- */
+
 /* 헤더 스타일 */
 .header {
   width: 100%;
@@ -65,30 +77,36 @@ a {
 </style>
 
 <body>
-  <header class="header">
-    <nav class="header__nav">
-      <!-- 로고 -->
-      <div class="header__logo">
-        <a class="header__logo-link" href="#">
-          <img class="header__logo-img" src="./logo.png" alt="logo"/>
-        </a>
-      </div>
-      <!-- 메뉴 리스트 -->
-      <ul class="header__nav-list">
-        <li class="header__nav-item">
-          <a class="header__nav-link" href="#">Home</a>
-        </li>
-        <li class="header__nav-item">
-          <a class="header__nav-link" href="#">About</a>
-        </li>
-        <li class="header__nav-item">
-          <a class="header__nav-link" href="#">Services</a>
-        </li>
-        <li class="header__nav-item">
-          <a class="header__nav-link" href="#">Contact</a>
-        </li>
-      </ul>
-    </nav>
-  </header>
+  <div class="wrap">
+    <h1 class="title">header 퍼블리싱 가이드</h1>
+    <h2 class="sub-title">1. 기본형 (logo + nav)</h2>
+    <header class="header">
+      <nav class="header__nav">
+        <!-- 로고 -->
+        <div class="header__logo">
+          <a class="header__logo-link" href="#">
+            <img class="header__logo-img" src="./logo.png" alt="logo"/>
+          </a>
+        </div>
+        <!-- 메뉴 리스트 -->
+        <ul class="header__nav-list">
+          <li class="header__nav-item">
+            <a class="header__nav-link" href="#">Home</a>
+          </li>
+          <li class="header__nav-item">
+            <a class="header__nav-link" href="#">About</a>
+          </li>
+          <li class="header__nav-item">
+            <a class="header__nav-link" href="#">Services</a>
+          </li>
+          <li class="header__nav-item">
+            <a class="header__nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- 내용 추가시 hr태그로 구분해주세요 -->
+  </div>
 </body>
 </html>

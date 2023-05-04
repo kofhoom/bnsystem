@@ -12,7 +12,16 @@
     /* reset.css 에서 초기화 */
     * {
       box-sizing: border-box;
+      margin: 0; padding: 0;
     }
+
+    /* ----- 공통 ------ */
+
+    .wrap{width:100%; max-width: 1200px; margin: 0 auto; padding-top: 50px;}
+    .title{font-size: 30px; margin-bottom: 30px; text-align: center; padding: 30px 0; border-bottom: 2px solid royalblue;}
+    .sub-title{font-size: 18px; margin-top: 30px; margin-bottom: 15px; color: darkblue;}
+
+    /* ---------- */
 
     ul, li {
       list-style: none;
@@ -73,20 +82,23 @@
 
 <body>
   <!-- #### 조정원 사원 #### -->
-  <div class="container">
-    <h2>TAB</h2>
-    <div class="content">
-      <h3>기본 탭 구조</h3>
-      <div class="name-tab">
-        <ul class="tabs">
-          <li class="tabs__link on" data-tab="tab-1">첫번째 탭</li>
-          <li class="tabs__link" data-tab="tab-2">두번째 탭</li>
-        </ul>
-        <div id="tab-1" class="name-tab__content on">
-          탭1에 대한 내용탭1에 대한 내용탭1에 대한 내용탭1에 대한 내용탭1에 대한 내용탭1에 대한 내용탭1에 대한 내용탭1에 대한 내용탭1에 대한 내용탭1에 대한 내용탭1에 대한 내용탭1에 대한 내용탭1에 대한 내용
-        </div>
-        <div id="tab-2" class="name-tab__content">
-          탭2에 대한 내용탭2에 대한 내용탭2에 대한 내용탭2에 대한 내용탭2에 대한 내용탭2에 대한 내용탭2에 대한 내용탭2에 대한 내용탭2에 대한 내용탭2에 대한 내용탭2에 대한 내용탭2에 대한 내용탭2에 대한 내용
+  <div class="wrap">
+    <h1 class="title">tab 퍼블리싱 가이드</h1>
+    <div class="container">
+      <!-- <h2>TAB</h2> -->
+      <div class="content">
+        <h2 class="sub-title">1. 기본 탭 구조</h2>
+        <div class="name-tab">
+          <ul class="tabs">
+            <li class="tabs__link on" data-tab="tab-1">첫번째 탭</li>
+            <li class="tabs__link" data-tab="tab-2">두번째 탭</li>
+          </ul>
+          <div id="tab-1" class="name-tab__content on">
+            탭1에 대한 내용탭1에 대한 내용탭1에 대한 내용탭1에 대한 내용탭1에 대한 내용탭1에 대한 내용탭1에 대한 내용탭1에 대한 내용탭1에 대한 내용탭1에 대한 내용탭1에 대한 내용탭1에 대한 내용탭1에 대한 내용
+          </div>
+          <div id="tab-2" class="name-tab__content">
+            탭2에 대한 내용탭2에 대한 내용탭2에 대한 내용탭2에 대한 내용탭2에 대한 내용탭2에 대한 내용탭2에 대한 내용탭2에 대한 내용탭2에 대한 내용탭2에 대한 내용탭2에 대한 내용탭2에 대한 내용탭2에 대한 내용
+          </div>
         </div>
       </div>
     </div>

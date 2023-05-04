@@ -9,163 +9,176 @@
   <title>회원가입</title>
 </head>
 <style>
+  *{margin: 0; padding: 0;}
+
+  /* ----- 공통 ------ */
+
+  .wrap{width:100%; max-width: 1200px; margin: 0 auto; padding-top: 50px;}
+  .title{font-size: 30px; margin-bottom: 30px; text-align: center; padding: 30px 0; border-bottom: 2px solid royalblue;}
+  .sub-title{font-size: 18px; margin-top: 30px; margin-bottom: 15px; color: darkblue;}
+
+  /* ---------- */
+
   .total_input_wrap {
     margin-bottom: 10px;
   }
 </style>
 
 <body class="sign_up">
-  <main class="main_page sub">
-    <section class="sub_content_wrap">
-      <div id="total_table">
-        <div class="sign_main_header">
-          <h1>회원가입 디폴트 양식</h1>
-        </div>
-        <div class="form_wrap">
-          <!-- 폼시작 -->
-          <form class="co_from" action="/subpage/member/private_join_check.php" enctype="multipart/form-data"
-            method="post" name="join_form" id="join_form" onsubmit="return form_submit();">
-            <!-- 아이디 -->
-            <div class="total_input_wrap">
-              <label for=""><span class="important">*</span>아이디</label>
-              <div class="total_input_box">
-                <div class="input_inner_box">
-                  <input type="text" id="member_id" name="member_id" autocomplete="username">
-                </div>
-                <span class="input_text_error member_id"></span>
-              </div>
-            </div>
-            <!-- 비밀번호 -->
-            <div class="total_input_wrap">
-              <div class="label_box">
-                <label for=""><span class="important">*</span>비밀번호</label>
-              </div>
-              <div class="total_input_box">
-                <div class="input_inner_box">
-                  <input type="password" id="password" name="password" autocomplete="new-password"
-                    oninput="passWordCheck(this.value)">
-                  <span class="validation-message">*특수문자, 숫자, 영문 모두 포함 8자리 이상</span>
-                </div>
-                <span class="input_text_error password"></span>
-              </div>
-            </div>
-            <!-- 비밀번호 확인 -->
-            <div class="total_input_wrap">
-              <div class="label_box">
-                <label for=""><span class="important">*</span>비밀번호 확인</label>
-              </div>
-              <div class="total_input_box">
-                <div class="input_inner_box">
-                  <input type="password" id="password_check" name="password_check" autocomplete="new-password"
-                    onkeyup="passWordRecheck(this.value,'password',1)">
-                  <span class="validation-message"></span>
-                </div>
-                <span class="input_text_error password_check"></span>
-              </div>
-            </div>
-        </div>
-        <!-- 성별 -->
-        <div class="total_input_wrap">
-          <div class="label_box">
-            <label for=""><span class="important">*</span>성별</label>
+  <div class="wrap">
+    <h1 class="title">form 퍼블리싱 가이드</h1>
+    <main class="main_page sub">
+      <section class="sub_content_wrap">
+        <div id="total_table">
+          <div class="sign_main_header">
+            <h2 class="sub-title">1. 회원가입 디폴트 양식</h2>
           </div>
-          <div class="total_input_box">
+          <div class="form_wrap">
+            <!-- 폼시작 -->
+            <form class="co_from" action="/subpage/member/private_join_check.php" enctype="multipart/form-data"
+              method="post" name="join_form" id="join_form" onsubmit="return form_submit();">
+              <!-- 아이디 -->
+              <div class="total_input_wrap">
+                <label for=""><span class="important">*</span>아이디</label>
+                <div class="total_input_box">
+                  <div class="input_inner_box">
+                    <input type="text" id="member_id" name="member_id" autocomplete="username">
+                  </div>
+                  <span class="input_text_error member_id"></span>
+                </div>
+              </div>
+              <!-- 비밀번호 -->
+              <div class="total_input_wrap">
+                <div class="label_box">
+                  <label for=""><span class="important">*</span>비밀번호</label>
+                </div>
+                <div class="total_input_box">
+                  <div class="input_inner_box">
+                    <input type="password" id="password" name="password" autocomplete="new-password"
+                      oninput="passWordCheck(this.value)">
+                    <span class="validation-message">*특수문자, 숫자, 영문 모두 포함 8자리 이상</span>
+                  </div>
+                  <span class="input_text_error password"></span>
+                </div>
+              </div>
+              <!-- 비밀번호 확인 -->
+              <div class="total_input_wrap">
+                <div class="label_box">
+                  <label for=""><span class="important">*</span>비밀번호 확인</label>
+                </div>
+                <div class="total_input_box">
+                  <div class="input_inner_box">
+                    <input type="password" id="password_check" name="password_check" autocomplete="new-password"
+                      onkeyup="passWordRecheck(this.value,'password',1)">
+                    <span class="validation-message"></span>
+                  </div>
+                  <span class="input_text_error password_check"></span>
+                </div>
+              </div>
+          </div>
+          <!-- 성별 -->
+          <div class="total_input_wrap">
+            <div class="label_box">
+              <label for=""><span class="important">*</span>성별</label>
+            </div>
+            <div class="total_input_box">
+              <div class="input_inner_box">
+                <label for="gender_check">남</label>
+                <input type="radio" class="radio_gender_check" id="gender_check" name="gender_check">
+                <label for="gender_check1">여</label>
+                <input type="radio" class="radio_gender_check" id="gender_check1" name="gender_check">
+              </div>
+              <span class="input_text_error gender_check"></span>
+            </div>
+          </div>
+          <!-- 이름 -->
+          <div class="total_input_wrap">
+            <div class="label_box">
+              <label for=""><span class="important">*</span>이름</label>
+            </div>
+            <div class="total_input_box">
+              <div class="input_inner_box">
+                <input type="text" id="user_name" name="user_name">
+              </div>
+              <span class="input_text_error user_name"></span>
+            </div>
+          </div>
+          <!-- 전화번호 -->
+          <div class="total_input_wrap">
+            <div class="label_box">
+              <label for=""><span class="important">*</span>전화번호</label>
+            </div>
+            <div class="total_input_box">
+              <input type="text" placeholder="“-” 빼고 입력하세요" id="insert_tel" name="insert_tel" maxlength="11"
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+              <span class='input_text_error insert_tel'></span>
+            </div>
+          </div>
+          <div class="total_input_wrap">
+            <!-- 사업자등록증 -->
+            <div class="label_box">
+              <label for=""><span class="important">*</span>사업자 등록증</label>
+            </div>
+            <div class="total_input_box">
+              <div class="d-flex">
+                <div class="input_button_box">
+                  <input type="text" id="co_insert_file" name="co_insert_file" maxlength="10" disabled>
+                  <input type="file" placeholder="메디젠" name="co_upfile" id="co_upfile" style="display: none;"
+                    onchange="filesed(this)">
+                  <label for="co_upfile" class="authenticate">파일첨부</label>
+                </div>
+              </div>
+              <div>
+                <span class="input_text_error"><span class="important">*</span>JPG,PNG,PDF 가능</span>
+                <span class="input_text_error"><span class="important">*</span>8M 이하</span>
+              </div>
+              <span class='input_text_error co_insert_file'></span>
+            </div>
+          </div>
+          <!-- 주소 시작-->
+          <div class="total_input_wrap">
+            <label for=""><span class="important">*</span>주소</label>
             <div class="input_inner_box">
-              <label for="gender_check">남</label>
-              <input type="radio" class="radio_gender_check" id="gender_check" name="gender_check">
-              <label for="gender_check1">여</label>
-              <input type="radio" class="radio_gender_check" id="gender_check1" name="gender_check">
-            </div>
-            <span class="input_text_error gender_check"></span>
-          </div>
-        </div>
-        <!-- 이름 -->
-        <div class="total_input_wrap">
-          <div class="label_box">
-            <label for=""><span class="important">*</span>이름</label>
-          </div>
-          <div class="total_input_box">
-            <div class="input_inner_box">
-              <input type="text" id="user_name" name="user_name">
-            </div>
-            <span class="input_text_error user_name"></span>
-          </div>
-        </div>
-        <!-- 전화번호 -->
-        <div class="total_input_wrap">
-          <div class="label_box">
-            <label for=""><span class="important">*</span>전화번호</label>
-          </div>
-          <div class="total_input_box">
-            <input type="text" placeholder="“-” 빼고 입력하세요" id="insert_tel" name="insert_tel" maxlength="11"
-              oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
-            <span class='input_text_error insert_tel'></span>
-          </div>
-        </div>
-        <div class="total_input_wrap">
-          <!-- 사업자등록증 -->
-          <div class="label_box">
-            <label for=""><span class="important">*</span>사업자 등록증</label>
-          </div>
-          <div class="total_input_box">
-            <div class="d-flex">
-              <div class="input_button_box">
-                <input type="text" id="co_insert_file" name="co_insert_file" maxlength="10" disabled>
-                <input type="file" placeholder="메디젠" name="co_upfile" id="co_upfile" style="display: none;"
-                  onchange="filesed(this)">
-                <label for="co_upfile" class="authenticate">파일첨부</label>
+              <div class="adress_wrap" style="display:flex;">
+                <div class="input_button_box">
+                  <input type="text" name="zipcode" id="zipcode" readonly="readonly">
+                  <input type="text" name="address1" id="address1" readonly="readonly">
+                  <input type="text" name="address2" id="address2">
+                </div>
+                <div class="input_button_box">
+                  <button id="search_add">주소찾기</button>
+                </div>
               </div>
+              <span class='input_text_error address'></span>
             </div>
-            <div>
-              <span class="input_text_error"><span class="important">*</span>JPG,PNG,PDF 가능</span>
-              <span class="input_text_error"><span class="important">*</span>8M 이하</span>
-            </div>
-            <span class='input_text_error co_insert_file'></span>
           </div>
-        </div>
-        <!-- 주소 시작-->
-        <div class="total_input_wrap">
-          <label for=""><span class="important">*</span>주소</label>
-          <div class="input_inner_box">
-            <div class="adress_wrap" style="display:flex;">
-              <div class="input_button_box">
-                <input type="text" name="zipcode" id="zipcode" readonly="readonly">
-                <input type="text" name="address1" id="address1" readonly="readonly">
-                <input type="text" name="address2" id="address2">
+          <!-- 주소 끝-->
+          <!-- 이메일 시작-->
+          <div class="total_input_wrap">
+            <label for=""><span class="important">*</span>이메일</label>
+            <div class="email_wrap" style="display:flex">
+              <div class="email_adress_wrap">
+                <input type="text" id="email1" name="email1">
+                <span class="dot">@</span>
+                <input type="text" id="email2" name="email2">
+                <select name="user_email3" id="user_email3" onchange="emailTypeSelect()">
+                  <option value="a">직접입력</option>
+                  <option value="naver.com">naver.com</option>
+                  <option value="daum.net">daum.net</option>
+                  <option value="google.com">google.com</option>
+                  <option value="nate.com">nate.com</option>
+                </select>
               </div>
-              <div class="input_button_box">
-                <button id="search_add">주소찾기</button>
-              </div>
+              <span class='input_text_error email'></span>
             </div>
-            <span class='input_text_error address'></span>
           </div>
+          <!-- 이메일 끝-->
+          <input type="submit" class="submit" value="회원가입" />
+          </form>
         </div>
-        <!-- 주소 끝-->
-        <!-- 이메일 시작-->
-        <div class="total_input_wrap">
-          <label for=""><span class="important">*</span>이메일</label>
-          <div class="email_wrap" style="display:flex">
-            <div class="email_adress_wrap">
-              <input type="text" id="email1" name="email1">
-              <span class="dot">@</span>
-              <input type="text" id="email2" name="email2">
-              <select name="user_email3" id="user_email3" onchange="emailTypeSelect()">
-                <option value="a">직접입력</option>
-                <option value="naver.com">naver.com</option>
-                <option value="daum.net">daum.net</option>
-                <option value="google.com">google.com</option>
-                <option value="nate.com">nate.com</option>
-              </select>
-            </div>
-            <span class='input_text_error email'></span>
-          </div>
         </div>
-        <!-- 이메일 끝-->
-        <input type="submit" class="submit" value="회원가입" />
-        </form>
-      </div>
-      </div>
-    </section>
-  </main>
+      </section>
+    </main>
+  </div>
 </body>
 </html>

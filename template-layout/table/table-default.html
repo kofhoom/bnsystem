@@ -8,6 +8,15 @@
 </head>
 <style>
     *{margin: 0; padding: 0;}
+
+    /* ----- 공통 ------ */
+
+    .wrap{width:100%; max-width: 1200px; margin: 0 auto; padding-top: 50px;}
+    .title{font-size: 30px; margin-bottom: 30px; text-align: center; padding: 30px 0; border-bottom: 2px solid royalblue;}
+    .sub-title{font-size: 18px; margin-top: 30px; margin-bottom: 15px; color: darkblue;}
+
+    /* ---------- */
+
     a{text-decoration: none; color: inherit;}
     li{list-style: none;}
     .blind{
@@ -17,12 +26,9 @@
         margin: 1px;
         overflow: hidden;
     }
-    .wrap{width: 600px;}
-    h1{font-size: 24px; margin-bottom: 30px;}
-    h2{font-size: 18px; margin-bottom: 15px;}
 
     /* 기본 */
-    .c-table{width: 600px; margin-bottom: 30px;}
+    .c-table{width: 600px; margin-bottom: 30px; padding-bottom: 30px;}
     table{border-collapse: collapse; text-align: center; width: 100%;}
     table tr{height: 30px;}
     table th, td{border: 1px solid #707070;}
@@ -55,8 +61,8 @@
 </style>
 <body>
     <div class="wrap">
-        <h1>테이블</h1>
-        <h2>기본</h2>
+        <h1 class="title">table 퍼블리싱 가이드</h1>
+        <h2 class="sub-title">1. 기본 (c-table)</h2>
         <div class="c-table">
             <table>
                 <!-- caption태그를 실제로 화면상에 거의 표시하진 않으나, 
@@ -116,7 +122,7 @@
         </div>
         <hr>
     
-        <h2>옵션 테이블</h2>
+        <h2 class="sub-title">2. 옵션 테이블 (c-table--opt)</h2>
         <div class="c-table c-table--opt">
             <div class="c-table__top">
                 <p class="c-table__text">목록 <span class="c-table__count">10</span>개</p>
@@ -204,7 +210,7 @@
         </div>
     
         <hr>
-        <h2>스크롤 테이블</h2>
+        <h2 class="sub-title">3. 스크롤 테이블 (c-table--scroll)</h2>
         <div class="c-table c-table--scroll">
             <div class="scroll__wrap">
                 <table>

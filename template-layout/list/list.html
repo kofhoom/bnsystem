@@ -9,7 +9,17 @@
     /* reset.css */
     * {
       box-sizing: border-box;
+      margin: 0; padding: 0;
     }
+
+    /* ----- 공통 ------ */
+
+    .wrap{width:100%; max-width: 1200px; margin: 0 auto; padding-top: 50px;}
+    .title{font-size: 30px; margin-bottom: 30px; text-align: center; padding: 30px 0; border-bottom: 2px solid royalblue;}
+    .sub-title{font-size: 18px; margin-top: 30px; margin-bottom: 15px; color: darkblue;}
+
+    /* ---------- */
+
     ul,li {
       list-style: none;
       padding: 0;
@@ -81,45 +91,48 @@
 </head>
 <body>
   <!-- #### 조정원 사원 #### -->
-  <div class="container">
-    <div class="content">
-      <h2>ul, li 리스트</h2>
-      <!-- 리스트 이름 + -list -->
-      <ul class="name-list">
-        <!-- item : 리스트 이름 + -list__item -->
-        <li class="name-list__item">리스트 아이템1</li>
-        <li class="name-list__item">리스트 아이템2</li>
-        <li class="name-list__item">리스트 아이템3</li>
-        <li class="name-list__item">리스트 아이템4</li>
-      </ul>
-    </div>
-    <div class="content">
-      <h2>dl, dt, dd 리스트</h2>
-      <!-- dl, dd, dt : 용어 설명 위주 -->
-      <!-- 리스트 이름 + -list -->
-      <dl class="name-list">
-        <!-- 용어 : 리스트 이름 + -list__term -->
-        <dt class="name-list__term">호박</dt>
-        <!-- 설명 : 리스트 이름 + -list__desc -->
-        <dd class="name-list__desc">박과의 한해살이 덩굴성 채소</dd>
-        <!-- 용어 : 리스트 이름 + -list__term -->
-        <dt class="name-list__term">상추</dt>
-        <!-- 설명 : 리스트 이름 + -list__desc -->
-        <dd class="name-list__desc">국화과의 한해살이 또는 두해살이풀</dd>
-      </dl>
-    </div>
-    <div class="content">
-      <h2>dl, dt, dd 테이블 활용</h2>
-      <!-- 상세페이지의 테이블 (제목 : ~, 내용 : ~, 작성자 : ~)-->
-      <div class="tbl-name">
+  <div class="wrap">
+    <h1 class="title">list 퍼블리싱 가이드</h1>
+    <div class="container">
+      <div class="content">
+        <h2 class="sub-title">1. ul, li 리스트</h2>
+        <!-- 리스트 이름 + -list -->
+        <ul class="name-list">
+          <!-- item : 리스트 이름 + -list__item -->
+          <li class="name-list__item">리스트 아이템1</li>
+          <li class="name-list__item">리스트 아이템2</li>
+          <li class="name-list__item">리스트 아이템3</li>
+          <li class="name-list__item">리스트 아이템4</li>
+        </ul>
+      </div>
+      <div class="content">
+        <h2 class="sub-title">2. dl, dt, dd 리스트</h2>
+        <!-- dl, dd, dt : 용어 설명 위주 -->
+        <!-- 리스트 이름 + -list -->
         <dl class="name-list">
+          <!-- 용어 : 리스트 이름 + -list__term -->
           <dt class="name-list__term">호박</dt>
+          <!-- 설명 : 리스트 이름 + -list__desc -->
           <dd class="name-list__desc">박과의 한해살이 덩굴성 채소</dd>
-        </dl>
-        <dl class="name-list">
+          <!-- 용어 : 리스트 이름 + -list__term -->
           <dt class="name-list__term">상추</dt>
+          <!-- 설명 : 리스트 이름 + -list__desc -->
           <dd class="name-list__desc">국화과의 한해살이 또는 두해살이풀</dd>
         </dl>
+      </div>
+      <div class="content">
+        <h2 class="sub-title">3. dl, dt, dd 테이블 활용</h2>
+        <!-- 상세페이지의 테이블 (제목 : ~, 내용 : ~, 작성자 : ~)-->
+        <div class="tbl-name">
+          <dl class="name-list">
+            <dt class="name-list__term">호박</dt>
+            <dd class="name-list__desc">박과의 한해살이 덩굴성 채소</dd>
+          </dl>
+          <dl class="name-list">
+            <dt class="name-list__term">상추</dt>
+            <dd class="name-list__desc">국화과의 한해살이 또는 두해살이풀</dd>
+          </dl>
+        </div>
       </div>
     </div>
   </div>
