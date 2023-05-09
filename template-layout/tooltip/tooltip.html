@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+
+            *{margin: 0; padding: 0;}
+
+            /* ----- 공통 ------ */
+
+            .wrap{width:100%; max-width: 1200px; margin: 0 auto; padding-top: 50px;}
+            .title{font-size: 30px; margin-bottom: 30px; text-align: center; padding: 30px 0; border-bottom: 2px solid royalblue;}
+            .sub-title{font-size: 18px; margin-top: 30px; margin-bottom: 15px; color: darkblue;}
+
+            /* ---------- */
+
+            .container {
+                display:flex;
+                flex-direction: column;
+                width: 200px;
+                text-align:center;
+                margin: 0 auto;
+            }
+
+            /* 툴팁 기본 스타일 설정 */
+            .tooltip {
+                position: relative;
+                display: block;
+            }
+            .tooltip .tooltip__text {
+                visibility: hidden;
+                width: 120px;
+                background-color: black;
+                color: #fff;
+                text-align: center;
+                border-radius: 6px;
+                padding: 5px 0;
+                position: absolute;
+                z-index: 1;
+            }
+            .tooltip:hover .tooltip__text {
+            visibility: visible;
+            }
+
+            /* 툴팁 화살표 기본 스타일 설정 */
+            .tooltip .tooltip__text::after {
+                content: " ";
+                position: absolute;
+                border-style: solid;
+                border-width: 5px;
+            }
+
+            /* 툴팁 방향 설정 */
+            /* 좌측 툴팁 */
+            .tooltip .tooltip__left {
+                top: -5px;
+                right: 105%;
+            }
+            .tooltip .tooltip__left::after {
+                top: 50%;
+                left: 100%;
+                margin-top: -5px;
+                border-color: transparent transparent transparent black;
+            }
+
+            /* 오른쪽 툴팁 시작 */
+            .tooltip .tooltip__right {
+                top: -5px;
+                left: 105%;
+            }
+            .tooltip .tooltip__right::after {
+                top: 50%;
+                right: 100%;
+                margin-top: -5px;
+                border-color: transparent black transparent transparent;
+            }
+
+            /* 상단 툴팁 */
+            .tooltip .tooltip__top {
+                width: 120px;
+                bottom: 150%;
+                left: 50%;
+                margin-left: -60px;
+            }
+            .tooltip .tooltip__top::after {
+                top: 100%;
+                left: 50%;
+                margin-left: -5px;
+                border-color: black transparent transparent transparent;
+            }
+
+            /* 하단 툴팁 */
+            .tooltip .tooltip__bottom {
+                width: 120px;
+                top: 150%;
+                left: 50%;
+                margin-left: -60px;
+            }
+            .tooltip .tooltip__bottom::after {
+                bottom: 100%;
+                left: 50%;
+                margin-left: -5px;
+                border-color: transparent transparent black transparent;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrap">
+            <h1 class="title">tooltip 퍼블리싱 가이드</h1>
+            <div class="container">
+                <h2 class="sub-title">1. 기본 hover형</h2>
+                <div class="tooltip">Hover Me (LEFT)
+                    <span class="tooltip__text tooltip__left">왼쪽 툴팁</span>
+                </div>
+                <br><br>
+                <div class="tooltip">Hover Me (RIGHT)
+                    <span class="tooltip__text tooltip__right">오른쪽 툴팁</span>
+                </div>
+                <br><br> 
+                <button class="tooltip">Hover Me (TOP)
+                    <span class="tooltip__text tooltip__top">위쪽 툴팁</span>
+                </button>
+                <br><br>
+                <button class="tooltip">Hover Me (BOTTOM)
+                    <span class="tooltip__text tooltip__bottom">아래쪽 툴팁</span>
+                </button>
+            </div>
+        </div>
+    </body>
+</html>

@@ -2,6 +2,16 @@
 <html>
     <head>
         <style>
+            *{margin: 0; padding: 0;}
+
+            /* ----- 공통 ------ */
+
+            .wrap{width:100%; max-width: 1200px; margin: 0 auto; padding-top: 50px;}
+            .title{font-size: 30px; margin-bottom: 30px; text-align: center; padding: 30px 0; border-bottom: 2px solid royalblue;}
+            .sub-title{font-size: 18px; margin-top: 30px; margin-bottom: 15px; color: darkblue;}
+
+            /* ---------- */
+
             /* 모달 팝업 스타일 */
             .modal {
                 display: none; /* 초기에는 숨김 처리 */
@@ -42,15 +52,21 @@
         </style>
     </head>
     <body>
-        <!-- 모달 팝업 버튼 -->
-        <button id="modal-toggle">모달 팝업 열기</button>
-        
-        <!-- 모달 팝업 -->
-        <div id="modal-window" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <p>모달 팝업 내용</p>
+        <div class="wrap">
+            <h1 class="title">modal 퍼블리싱 가이드</h1>
+            <!-- 모달 팝업 버튼 -->
+            <h2 class="sub-title">1. 기본형</h2>
+            <button id="modal-toggle">모달 팝업 열기</button>
+            
+            <!-- 모달 팝업 -->
+            <div id="modal-window" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p>모달 팝업 내용</p>
+                </div>
             </div>
+
+            <!-- 내용 추가 시 hr 태그로 구분해주세요  -->
         </div>
 
         <script>
