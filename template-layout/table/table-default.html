@@ -39,10 +39,10 @@
     .c-table__top{display: flex; justify-content: space-between; margin-bottom: 10px;}
     .c-table__bottom {position: relative; margin-top: 15px;}
     .pagination{display: flex; justify-content: center; align-items: center;}
-    .pagination .page__list{display: flex; justify-content: center; align-items: center; gap: 0 20px; margin: 0 20px;}
-    .pagination .page__link{width: 20px; height:20px; font-size: 12px;}
-    .pagination .page__link>a{display: block; text-align: center; line-height: 20px;}
-    .pagination .page__link.on{background: #efefef;}
+    .pagination .page-list{display: flex; justify-content: center; align-items: center; gap: 0 20px; margin: 0 20px;}
+    .pagination .page-list__link{width: 20px; height:20px; font-size: 12px;}
+    .pagination .page-list__link>a{display: block; text-align: center; line-height: 20px;}
+    .pagination .page-list__link.on{background: #efefef; outline: 1px solid #707070;}
     .button__wrap{
         position: absolute;
         right: 0;
@@ -50,13 +50,36 @@
     }
 
     /* 스크롤 */
-    .scroll__wrap{height: 300px; overflow: auto;}
+    .scroll__wrap{overflow: auto;}
+    .scroll__wrap::-webkit-scrollbar {width: 8px; height: 8px;}
+    .scroll__wrap::-webkit-scrollbar-thumb {
+        background-clip: padding-box;
+        border: 1px solid transparent;
+        background-color:#707070;
+        border-radius: 10px;
+    }
+    .scroll__wrap::-webkit-scrollbar-track {border-radius: 10px; background-color: #efefef;}
+    .c-table--scroll .scroll__wrap{height: 300px;}
     .c-table--scroll table{border-collapse: separate; border-spacing: 0;}
     .c-table--scroll table thead th{position: sticky; left: 0; top: 0; border-top: 1px solid #707070;}
     .c-table--scroll table th{border:none; border-right: 1px solid #707070; border-bottom: 1px solid #707070;}
     .c-table--scroll table th:first-child{border-left: 1px solid #707070;}
     .c-table--scroll table td{border:none; border-right: 1px solid #707070; border-bottom: 1px solid #707070;}
     .c-table--scroll table td:first-child{border-left: 1px solid #707070;}
+
+    /* 스크롤 가로 */
+    .c-table--scroll-row table{width: 1000px;}
+
+    /* 입력 테이블 */
+    .c-table--form table th{text-align: left; padding: 0 10px;}
+    .c-table--form table td{text-align: left; padding: 5px 10px;}
+    .c-table--form table td .td__div{display: flex; align-items: center;}
+    /* input 관련 스타일은 임시 적용 */
+    .c-table--form table td .c-table__input{width: 200px; height: 25px;}
+    .c-table--form table td .c-table__select{ width: 200px; height: 25px;}
+    .c-table--form table td .c-table__label{margin-right: 10px;}
+    .c-table--form table td .c-table__button{width: 50px; height: 25px; margin-left: 15px;}
+    .c-table--form table td .c-table__textarea{ width:100%; height: 100px; resize: none;}
 
 </style>
 <body>
@@ -179,28 +202,31 @@
     
             </table>
             <div class="c-table__bottom">
+                <!-- empty는 flex 정렬용 -->
                 <div class="empty"></div>
+                <!-- pagination 기본형 -->
                 <div class="pagination">
-                    <button type="button" class="page__btn btn--next"><</button>
-                    <ul class="page__list">
-                        <li class="page__link on">
+                    <a href="#" class="page__btn btn--prev">&#60;</a>
+                    <ul class="page-list">
+                        <li class="page-list__link on">
                             <a href="#">1</a>
                         </li>
-                        <li class="page__link">
+                        <li class="page-list__link">
                             <a href="#">2</a>
                         </li>
-                        <li class="page__link">
+                        <li class="page-list__link">
                             <a href="#">3</a>
                         </li>
-                        <li class="page__link">
+                        <li class="page-list__link">
                             <a href="#">4</a>
                         </li>
-                        <li class="page__link">
+                        <li class="page-list__link">
                             <a href="#">5</a>
                         </li>
                     </ul>
-                    <button type="button" class="page__btn btn--next">></button>
+                    <a href="#" class="page__btn btn--next">&#62;</a>
                 </div>
+                <!-- //pagination 기본형 -->
                 <div class="button__wrap">
                     <button type="button">삭제</button>
                     <button type="button">등록</button>
@@ -317,6 +343,196 @@
                 </table>
             </div>
         </div>
+
+        <hr>
+        <h2 class="sub-title">4. 스크롤 테이블(가로) (c-table--scroll-row)</h2>
+        <div class="c-table c-table--scroll-row">
+            <div class="scroll__wrap">
+                <table>
+                    <caption class="blind">상품 판매량</caption>
+                    <colgroup>
+                        <col style="width:10%">
+                        <col style="width:11.25%">
+                        <col style="width:11.25%">
+                        <col style="width:11.25%">
+                        <col style="width:11.25%">
+                        <col style="width:11.25%">
+                        <col style="width:11.25%">
+                        <col style="width:11.25%">
+                        <col style="width:11.25%">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th scope="row">-</th>
+                            <th scope="row">A제품</th>
+                            <th scope="row">B제품</th>
+                            <th scope="row">C제품</th>
+                            <th scope="row">D제품</th>
+                            <th scope="row">A제품</th>
+                            <th scope="row">B제품</th>
+                            <th scope="row">C제품</th>
+                            <th scope="row">D제품</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th scope="col">총 계</th>
+                            <td>100</td>
+                            <td colspan="2">50</td>
+                            <td>0</td>
+                            <td>100</td>
+                            <td>50</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        <tr>
+                            <th scope="col">A</th>
+                            <td>300</td>
+                            <td>500</td>
+                            <td>410</td>
+                            <td>150</td>
+                            <td>300</td>
+                            <td>500</td>
+                            <td>410</td>
+                            <td>150</td>
+                        </tr>
+                        <tr>
+                            <th scope="col">B</th>
+                            <td>500</td>
+                            <td>600</td>
+                            <td>450</td>
+                            <td rowspan="2">500</td>
+                            <td>500</td>
+                            <td>600</td>
+                            <td>450</td>
+                            <td>500</td>
+                        </tr>
+                        <tr>
+                            <th scope="col">C</th>
+                            <td>400</td>
+                            <td>550</td>
+                            <td>400</td>
+                            <td>400</td>
+                            <td>550</td>
+                            <td>400</td>
+                            <td>400</td>
+                        </tr>
+                        <tr>
+                            <th scope="col">D</th>
+                            <td>500</td>
+                            <td>600</td>
+                            <td>450</td>
+                            <td rowspan="2">500</td>
+                            <td>500</td>
+                            <td>600</td>
+                            <td>450</td>
+                            <td>500</td>
+                        </tr>
+                        <tr>
+                            <th scope="col">E</th>
+                            <td>400</td>
+                            <td>550</td>
+                            <td>400</td>
+                            <td>400</td>
+                            <td>550</td>
+                            <td>400</td>
+                            <td>400</td>
+                        </tr>
+                    </tbody>
+        
+                </table>
+            </div>
+        </div>
+
+        <hr>
+        <h2 class="sub-title">5. 입력 테이블 (c-table--form)</h2>
+        <!-- 입력 테이블의 경우 input의 class명은
+        반드시 c-table에 속한 bem명이 아니더라도
+        해당 프로젝트의 공통 스타일을 따라도 괜찮다 -->
+        <div class="c-table c-table--form">
+            <form>
+                <table>
+                    <caption class="blind">상품 판매량</caption>
+                    <colgroup>
+                        <col style="width:20%">
+                        <col style="width:80%">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th scope="col">이름</th>
+                            <td>
+                                <div class="td__div">
+                                    <input type="text" class="c-table__input">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">성별</th>
+                            <td>
+                                <div class="td__div">
+                                    <label class="c-table__label">
+                                        <input type="radio" class="c-table__checkbox" name="gender" checked>
+                                        <span>남성</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" class="c-table__checkbox" name="gender">
+                                        <span>여성</span>
+                                    </label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">취미</th>
+                            <td>
+                                <div class="td__div">
+                                    <select class="c-table__select">
+                                        <option value="0">음악감상</option>
+                                        <option value="1">독서</option>
+                                        <option value="2">조깅</option>
+                                        <option value="3">게임</option>
+                                        <option value="4">쇼핑</option>
+                                    </select>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">지역</th>
+                            <td>
+                                <div class="td__div">
+                                    <input type="text" class="c-table__input">
+                                    <button type="button" class="c-table__button">검색</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">메모</th>
+                            <td>
+                                <div class="td__div">
+                                    <textarea class="c-table__textarea"></textarea>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
     </div>
+
+    <script>
+        const $pageNum = document.querySelectorAll(".page-list__link");
+        
+        for(let i=0; i<$pageNum.length; i++){
+            $pageNum[i].addEventListener('click',function(){
+                for(let j=0; j<$pageNum.length; j++){
+                    this.parentElement.children[j].classList.remove("on");
+                }
+                this.classList.add("on");
+            });
+        }
+
+
+    </script>
 </body>
 </html>
