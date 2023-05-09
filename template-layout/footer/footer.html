@@ -6,98 +6,173 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>footer</title>
+  <link rel="stylesheet" href="footer.css">
 </head>
 <style>
-    *{margin: 0; padding: 0;}
-    /* ----- 공통 ------ */
+  * {
+    margin: 0;
+    padding: 0;
+  }
 
-    .wrap{
-      /* width:100%; max-width: 1200px; margin: 0 auto; */
-      padding-top: 50px;
-    }
-    .title{font-size: 30px; margin-bottom: 30px; text-align: center; padding: 30px 0; border-bottom: 2px solid royalblue;}
-    .sub-title{font-size: 18px; margin-top: 30px; margin-bottom: 15px; color: darkblue;}
+  /* ----- 공통 ------ */
 
-    /* ---------- */
-    a{text-decoration: none; color: inherit;}
-    li{list-style: none;}
+  .wrap {
+    /* width:100%; max-width: 1200px; margin: 0 auto; */
+    padding-top: 50px;
+  }
 
+  .title {
+    font-size: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+    padding: 30px 0;
+    border-bottom: 2px solid royalblue;
+  }
+
+  .sub-title {
+    font-size: 18px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: darkblue;
+  }
 </style>
+
 <body>
   <div class="wrap">
     <h1 class="title">footer 퍼블리싱 가이드</h1>
     <h2 class="sub-title">1. 기본형</h2>
-    <footer class="footer">
+    <footer class="footer footer--01">
       <div class="footer__inner">
-        <h2 class="screen-out">서비스 이용정보</h2>
-        <div class="service__area">
-          <ul class="service__list__info">
-            <li><a href="" class="info__link link__privacy"><em>개인정보처리방침</em></a></li>
-            <li><a href="" class="info__link link__about">회사소개</a></li>
-            <li><a href="" class="info__link link__map">오시는길</a></li>
-            <li><a href="" class="info__link link__qna">사업문의</a></li>
-            <li><a href="" target="_blank" class="info__link link__blog">기업블로그</a></li>
-          </ul>
-        </div>
-        <div class="company__area">
-          <strong class="compnay__logo">
-            <a href="" class="logo__icon logo__회사명"></a>
+       <section class="logo__section">
+          <strong class="logo__company">
+            <a href="" class="icon__comn logo__bnsystem">
+              <img src="img/logo.png" alt="비엔시스템">
+            </a>
           </strong>
-          <dlv class="company__info">
-            <address>
-              <div class="commpany__info__item">
-                <dl class="company">
-                  <dt>회사명:</dt>
-                  <dd>회사이름</dd>
-                </dl>
-                <dl class="ceo">
-                  <dt>대표이사:</dt>
-                  <dd>이름</dd>
-                </dl>
-              </div>
-              <div class="commpany__info__item">
-  
-                <dl class="address">
-                  <dt>주소:</dt>
-                  <dd>주소</dd>
-                </dl>
-                <dl class="tel">
-                  <dt>대표전화:</dt>
-                  <dd>
-                    <a href="tel:000-0000-0000">000-0000-0000</a>
-                  </dd>
-                </dl>
-              </div>
-            </address>
-          </dlv>
-        </div>
-        <div class="copy__area">
-          <p class="copyright"></p>
-        </div>
-        <div class="social__area">
-          <strong class="screen-out">SNS</strong>
+       </section>
+        <section class="address__section">
+          <div class="address__inner">
+            <h2 class="screen--out">서비스 이용정보</h2>
+            <ul class="service__list">
+              <li class="service__item"><a href="" class="service__link link__privacy"><em>개인정보처리방침</em></a></li>
+              <li class="service__item"><a href="" class="service__link link__about">회사소개</a></li>
+              <li class="service__item"><a href="" class="service__link link__map">오시는길</a></li>
+              <li class="service__item"><a href="" class="service__link link__qna">사업문의</a></li>
+              <li class="service__item"><a href="" target="_blank" class="service__link link__blog">기업블로그</a></li>
+            </ul>
+            <dlv class="company-info__list">
+              <address>
+                <div class="commpany-info__item">
+                  <dl class="company">
+                    <dt class="screen--out">회사명: </dt>
+                    <dd>주식회사 비엔시스템</dd>
+                  </dl>
+                  <dl class="ceo">
+                    <dt class="screen--out">대표이사:</dt>
+                    <dd>홍길동</dd>
+                  </dl>
+                </div>
+                <div class="commpany-info__item">
+                  <dl class="address">
+                    <dt class="screen--out">주소:</dt>
+                    <dd>서울시 노원구 화랑로 419-7, 3층</dd>
+                  </dl>
+                  <dl class="tel">
+                    <dt class="screen--out">대표전화:</dt>
+                    <dd>
+                      <a href="tel:000-0000-0000">000-0000-0000</a>
+                    </dd>
+                  </dl>
+                </div>
+              </address>
+            </dlv>
+            <p class="copyright">©COPYRIGHT ALL RIGHT RESERVED.</p>
+          </div>
+        </section>
+        <section class="social_section">
+          <strong class="screen--out">SNS</strong>
           <ul class="social__list">
-            <li class="social__list__item">
-              <a href="" target="_blank" class="item__link">
-                <span class="logo__icon icon__facebook">페이스북</span>
+            <li class="social__item">
+              <a href="" target="_blank" class="icon__comn item__link">
+                <img src="img/youtube_i.png" alt="youtube">
               </a>
             </li>
-            <li class="social__list__item">
-              <a href="" target="_blank" class="item__link">
-                <span class="logo__icon icon__instagram">인스타그램</span>
+            <li class="social__item">
+              <a href="" target="_blank" class="icon__comn item__link">
+                <img src="img/facebook_i.png" alt="facebook">
               </a>
             </li>
-            <li class="social__list__item">
-              <a href="" target="_blank" class="item__link">
-                <span class="logo__icon icon__tistory">티스토리</span>
+            <li class="social__item">
+              <a href="" target="_blank" class="icon__comn item__link">
+                <img src="img/insta_i.png" alt="insta">
               </a>
             </li>
           </ul>
-        </div>
+        </section>
       </div>
     </footer>
 
     <!-- 내용 추가시 hr 태그로 구분해주세요 -->
+    <hr>
+    <h2 class="sub-title">2. 기본형</h2>
+    <footer class="footer footer--02">
+      <div class="footer__inner">
+        <section class="footer__head">
+          <strong class="footer__logo">
+              <a href="" class="icon__comn logo__bnsystem">
+                <img src="img/logo.png" alt="비엔시스템">
+              </a>
+          </strong>
+            <dlv class="adress__wrap">
+              <address>
+                <div class="commpany-info__item">
+                  <dl class="company">
+                    <dt class="screen--out">회사명: </dt>
+                    <dd>주식회사 비엔시스템</dd>
+                  </dl>
+                  <dl class="ceo">
+                    <dt>대표이사: </dt>
+                    <dd>홍길동</dd>
+                  </dl>
+                </div>
+                <div class="commpany-info__item">
+                  <dl class="address">
+                    <dt>주소: </dt>
+                    <dd>서울시 노원구 화랑로 419-7, 3층</dd>
+                  </dl>
+                  <dl class="tel">
+                    <dt >대표전화: </dt>
+                    <dd>
+                      <a href="tel:000-0000-0000">000-0000-0000</a>
+                    </dd>
+                  </dl>
+                </div>
+              </address>
+              <p class="copyright">©COPYRIGHT ALL RIGHT RESERVED.</p>
+            </dlv>
+        </section>
+        <section class="footer__body">
+          <h2 class="screen--out">서비스 이용정보</h2>
+          <ul class="service__list">
+            <li class="service__item"><a href="" class="service__link link__privacy"><em>개인정보처리방침</em></a></li>
+            <li class="service__item"><a href="" class="service__link link__about">회사소개</a></li>
+            <li class="service__item"><a href="" class="service__link link__map">오시는길</a></li>
+            <li class="service__item"><a href="" class="service__link link__qna">사업문의</a></li>
+            <li class="service__item"><a href="" target="_blank" class="service__link link__blog">기업블로그</a></li>
+          </ul>
+          <div class="family-site__wrap">
+            <label class="screen--out" for="selectbox">관련사이트</label>
+            <select class="family-site__list" id="selectbox" title="선택 구분">
+              <option selected="selected">관련사이트</option>
+              <option cass="family-site__item">선택1</option>
+              <option cass="family-site__item">선택2</option>
+              <option cass="family-site__item">선택3</option>
+              <option cass="family-site__item">선택4</option>
+            </select>
+          </div>
+        </section>
+      </div>
+    </footer>
 
   </div>
 </body>

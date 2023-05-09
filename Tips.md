@@ -40,3 +40,17 @@
 
 - rem 계산해 주는 사이트 : https://offroadcode.com/rem-calculator
 - em, px 계산해주는 사이트 : http://pxtoem.com
+
+
+## BEM은 어떻게 동작하는가?
+### BEM 클래스 이름은 최대 세 가지로 구성된다.
+
+1. 블록(Block): 구성 요소의 가장 바깥쪽 상위 요소를 블록으로 정의한다.
+2. 요소(Element): 구성 요소 안쪽에는 하나 또는 그 이상의 요소가 있을 수 있다.
+3. 변경자(Modifier): 블록 또는 요소는 변경자를 이용하여 변형을 표시할 수 있다.
+
+세 가지 형식을 모두 클래스 이름에 사용하면 이렇게 보일 것이다.
+
+```
+.block__element--modifier
+```
