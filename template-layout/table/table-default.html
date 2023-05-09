@@ -39,10 +39,10 @@
     .c-table__top{display: flex; justify-content: space-between; margin-bottom: 10px;}
     .c-table__bottom {position: relative; margin-top: 15px;}
     .pagination{display: flex; justify-content: center; align-items: center;}
-    .pagination .page__list{display: flex; justify-content: center; align-items: center; gap: 0 20px; margin: 0 20px;}
-    .pagination .page__link{width: 20px; height:20px; font-size: 12px;}
-    .pagination .page__link>a{display: block; text-align: center; line-height: 20px;}
-    .pagination .page__link.on{background: #efefef; outline: 1px solid #707070;}
+    .pagination .page-list{display: flex; justify-content: center; align-items: center; gap: 0 20px; margin: 0 20px;}
+    .pagination .page-list__link{width: 20px; height:20px; font-size: 12px;}
+    .pagination .page-list__link>a{display: block; text-align: center; line-height: 20px;}
+    .pagination .page-list__link.on{background: #efefef; outline: 1px solid #707070;}
     .button__wrap{
         position: absolute;
         right: 0;
@@ -204,27 +204,29 @@
             <div class="c-table__bottom">
                 <!-- empty는 flex 정렬용 -->
                 <div class="empty"></div>
+                <!-- pagination 기본형 -->
                 <div class="pagination">
-                    <a href="#" class="page__btn btn--next">&#60;</a>
-                    <ul class="page__list">
-                        <li class="page__link on">
+                    <a href="#" class="page__btn btn--prev">&#60;</a>
+                    <ul class="page-list">
+                        <li class="page-list__link on">
                             <a href="#">1</a>
                         </li>
-                        <li class="page__link">
+                        <li class="page-list__link">
                             <a href="#">2</a>
                         </li>
-                        <li class="page__link">
+                        <li class="page-list__link">
                             <a href="#">3</a>
                         </li>
-                        <li class="page__link">
+                        <li class="page-list__link">
                             <a href="#">4</a>
                         </li>
-                        <li class="page__link">
+                        <li class="page-list__link">
                             <a href="#">5</a>
                         </li>
                     </ul>
                     <a href="#" class="page__btn btn--next">&#62;</a>
                 </div>
+                <!-- //pagination 기본형 -->
                 <div class="button__wrap">
                     <button type="button">삭제</button>
                     <button type="button">등록</button>
@@ -519,7 +521,7 @@
     </div>
 
     <script>
-        const $pageNum = document.querySelectorAll(".page__link");
+        const $pageNum = document.querySelectorAll(".page-list__link");
         
         for(let i=0; i<$pageNum.length; i++){
             $pageNum[i].addEventListener('click',function(){
