@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>버튼 형식 표준화</title>
+    <link rel="stylesheet" href="btn.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <h1 class="title">Btn 퍼블리싱 가이드</h1>
+      <div class="btn-box">
+        <h2 class="sub-title">1.오른쪽에서 왼쪽으로 들어오는 호버</h2>
+        <div class="btn-box_inner">
+          <button class="btn-box__btn1">Button1</button>
+        </div>
+      </div>
+      <hr />
+      <div class="btn-box">
+        <!-- 그라데 호버는 브라우저 호환성 때문에 체크확인 필요 -->
+        <h2 class="sub-title">2. 그라데 호버</h2>
+        <div class="btn-box_inner">
+          <button class="btn-box__btn2">Button2</button>
+        </div>
+      </div>
+      <hr />
+      <div class="btn-box">
+        <h2 class="sub-title">3.왼쪽, 오른쪽에서 들어와서 나가는 호버</h2>
+        <div class="btn-box_inner">
+          <button class="btn-box__btn3">Button3</button>
+        </div>
+      </div>
+      <hr />
+      <div class="btn-box">
+        <h2 class="sub-title">
+          4. 위,아래 에서 들어와서 나가는 호버 (btn-box__btn5)
+        </h2>
+        <div class="btn-box_inner">
+          <button class="btn-box__btn4">Button4</button>
+        </div>
+      </div>
+
+      <hr />
+      <div class="btn-box">
+        <h2 class="sub-title">5.비스듬히 비트는 호버 (btn-box__btn5)</h2>
+        <div class="btn-box_inner">
+          <button class="btn-box__btn5">Button5</button>
+        </div>
+      </div>
+      <hr />
+
+      <!-- Toggle Btn -->
+      <div class="area__toggle-btn">
+        <div class="swich-btn__inner">
+          <h2 class="sub-title">1. 둥근형 토글버튼 (swich-btn__home)</h2>
+          <label for="togleBtn" class="swich-btn__home">
+            <span class="swich-btn__toggle"></span>
+          </label>
+          <hr />
+          <h2 class="sub-title">2. 사각형 (swich-btn__home--square)</h2>
+          <label for="togleBtn" class="swich-btn__home--square">
+            <span class="swich-btn__toggle--square"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+    <!-- Script Source -->
+    <script>
+      const toggleCircle = document.querySelector(".area__toggle-btn span");
+      const toggleSquare = document.querySelector(".swich-btn__toggle--square");
+
+      toggleCircle.onclick = () => {
+        toggleCircle.parentNode.classList.toggle("active");
+        toggleCircle.classList.toggle("active");
+      };
+
+      toggleSquare.onclick = () => {
+        toggleSquare.parentNode.classList.toggle("active");
+        toggleSquare.classList.toggle("active");
+      };
+    </script>
+  </body>
+</html>
