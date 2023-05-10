@@ -51,8 +51,8 @@ button {
 }
 .btn-box_inner .btn-box__btn1:hover {
   color: #fff;
-  box-shadow: -200px 0 0 0 rgba(0, 0, 0, 0.1) inset;
   font-weight: bolder;
+  box-shadow: -200px 0 0 0 rgba(0, 0, 0, 0.1) inset;
 }
 
 /* inset: 외부가 아니라 내부에서만 표현*/
@@ -84,6 +84,7 @@ button {
 
 .btn-box_inner .btn-box__btn2:hover {
   background-position: 100% 0;
+  color: #fff;
   font-weight: bolder;
 }
 
@@ -106,6 +107,8 @@ button {
 .btn-box_inner .btn-box__btn4:hover {
   box-shadow: 0 75px 0 0 rgba(226, 109, 109, 0.909) inset,
     0 -75px 0 0 rgba(194, 91, 91, 0.951) inset;
+  color: #fff;
+  font-weight: bolder;
 }
 /* button5 */
 .btn-box_inner .btn-box__btn5 {
