@@ -1,0 +1,291 @@
+/* reset */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+/* common */
+.wrap {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px 0;
+}
+
+.title {
+  font-size: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+  padding: 30px 0;
+  border-bottom: 2px solid royalblue;
+}
+.sub-title {
+  font-size: 18px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  color: darkblue;
+}
+
+/* 그냥 Btn */
+
+button {
+  outline: none;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.btn-box {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+/* button1 */
+.btn-box_inner .btn-box__btn1 {
+  background-color: #66aaff;
+}
+.btn-box_inner .btn-box__btn1:hover {
+  color: #fff;
+  font-weight: bolder;
+  box-shadow: -200px 0 0 0 rgba(0, 0, 0, 0.1) inset;
+}
+
+/* inset: 외부가 아니라 내부에서만 표현*/
+/* box-shadow:-200px 0 0 0; 
+1: -200px 윗쪽에서 -200px 
+2: 0 왼쪽에서 0만큼 띄우기
+3: 0 색의 번짐의 정도
+4: 0 펼쳐짐의 넓이
+*/
+
+/* button2 */
+.btn-box_inner .btn-box__btn2 {
+  background-size: 400% 100%;
+  border: 0px solid transparent;
+  background-image: linear-gradient(
+    to right,
+    #8a90d2,
+    #485563,
+    #2b5876,
+    #4e4376
+  );
+  box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
+}
+
+/* 그라데 방향 
+    to right: 왼쪽에서 오른쪽으로
+    to top right: 상단 오른쪽으로
+    to bottom left 하단 왼쪽으로  */
+
+.btn-box_inner .btn-box__btn2:hover {
+  background-position: 100% 0;
+  color: #fff;
+  font-weight: bolder;
+}
+
+/* button3 */
+.btn-box_inner .btn-box__btn3 {
+  background-color: rgb(195, 194, 255);
+}
+
+.btn-box_inner .btn-box__btn3:hover {
+  box-shadow: 200px 0 0 0 rgba(0, 0, 0, 0.25) inset,
+    -200px 0 0 0 rgba(0, 0, 0, 0.25) inset;
+  color: #fff;
+}
+
+/* button4 */
+.btn-box_inner .btn-box__btn4 {
+  background-color: rgb(240, 188, 229);
+}
+
+.btn-box_inner .btn-box__btn4:hover {
+  box-shadow: 0 75px 0 0 rgba(226, 109, 109, 0.909) inset,
+    0 -75px 0 0 rgba(194, 91, 91, 0.951) inset;
+  color: #fff;
+  font-weight: bolder;
+}
+/* button5 */
+.btn-box_inner .btn-box__btn5 {
+  border: 1px solid #071982c6;
+  border-radius: 50px;
+  position: relative;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  background: transparent;
+}
+
+.btn-box_inner .btn-box__btn5::before {
+  content: "";
+  width: 0%;
+  height: 100%;
+  display: block;
+  background: #071982;
+  position: absolute;
+  transform: skewX(-20deg);
+  top: 0;
+  z-index: -12;
+  transition: all 0.9s cubic-bezier(0.77, 0, 0.175, 1);
+  box-shadow: 2px 0px 14px rgba(0, 0, 0, 0.6);
+}
+
+.btn-box_inner .btn-box__btn5::after {
+  content: "";
+  width: 0%;
+  height: 100%;
+  display: block;
+  background: #80ffd3;
+  position: absolute;
+  transform: skewX(-20deg);
+  top: 0;
+  z-index: -15;
+  transition: all 0.9s cubic-bezier(0.2, 0.95, 0.57, 0.99);
+  box-shadow: 2px 0px 14px rgba(0, 0, 0, 0.6);
+}
+
+.btn-box_inner .btn-box__btn5:hover {
+  border: 1px solid #071982;
+  color: #fff;
+}
+/* 블루색상이 호버됬을때 가로 */
+.btn-box_inner .btn-box__btn5:hover::before {
+  opacity: 1;
+  width: 230px;
+}
+/* 민트색상이 호버됬을때 가로 */
+.btn-box_inner .btn-box__btn5:hover::after {
+  opacity: 1;
+  width: 230px;
+}
+
+/* 그냥 Btn common */
+.btn-box_inner button {
+  width: 200px;
+}
+
+.btn-box_inner .btn-box__btn1,
+.btn-box_inner .btn-box__btn2,
+.btn-box_inner .btn-box__btn3,
+.btn-box_inner .btn-box__btn4,
+.btn-box_inner .btn-box__btn5 {
+  line-height: 40px;
+  margin: 15px auto;
+  cursor: pointer;
+  transition: 0.7s ease-in-out;
+}
+
+.btn-box_inner .btn-box__btn1,
+.btn-box_inner .btn-box__btn3,
+.btn-box_inner .btn-box__btn4 {
+  border: 1px solid transparent;
+}
+
+:is(
+    .btn-box__big,
+    .btn-box__mid,
+    .btn-box__sm,
+    .btn-box__mini,
+    .btn-box__round,
+
+  ) {
+  margin-right: 20px;
+}
+
+/* Toggle Btn */
+
+/* 둥근 토글버튼 */
+.swich-btn__home {
+  width: 100px;
+  margin: 30px 0;
+  height: 50px;
+  border-radius: 30px;
+}
+
+.swich-btn__toggle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+/* 네모 토글버튼 */
+.swich-btn__home--square {
+  width: 90px;
+  height: 40px;
+  border-radius: 0px;
+}
+
+.swich-btn__toggle--square {
+  width: 30px;
+  height: 30px;
+  border-radius: 0;
+}
+
+/* 버튼 홈 common */
+.swich-btn__home,
+.swich-btn__home--square {
+  display: block;
+  position: relative;
+  box-shadow: 0 0 16px 3px rgba(0 0 0 / 15%);
+  cursor: pointer;
+}
+
+/* 스위치 common */
+.swich-btn__toggle,
+.swich-btn__toggle--square {
+  position: absolute;
+  top: 50%;
+  left: 4px;
+  transform: translateY(-50%);
+}
+
+/* 토글 액티브 bg */
+
+/* .swich-btn__home .swich-btn__toggle.active, */
+/* 토글 액트브 흰색 */
+
+.swich-btn__home .swich-btn__toggle.active {
+  left: calc(100% - 44px);
+}
+.swich-btn__home--square .swich-btn__toggle--square.active {
+  left: calc(100% - 36px);
+}
+
+.swich-btn__home,
+.swich-btn__toggle,
+.swich-btn__home--square,
+.swich-btn__toggle--square {
+  transition: 0.25s ease-out;
+}
+
+.swich-btn__toggle {
+  background: #f03d3d9b;
+}
+.swich-btn__toggle.active {
+  background: #fff;
+}
+.swich-btn__home {
+  background: #fff;
+}
+.swich-btn__home.active {
+  background: #f03d3d9b;
+}
+
+.swich-btn__toggle--square {
+  background: #1f1f9984;
+}
+.swich-btn__toggle--square.active {
+  background: #fff;
+}
+.swich-btn__home--square {
+  background: #fff;
+}
+.swich-btn__home--square.active {
+  background: #1f1f9984;
+}
