@@ -102,11 +102,17 @@ button {
   width: 18px;
   height: 18px;
 }
+.header-descktop-style {
+  display: block;
+}
+
 .header-mobile-style {
   display: none;
 }
+
 /* 헤더 네브 */
 .header__nav {
+  justify-content: left;
   width: 100%;
   max-width: 1200px;
   height: 100%;
@@ -148,11 +154,6 @@ button {
   background-color: #444;
   color: red;
 }
-
-.nav-style-change {
-  justify-content: left;
-}
-
 /* 헤더 하단 */
 .header__gnb-inner {
   max-width: 1200px;
@@ -174,37 +175,6 @@ button {
     display: none;
   }
   .header-mobile-style {
-    display: block;
-  }
-  .nav-style-change {
-  justify-content: space-between;
-  }
-  .header__nav-mobile-btn {
-    width: 40px;
-    height: 40px;
-    appearance: none;
-    background-color: #fff;
-    border-radius: 50%;
-    margin-right: 30px;
-  }
-  .header__nav-mobile-btn-icon {
-    width: 18px;
-    height: 18px;
-  }
-  .header__nav-mobile-list {
-    background-color: #fff;
-    width: 100px;
-    position: fixed;
-    top: 300px;
-    right: 0px;
-    color: #666;
-    border: 1px solid #000;
-    text-align: center;
-  }
-  .mobile-list-style-off {
-    display: none;
-  }
-  .mobile-list-style-on {
     display: block;
   }
 
@@ -239,7 +209,7 @@ button {
           </li>
       </ul>
 
-      <nav class="header__nav nav-style-change">
+      <nav class="header__nav">
         <!-- 로고 -->
         <div class="header__logo">
           <a class="header__logo-link" href="#">
@@ -247,7 +217,7 @@ button {
           </a>
         </div>
         <!-- 메뉴 리스트 -->
-        <ul class="header__nav-list header-descktop-style">
+        <ul class="header__nav-list">
           <li class="header__nav-item">
             <a class="header__nav-link" href="#">대메뉴1</a>
           </li>
@@ -262,18 +232,12 @@ button {
           </li>
         </ul>
         <div class="header__nav-mobile-wrap header-mobile-style">
-          <button id="header__nav-mobile-btn" class="header__nav-mobile-btn" type="button">
+          <button class="header__nav-mobile-btn" type="button">
             <img class="header__nav-mobile-btn-icon" src="./bars_ico.svg" alt="mobile-menu-btn"/>
           </button>
-          <ul class="header__nav-mobile-list mobile-list-style-off">
-            <li class="header__nav-mobile-list-item"><a class="header__nav-mobile-list-link test_off"  href="#">미니메뉴</a></li>
-            <li class="header__nav-mobile-list-item"><a class="header__nav-mobile-list-link test_off"  href="#">미니메뉴</a></li>
-            <li class="header__nav-mobile-list-item"><a class="header__nav-mobile-list-link test_off"  href="#">미니메뉴</a></li>
-            <li class="header__nav-mobile-list-item"><a class="header__nav-mobile-list-link test_off"  href="#">미니메뉴</a></li>
-          </ul>
         </div>
       </nav>
-      <div class="header__gnb header-descktop-style">
+      <div class="header__gnb">
         <ul class="header__gnb-inner">
           <li class="header__gnb-item">
             <ul class="header__gnb-small-one">
@@ -352,22 +316,10 @@ button {
   header.addEventListener('mouseenter', () => {
     header.classList.remove('header-style-off');
     header.classList.add('header-style-on');
-  });
+  })
   header.addEventListener('mouseleave', () => {
     header.classList.remove('header-style-on');
     header.classList.add('header-style-off');
-  });
-  const mbtn = document.getElementById('header__nav-mobile-btn');
-  const mlist = document.querySelector('.header__nav-mobile-list');
-  mbtn.addEventListener('click', () => {
-    if (mlist.classList.contains('mobile-list-style-on')) {
-      mlist.classList.remove('mobile-list-style-on');
-      mlist.classList.add('mobile-list-style-off');
-    }
-    else {
-      mlist.classList.remove('mobile-list-style-off');
-      mlist.classList.add('mobile-list-style-on');
-    }
   })
 </script>
 </html>
