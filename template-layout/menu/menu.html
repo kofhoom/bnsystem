@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>menu</title>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
+<style>
+    *{margin: 0; padding: 0;}
+
+    /* ----- 공통 ------ */
+
+    .wrap{width:100%; max-width: 1200px; margin: 0 auto; padding-top: 50px; height: 200vh;}
+    .title{font-size: 30px; margin-bottom: 30px; text-align: center; padding: 30px 0; border-bottom: 2px solid royalblue;}
+    .sub-title{font-size: 18px; margin-top: 30px; margin-bottom: 15px; color: darkblue;}
+
+    /* ---------- */
+
+    a{text-decoration: none; color: inherit;}
+    li{list-style: none;}
+    .blind{
+        width: 1px;
+        height: 1px;
+        position: absolute;
+        margin: 1px;
+        overflow: hidden;
+    }
+
+    /* breadcrumb */
+    .breadcrumb{margin-bottom: 50px;}
+    .bc-list{display: flex;}
+    .bc-list__item{position: relative; height: 24px; padding-right: 24px;}
+    .bc-list__item>a:hover{text-decoration: underline;}
+    .bc-list__item::after{content: ""; position: absolute; right: 0; width:24px; height: 24px; background: url(/img/arrow_g.png) no-repeat center center/70%;}
+    .bc-list__item:last-child::after{display: none;}
+
+    /* snb */
+    .float-menu{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100px;
+        z-index: 900;
+    }
+    .float-menu__inner{
+        background: #fff;
+        border: 1px solid #d4d4d4;
+        padding: 10px 12px 0;
+        box-shadow: 0 0px 6px rgba(0, 0, 0, 0.16);
+    }
+    .float-menu__list{text-align: center;}
+    .float-menu__item{padding: 10px 0px;}
+    .float-menu__link>img{
+        width: 50px;
+    }
+    .btn--top__wrap{border-top: 1px solid #aaa;}
+    .btn--top__wrap .btn--top{width:100%; padding:10px 0; border: none; background: #fff; cursor: pointer;}
+
+</style>
+<body>
+    <div class="wrap">
+        <h1 class="title">menu 퍼블리싱 가이드</h1>
+        <h2 class="sub-title">1. breadcrumb</h2>
+        <div class="breadcrumb">
+            <ul class="bc-list">
+                <li class="bc-list__item"><a href="#">Home</a></li>
+                <li class="bc-list__item"><a href="#">1-depth</a></li>
+                <li class="bc-list__item"><a href="#">2-depth</a></li>
+            </ul>
+        </div>
+        <hr>
+
+        <h2 class="sub-title">2. snb</h2>
+        <aside class="float-menu">
+            <div class="float-menu__inner">
+                <ul class="float-menu__list">
+                    <li class="float-menu__item">
+                        <a href="#" class="float-menu__link">
+                            <img src="/img/contact-book.png" alt="">
+                            <span>menu1</span>
+                        </a>
+                    </li>
+                    <li class="float-menu__item">
+                        <a href="#" class="float-menu__link">
+                            <img src="/img/contact-mail.png" alt="">
+                            <span>menu2</span>
+                        </a>
+                    </li>
+                    <li class="float-menu__item">
+                        <a href="#" class="float-menu__link">
+                            <img src="/img/email.png" alt="">
+                            <span>menu3</span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="btn--top__wrap">
+                    <button type="button" class="btn--top">▲Top</button>
+                </div>
+            </div>
+            </aside>
+    </div>
+
+    <script>
+        const $pageNum = document.querySelectorAll(".page__link");
+        
+        for(let i=0; i<$pageNum.length; i++){
+            $pageNum[i].addEventListener('click',function(){
+                for(let j=0; j<$pageNum.length; j++){
+                    this.parentElement.children[j].classList.remove("on");
+                }
+                this.classList.add("on");
+            });
+        }
+
+        const menuP = parseInt($(".float-menu").css("top"));
+        const qmenuH = $(".float-menu").height();
+        $(window).scroll(function () {
+            let scrollTop = $(window).scrollTop();
+            // 퀵메뉴 이동
+            console.log(scrollTop);
+            console.log(menuP);
+            $(".float-menu")
+            .stop()
+            .animate({ top: scrollTop + menuP + "px" }, 1000);
+        });
+
+        $(".btn--top").on("click", function () {
+            $("html,body").stop().animate({ scrollTop: "0" }, 300);
+        });
+
+    </script>
+</body>
+</html>
