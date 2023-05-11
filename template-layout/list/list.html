@@ -8,15 +8,28 @@
   <!-- jQuery CDN -->
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js'></script>
   <style>
+    /* #### Google Fonts #### */
+    @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;800;900&display=swap");
     /* reset.css */
     * {
       box-sizing: border-box;
       margin: 0; padding: 0;
+      font-family: 'Noto Sans KR';
+    }
+
+    button {
+      background-color: transparent;
+      border: none;
+    }
+
+    a {
+      text-decoration: none;
+      color: #000;
     }
 
     /* ----- 공통 ------ */
 
-    .wrap{width:100%; max-width: 1200px; margin: 0 auto; padding-top: 50px;}
+    .wrap{width:100%; max-width: 1200px; margin: 0 auto; padding-top: 50px; padding-bottom: 120px;}
     .title{font-size: 30px; margin-bottom: 30px; text-align: center; padding: 30px 0; border-bottom: 2px solid royalblue;}
     .sub-title{font-size: 18px; margin-top: 30px; margin-bottom: 15px; color: darkblue;}
 
@@ -146,6 +159,162 @@
       padding: 5px 20px;
       border: 3px solid #25387B;
     }
+
+    /* 모바일 메뉴 */
+    .btn_menu {
+      display: none;
+    }
+
+    .btn-close {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      background: url(./img/icon_close.svg) no-repeat  center center / cover;
+    }
+
+    .mobile-nav {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100vh;
+      background-color: #00000042;
+      z-index: 102;
+      display: none;
+    }
+
+    .mobile-nav__inner {
+      width: 80%;
+      height: 100vh;
+      background-color: #fff;
+      position: absolute;
+      right: -80%;
+    }
+
+    .mobile-nav__inner.active {
+      right: 0px;
+    }
+
+    .mobile-nav__header {
+      width: 100%;
+      height: 50px;
+      border-bottom: 0.5px solid #DBDDDE;
+      position: relative;
+    }
+
+    .m-nav__header__wrap {
+      width: inherit;
+      height: inherit;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .mobile-nav__logo {
+      width: 110px;
+      height: 16px;
+    }
+
+    .mobile-nav__logo img{
+      width: inherit;
+      height: inherit;
+      object-fit: contain;
+    }
+
+    .mobile-nav__header .btn-close {
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+    }
+
+    .mobile__gnb {
+      width: 100%;
+      height: auto;
+    }
+
+    .mobile__gnb>li {
+      width: 100%;
+    }
+
+    .mobile__gnb>li>a {
+      display: inline-block;
+      width: 100%;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 0 25px;
+    }
+
+    .mobile__gnb>li>a>span {
+      display: inline-block;
+      width: 100%;
+      height: 50px;
+      line-height: 50px;
+      border-bottom: 0.5px solid #e7e7e7;
+      padding: 0 10px;
+      position: relative;
+    }
+
+    .mobile__gnb>li>a>span.sub-arrow:after {
+      content:'';
+      position: absolute;
+      display: inline-block;
+      right: 5px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 10px;
+      height: 6px;
+      transition: 0.3s;
+      background: url(./img/icon_chevron_bottom.png) no-repeat center center / contain;
+    }
+
+    .mobile__gnb>li>a>span.sub-arrow.active:after {
+      transform: translateY(-50%) rotate(-180deg);
+    }
+
+    .mobile__gnb>li:last-child > a > span {
+      border-bottom: none;
+    }
+
+    .mobile__gnb>li>.sub-menu {
+      display: none;
+    }
+
+    .mobile__gnb>li>.sub-menu>li {
+      height: 40px;
+      background-color: #F5F5F5;
+    }
+
+    .mobile__gnb>li>.sub-menu>li>a {
+      display: inline-block;
+      width: 100%;
+      height: 40px;
+      line-height: 40px;
+      padding: 0 35px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .mobile__gnb>li>.sub-menu>li>a.active {
+      color: var(--color-navy);
+    }
+
+    @media screen and ( max-width:768px ) {
+      .btn_menu {
+        position: fixed;
+        right: 20px;
+        top: 20px;
+        float: right;
+        display: block;
+        width: 20px;
+        height: 20px;
+        background-color: transparent;
+        border: none;
+        background: url(./img/icon_menu.svg) no-repeat center center / cover;
+        cursor: pointer;
+      }
+    }
+    
   </style>
 </head>
 <body>
@@ -257,9 +426,51 @@
         </ul>
       </div>
     </div>
+    <h1 class="title">모바일 메뉴 (모바일 해상도에서 확인 가능)</h1>
+    <div class="container">
+      <div class="content">
+        <div class="mobile-menu">
+          <button type="button" class="btn_menu"></button>
+        </div>
+        <nav id="mobile-nav" class="mobile-nav">
+          <div class="mobile-nav__inner">
+            <div class="mobile-nav__header">
+              <div class="m-nav__header__wrap">
+                <div class="mobile-nav__logo">
+                  <img src="./img/logo.png" alt="로고">
+                </div>
+              </div>
+              <button type="button" class="btn-close">
+              </button>
+            </div>
+            <ul class="mobile__gnb">
+              <li><a href="#"><span>처방 한의원 찾기</span></a></li>
+              <li>
+                <a><span class="sub-arrow">감비정D 소개</span></a>
+                <ul class="sub-menu">
+                  <li><a href="#">감비정D 소개</a></li>
+                  <li><a href="#">체중 감량 예측 프로그램</a></li>
+                </ul>
+              </li>
+              <li><a href="#"><span>다이어트 서포트 제품</span></a></li>
+              <li>
+                <a><span class="sub-arrow">복용법</span></a>
+                <ul class="sub-menu">
+                  <li><a href="#">다이어트 가이드</a></li>
+                  <li><a href="#">가이드 영상 버전</a></li>
+                </ul>
+              </li>
+              <li><a href="#"><span>탕전실 소개</span></a></li>
+            </ul>
+          </div>
+
+        </nav>
+      </div>
+    </div>
   </div>
   <script>
     $(function () {
+      // accodian
       $('.name-item__title, .faq-item__title').click(function () {
         // 타이틀 영역 active 클래스 제거
         $('.faq-item__title').not($(this)).removeClass('active')
@@ -270,6 +481,32 @@
         $('.name-item__answer, .faq-item__answer').not($(this).siblings()).slideUp()
         // 클릭한 요소는 slideToggle
         $(this).siblings().slideToggle()
+      })
+
+      // mobile menu
+      $('.btn_menu').click(function () {
+        $('.mobile-nav').show()
+        $('.mobile-nav__inner').addClass('active')
+      })
+
+      $('ul.mobile__gnb li > a').click(function () {
+        $('.mobile__gnb > li >a > span').not($(this).children('span')).removeClass('active')
+        $(this).children('span').toggleClass('active')
+        $('ul.sub-menu').not($(this).siblings()).slideUp()
+        $(this).siblings('ul.sub-menu').slideToggle()
+      })
+
+      var mobileNav = document.getElementById("mobile-nav");
+
+      window.onclick = function (event) {
+        if (event.target == mobileNav) {
+          mobileNav.style.display = "none";
+        }
+      };
+
+      $('.mobile-nav__header .btn-close').click(function () {
+        $(".mobile-nav").hide();
+        $(".mobile-nav__inner").removeClass("active");
       })
     })
   </script>
