@@ -24,48 +24,84 @@
     .title{font-size: 30px; margin-bottom: 30px; text-align: center; padding: 30px 0; border-bottom: 2px solid royalblue;}
     .sub-title{font-size: 18px; margin-top: 30px; margin-bottom: 15px; color: darkblue;}
 
-    /* ---- Nice Select Custom ---- */
+    /* layout.css */
+    .content:first-child {
+      padding-top: 0;
+    }
+
+    .content:last-child {
+      border-bottom: none;
+    }
+
+    .content {
+      height: auto;
+      padding: 30px 0;
+      border-bottom: 1px solid #ddd;
+    }
+
+    /* ---- Reset Nice Select ---- */
     select {
       display: none;
     }
 
-    .nice-select {
-      width: 180px !important;
-      height: 32px !important;
-      line-height: 32px !important;
-      float: none !important;
-      display: inline-block !important;
-      border: 1px solid #c9c9c9 !important;
+    .custom-select {
+      float: none;
+      width: 230px;
     }
 
-    .nice-select .list {
+    .custom-select .list {
+      width: inherit;
+    }
+
+    /* ---- Nice Select Custom ---- */
+    .select--primary {
       width: 180px;
+      height: 32px;
+      line-height: 32px;
+      float: none; 
+      display: inline-block;
+      border: 1px solid #c9c9c9;
     }
 
-    .nice-select:active,
-    .nice-select.open,
-    .nice-select:focus {
+    .select--primary:active,
+    .select--primary.open,
+    .select--primary:focus {
       border-color: #25387B !important;
     }
 
-    .nice-select .option {
+    .select--primary .option {
       border-bottom: 1px solid #ddd;
       height: 30px !important;
       min-height: 30px;
       line-height: 30px !important;
     }
 
-    .nice-select .option:last-child {
+    .select--primary .option:last-child {
       border-bottom: none;
     }
 
-    .nice-select .option.selected {
+    .select--primary .option.selected {
       font-weight: normal !important;
     }
 
-    .nice-select:after {
+    .select--primary:after {
       border-bottom: 2px solid #25387B;
       border-right: 2px solid #25387B;
+    }
+
+    .select__footer:after {
+      border-bottom: none;
+      border-right: none;
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      background: url(./img/arrow_bottom.svg) no-repeat;
+      transform: rotate(0deg);
+    }
+
+    .select__footer.open:after {
+      transform: rotate(0deg);
     }
 
   </style>
@@ -75,11 +111,30 @@
   <div class="wrap">
     <h1 class="title">nice-select 가이드</h1>
     <div class="container">
-      <select id="select" class="custom-select">
-        <option value="0">선택</option>
-        <option value="1">옵션1</option>
-        <option value="2">옵션2</option>
-      </select>
+      <div class="content">
+        <h2 class="sub-title">1. 기본 nice-select</h2>
+        <select class="custom-select">
+          <option value="0">선택</option>
+          <option value="1">옵션1</option>
+          <option value="2">옵션2</option>
+        </select>
+      </div>
+      <div class="content">
+        <h2 class="sub-title">2. 커스텀 nice-select</h2>
+        <select class="custom-select select--primary">
+          <option value="0">선택</option>
+          <option value="1">옵션1</option>
+          <option value="2">옵션2</option>
+        </select>
+      </div>
+      <div class="content">
+        <h2 class="sub-title">3. 커스텀 nice-select (화살표 이미지로 변경)</h2>
+        <select class="custom-select select__footer">
+          <option value="0">선택</option>
+          <option value="1">옵션1</option>
+          <option value="2">옵션2</option>
+        </select>
+      </div>
     </div>
   </div>
 
