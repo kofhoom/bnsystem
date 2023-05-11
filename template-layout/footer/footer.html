@@ -16,11 +16,12 @@
     <footer class="footer footer--01">
       <div class="footer__inner">
        <section class="logo__section">
-          <strong class="logo__company">
+        <!-- logo__작명 -->
+          <div class="logo__company">
             <a href="" class="icon__comn logo__bnsystem">
               <img src="img/logo.png" alt="비엔시스템">
             </a>
-          </strong>
+          </div>
        </section>
         <section class="address__section">
           <div class="address__inner">
@@ -32,9 +33,10 @@
               <li class="service__item"><a href="" class="service__link link__qna">사업문의</a></li>
               <li class="service__item"><a href="" target="_blank" class="service__link link__blog">기업블로그</a></li>
             </ul>
-            <dlv class="company-info__list">
+            <div class="company-info__list">
               <address>
-                <div class="commpany-info__item">
+                <div class="company-info__item">
+                  <!-- 하위 요소는 부모 요소와 같이 사용 -->
                   <dl class="company">
                     <dt class="screen--out">회사명: </dt>
                     <dd>주식회사 비엔시스템</dd>
@@ -44,7 +46,7 @@
                     <dd>홍길동</dd>
                   </dl>
                 </div>
-                <div class="commpany-info__item">
+                <div class="company-info__item">
                   <dl class="address">
                     <dt class="screen--out">주소:</dt>
                     <dd>서울시 노원구 화랑로 419-7, 3층</dd>
@@ -57,25 +59,26 @@
                   </dl>
                 </div>
               </address>
-            </dlv>
+            </div>
             <p class="copyright">©COPYRIGHT ALL RIGHT RESERVED.</p>
           </div>
         </section>
         <section class="social_section">
-          <strong class="screen--out">SNS</strong>
+          <h2 class="screen--out">SNS</h2>
           <ul class="social__list">
             <li class="social__item">
-              <a href="" target="_blank" class="icon__comn item__link">
+              <!-- icon__comn은 유동적으로 사용 -->
+              <a href="" target="_blank" class="icon__comn social__link">
                 <img src="img/youtube_i.png" alt="youtube">
               </a>
             </li>
             <li class="social__item">
-              <a href="" target="_blank" class="icon__comn item__link">
+              <a href="" target="_blank" class="icon__comn social__link">
                 <img src="img/facebook_i.png" alt="facebook">
               </a>
             </li>
             <li class="social__item">
-              <a href="" target="_blank" class="icon__comn item__link">
+              <a href="" target="_blank" class="icon__comn social__link">
                 <img src="img/insta_i.png" alt="insta">
               </a>
             </li>
@@ -89,15 +92,15 @@
     <h2 class="sub-title">2. 기본형</h2>
     <footer class="footer footer--02">
       <div class="footer__inner">
-        <section class="footer__head">
-          <strong class="footer__logo">
+        <section class="footer__top">
+          <div class="logo__company">
               <a href="" class="icon__comn logo__bnsystem">
                 <img src="img/logo.png" alt="비엔시스템">
               </a>
-          </strong>
-            <dlv class="adress__wrap">
-              <address>
-                <div class="commpany-info__item">
+          </div>
+            <div class="company-info">
+              <address class="company-info__list">
+                <div class="company-info__item">
                   <dl class="company">
                     <dt class="screen--out">회사명: </dt>
                     <dd>주식회사 비엔시스템</dd>
@@ -121,9 +124,9 @@
                 </div>
               </address>
               <p class="copyright">©COPYRIGHT ALL RIGHT RESERVED.</p>
-            </dlv>
+            </div>
         </section>
-        <section class="footer__body">
+        <section class="footer__bottom">
           <h2 class="screen--out">서비스 이용정보</h2>
           <ul class="service__list">
             <li class="service__item"><a href="" class="service__link link__privacy"><em>개인정보처리방침</em></a></li>
@@ -132,14 +135,15 @@
             <li class="service__item"><a href="" class="service__link link__qna">사업문의</a></li>
             <li class="service__item"><a href="" target="_blank" class="service__link link__blog">기업블로그</a></li>
           </ul>
-          <div class="family-site__wrap">
+          <!-- 감싸주는 항목에서는 유동성 있게 wrap, container, area, box 등 사용 -->
+          <div class="family-site">
             <label class="screen--out" for="selectbox">관련사이트</label>
             <select class="family-site__list" id="selectbox" title="선택 구분">
               <option selected="selected">관련사이트</option>
-              <option cass="family-site__item">선택1</option>
-              <option cass="family-site__item">선택2</option>
-              <option cass="family-site__item">선택3</option>
-              <option cass="family-site__item">선택4</option>
+              <option class="family-site__item">선택1</option>
+              <option class="family-site__item">선택2</option>
+              <option class="family-site__item">선택3</option>
+              <option class="family-site__item">선택4</option>
             </select>
           </div>
         </section>
