@@ -2,21 +2,18 @@
 <html>
     <head>
         <style>
-            *{margin: 0; padding: 0;}
-
             /* ----- 공통 ------ */
-
+            *{margin: 0; padding: 0;box-sizing: border-box;}
             .wrap{width:100%; max-width: 1200px; margin: 0 auto; padding-top: 50px;}
             .title{font-size: 30px; margin-bottom: 30px; text-align: center; padding: 30px 0; border-bottom: 2px solid royalblue;}
             .sub-title{font-size: 18px; margin-top: 30px; margin-bottom: 15px; color: darkblue;}
-
+            .modal-box {padding-bottom: 30px;}
             /* ---------- */
-
             /* 모달 팝업 스타일 */
-            .modal {
+            .modal-layer {
                 display: none; /* 초기에는 숨김 처리 */
                 position: fixed; /* 화면에 고정 */
-                z-index: 1; /* 다른 요소보다 앞에 표시 */
+                z-index: 999; /* 다른 요소보다 앞에 표시 */
                 left: 0;
                 top: 0;
                 width: 100%;
@@ -24,93 +21,286 @@
                 overflow: auto; /* 스크롤바 생성 */
                 background-color: rgba(0, 0, 0, 0.4); /* 배경색과 투명도 설정 */
             }
-
-            .modal-content {
+            .modal-layer__window {
+                display: flex;
+                display: -ms-flexbox;
+                flex-flow: column;
+                -ms-flex-flow: column;
                 position: absolute;
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
                 background-color: #fefefe; /* 팝업창 배경색 */
-                padding: 20px;
                 border: 1px solid #888;
-                width: 80%; /* 팝업창 크기 조정 */
+                width: 50%; /* 팝업창 크기 조정 */
+                height: fit-content;
             }
-
+            .modal-layer__window-header {
+                position: relative;
+                background-color: #040214;
+                color: #eee;
+                width: 100%;
+                font-size: 18px;
+                line-height: 2em;  /* 해당 셀렉터에 정한 폰트 사이즈의 배수 만큼 높이 */
+                
+            }       
+            .modal-header-title {
+                padding-left: 0.5em;  /* 해당 셀렉터에 정한 폰트 사이즈의 배수 만큼 내어쓰기 */
+            }
+            .modal-layer__window-body {
+                position: relative;
+                background-color: whitesmoke;
+                width: 100%;
+                font-size: 14px;
+                padding: 0.8em;  /* 해당 셀렉터에 정한 폰트 사이즈의 배수 만큼 패딩 */
+            }
+            .modal-layer__window-body p {
+                word-break: break-all;
+            }
             .close {
+                box-sizing: border-box;
                 color: #aaa;
                 float: right;
+                align-self: baseline;
                 font-size: 28px;
+                width: 1.4em;
+                line-height: 1.15em;
+                text-align: center;
                 font-weight: bold;
             }
-
             .close:hover, .close:focus {
-                color: black;
+                color: #fff;
                 text-decoration: none;
                 cursor: pointer;
             }
-
         </style>
     </head>
     <body>
         <div class="wrap">
-            <h1 class="title">modal 퍼블리싱 가이드</h1>
+            <h1 class="title">modal 퍼블리싱 가이</h1>            
             <!-- 모달 팝업 버튼 -->
-            <h2 class="sub-title">1. 기본형</h2>
-            <button id="modal-toggle">모달 팝업 열기</button>
-            
+            <h2 class="sub-title">1. 기본형 (스크롤: 고정) (닫기: 버튼)</h2>
+            <div class="modal-box fixed inner-close">
+                <button id="modal-toggle">모달 팝업 열기</button>
+            </div>
             <!-- 모달 팝업 -->
-            <div id="modal-window" class="modal">
-                <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <p>모달 팝업 내용</p>
+            <div class="modal-layer fixed inner-close">
+                <div class="modal-layer__window">
+                    <div class="modal-layer__window-header">
+                        <strong class="modal-header-title">모달</strong> 
+                        <span class="close">&times;</span>
+                    </div>                
+                    <div class="modal-layer__window-body">
+                        <p>모달 팝업 내용</p>
+                    </div>
                 </div>
             </div>
-
-            <!-- 내용 추가 시 hr 태그로 구분해주세요  -->
+            <hr>
+            <!-- 모달 팝업 버튼 -->
+            <h2 class="sub-title">2. 기본형 (스크롤: 고정) (닫기: 버튼 + 외부)</h2>
+            <div class="modal-box fixed outer-close">
+                <button id="modal-toggle">모달 팝업 열기</button>
+            </div>
+            <!-- 모달 팝업 -->
+            <div class="modal-layer fixed outer-close">
+                <div class="modal-layer__window">
+                    <div class="modal-layer__window-header">
+                        <strong class="modal-header-title">모달</strong> 
+                        <span class="close">&times;</span>
+                    </div>                
+                    <div class="modal-layer__window-body">
+                        <p>모달 팝업 내용</p>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <!-- 모달 팝업 버튼 -->
+            <h2 class="sub-title">3. 기본형 (스크롤: 가변) (닫기: 버튼)</h2>
+            <div class="modal-box scrollable inner-close">
+                <button id="modal-toggle">모달 팝업 열기</button>
+            </div>
+            <!-- 모달 팝업 -->
+            <div class="modal-layer scrollable inner-close">
+                <div class="modal-layer__window">
+                    <div class="modal-layer__window-header">
+                        <strong class="modal-header-title">모달</strong> 
+                        <span class="close">&times;</span>
+                    </div>                
+                    <div class="modal-layer__window-body">
+                        <p>모달 팝업 내용</p>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <!-- 모달 팝업 버튼 -->
+            <h2 class="sub-title">4. 기본형 (스크롤: 가변) (닫기: 버튼 + 외부)</h2>
+            <div class="modal-box scrollable outer-close">
+                <button id="modal-toggle">모달 팝업 열기</button>
+            </div>
+            <!-- 모달 팝업 -->
+            <div class="modal-layer scrollable outer-close">
+                <div class="modal-layer__window">
+                    <div class="modal-layer__window-header">
+                        <strong class="modal-header-title">모달</strong> 
+                        <span class="close">&times;</span>
+                    </div>                
+                    <div class="modal-layer__window-body">
+                        <p>모달 팝업 내용</p>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <!-- 모달 팝업 버튼 -->
+            <h2 class="sub-title">5. 내부 스크롤형 (Height 고정) - 추가 예정</h2>
+            <div class="modal-box">
+                <button id="modal-toggle">모달 팝업 열기</button>
+            </div>
+            <!-- 모달 팝업 -->
+            <div class="modal-layer">
+                <div class="modal-layer__window">
+                    <div class="modal-layer__window-header">
+                        <strong class="modal-header-title">모달</strong> 
+                        <span class="close">&times;</span>
+                    </div>                
+                    <div class="modal-layer__window-body">
+                        <p>모달 팝업 내용</p>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <!-- 모달 팝업 버튼 -->
+            <h2 class="sub-title">6. 내부 폼형 (Input, Button) - 추가 예정</h2>
+            <div class="modal-box">
+                <button id="modal-toggle">모달 팝업 열기</button>
+            </div>
+            <!-- 모달 팝업 -->
+            <div class="modal-layer">
+                <div class="modal-layer__window">
+                    <div class="modal-layer__window-header">
+                        <strong class="modal-header-title">모달</strong> 
+                        <span class="close">&times;</span>
+                    </div>                
+                    <div class="modal-layer__window-body">
+                        <p>모달 팝업 내용</p>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <!-- 스크롤 가변 확인용 가상 공간 1 -->
+            <h2 class="sub-title">X. 싱하형 (스크롤 가변 확인용)</h2>
+            <div class="modal-box">
+                <button id="modal-toggle">모달 팝업 열기</button>
+            </div>
+            <!-- 모달 팝업 -->
+            <div class="modal-layer">
+                <div class="modal-layer__window">
+                    <div class="modal-layer__window-header">
+                        <strong class="modal-header-title">모달</strong> 
+                        <span class="close">&times;</span>
+                    </div>                
+                    <div class="modal-layer__window-body">
+                        <p>모달 팝업 내용</p>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <!-- 스크롤 가변 확인용 가상 공간 2 -->
+            <h2 class="sub-title">X. 동네형 (스크롤 가변 확인용)</h2>
+            <div class="modal-box">
+                <button id="modal-toggle">모달 팝업 열기</button>
+            </div>
+            <!-- 모달 팝업 -->
+            <div class="modal-layer">
+                <div class="modal-layer__window">
+                    <div class="modal-layer__window-header">
+                        <strong class="modal-header-title">모달</strong> 
+                        <span class="close">&times;</span>
+                    </div>                
+                    <div class="modal-layer__window-body">
+                        <p>모달 팝업 내용</p>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <!-- 스크롤 가변 확인용 가상 공간 3 -->
+            <h2 class="sub-title">X. 너네형 (스크롤 가변 확인용)</h2>
+            <div class="modal-box">
+                <button id="modal-toggle">모달 팝업 열기</button>
+            </div>
+            <!-- 모달 팝업 -->
+            <div class="modal-layer">
+                <div class="modal-layer__window">
+                    <div class="modal-layer__window-header">
+                        <strong class="modal-header-title">모달</strong> 
+                        <span class="close">&times;</span>
+                    </div>                
+                    <div class="modal-layer__window-body">
+                        <p>모달 팝업</p>
+                    </div>
+                </div>
+            </div>
+            <hr>
         </div>
-
         <script>
-            // 모달 팝업 열기 버튼 클릭 시 이벤트 처리
-            var modal = document.getElementById("modal-window");
-            var modalToggle = document.getElementById("modal-toggle");
-            var modalClose = document.getElementsByClassName("close")[0];
-            
-            modalToggle.onclick = function () {
-                modal.style.display = "block";          
+            /* 기본형 (스크롤: 고정) (닫기: 버튼)*/
+            const modalFixedInner = document.querySelector(".modal-layer.fixed.inner-close");
+            const modalFixedInnerClose = document.querySelector(".modal-layer.fixed.inner-close .close");
+            const modalFixedInnerToggle = document.querySelector(".modal-box.fixed.inner-close > #modal-toggle");
+
+            modalFixedInnerToggle.onclick = function () {
+                this.parentElement.nextElementSibling.style.display = "block";          
+                document.body.style.overflow = "hidden";
             };
-            
-          // 모달 팝업 닫기 버튼 클릭 시 이벤트 처리
-            modalClose.onclick = function () {
-                modal.style.display = "none";
+            modalFixedInnerClose.onclick = function () {  // 모달 팝업 닫기 버튼 클릭 시 이벤트 처리
+                this.parentElement.parentElement.parentElement.style.display = "none";
+                document.body.style.overflow = "visible"; 
             };
-            
-          // 모달 팝업 외부 클릭 시 이벤트 처리
-            window.onclick = function (event) {
-                if (event.target == modal) {
-                    modal.style.display = "none";
-                }
+
+            /* 기본형 (스크롤: 고정) (닫기: 버튼 + 외부)*/
+            const modalFixedOuter = document.querySelector(".modal-layer.fixed.outer-close");
+            const modalFixedOuterClose = document.querySelector(".modal-layer.fixed.outer-close .close");
+            const modalFixedOuterToggle = document.querySelector(".modal-box.fixed.outer-close > #modal-toggle");
+
+            modalFixedOuterToggle.onclick = function () {
+                this.parentElement.nextElementSibling.style.display = "block";          
+                document.body.style.overflow = "hidden";
             };
-            
-          /* 스크롤 고정용 */
-            // modalToggle.onclick = function () {
-            //     modal.style.display = "block";          
-            //     document.body.style.overflow = "hidden";
-            // };
-            
-          // 모달 팝업 닫기 버튼 클릭 시 이벤트 처리
-            // modalClose.onclick = function () {
-            //     modal.style.display = "none";
-            //     document.body.style.overflow = "visible"; 
-            // };
-            
-          // 모달 팝업 외부 클릭 시 이벤트 처리
-            // window.onclick = function (event) {
-            //     if (event.target == modal) {
-            //         modal.style.display = "none";
-            //         document.body.style.overflow = "visible"; 
-            //     }
-            // };
-            
+            modalFixedOuterClose.onclick = function () {  // 모달 팝업 닫기 버튼 클릭 시 이벤트 처리
+                this.parentElement.parentElement.parentElement.style.display = "none";
+                document.body.style.overflow = "visible"; 
+            };
+
+            /* 기본형 (스크롤: 가변) (닫기: 버튼)*/
+            const modalScrollableInner = document.querySelector(".modal-layer.scrollable.inner-close");
+            const modalScrollableInnerClose = document.querySelector(".modal-layer.scrollable.inner-close .close");
+            const modalScrollableInnerToggle = document.querySelector(".modal-box.scrollable.inner-close > #modal-toggle");
+
+            modalScrollableInnerToggle.onclick = function () {
+                this.parentElement.nextElementSibling.style.display = "block";
+            };
+            modalScrollableInnerClose.onclick = function () {  // 모달 팝업 닫기 버튼 클릭 시 이벤트 처리
+                this.parentElement.parentElement.parentElement.style.display = "none";
+            };
+
+            /* 기본형 (스크롤: 가변) (닫기: 버튼 + 외부)*/
+            const modalScrollableOuter = document.querySelector(".modal-layer.scrollable.outer-close");
+            const modalScrollableOuterClose = document.querySelector(".modal-layer.scrollable.outer-close .close");
+            const modalScrollableOuterToggle = document.querySelector(".modal-box.scrollable.outer-close > #modal-toggle");
+
+            modalScrollableOuterToggle.onclick = function () {
+                this.parentElement.nextElementSibling.style.display = "block";
+            };
+            modalScrollableOuterClose.onclick = function () {  // 모달 팝업 닫기 버튼 클릭 시 이벤트 처리
+                this.parentElement.parentElement.parentElement.style.display = "none";
+            };
+
+            /* 공용 (닫기: 외부) */
+            window.onclick = function (event) {  // 모달 팝업 외부 클릭 시 이벤트 처리
+                if (event.target == modalFixedOuter || event.target == modalScrollableOuter) {
+                    event.target.style.display = "none";
+                    document.body.style.overflow = "visible"; 
+                } 
+            };
         </script>
     </body>
 </html>
