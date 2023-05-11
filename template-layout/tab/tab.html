@@ -46,7 +46,7 @@
     /* style.css */
     .tabs__link {
       display: inline-block;
-      width: 350px;
+      width: 30%;
       height: 40px;
       line-height: 40px;
       background-color: #fff;
@@ -58,19 +58,27 @@
     }
 
     .tabs__link.on {
-      background-color: #CA8A93;
+      background-color: darkblue;
       color: #fff;
     }
 
     .name-tab__content {
       display: none;
-      height: 400px;
-      border: 1px solid #CA8A93;
+      height: 200px;
+      border: 1px solid darkblue;
       padding: 20px;
     }
 
     .name-tab__content.on {
       display: block;
+    }
+
+    /* TYPE2 */
+    .agree-result {
+      display: none;
+      margin-top: 20px;
+      border: 1px solid #ddd;
+      padding: 20px 4px;
     }
   </style>
 </head>
@@ -95,6 +103,20 @@
             탭2에 대한 내용탭2에 대한 내용탭2에 대한 내용탭2에 대한 내용탭2에 대한 내용탭2에 대한 내용탭2에 대한 내용탭2에 대한 내용탭2에 대한 내용탭2에 대한 내용탭2에 대한 내용탭2에 대한 내용탭2에 대한 내용
           </div>
         </div>
+        <h2 class="sub-title">2. 체크박스 체크 후 콘텐츠 SHOW, HIDE</h2>
+        <form action="" class="name-form">
+          <div class="chkbox-content">
+            <label for="agree">
+              <input type="checkbox" id="agree" name="chk-agree">동의
+            </label>
+          </div>
+          <div class="agree-result">
+            <div class="agree-result__inner">
+              체크박스 체크 후 콘텐츠 SHOW
+            </div>
+          </div>
+        </form>
+        <h2 class="sub-title">3. 탭 안에 탭</h2>
       </div>
     </div>
   </div>
@@ -111,6 +133,14 @@
         $("#" + tab_id).addClass('on');
       })
 
+      $("input[name=chk-agree]").change(function(){
+        if($(this).is(":checked")){
+          $('.agree-result').show()
+        }
+        else{
+          $('.agree-result').hide()
+        }
+    });
     })
   </script>
 </body>
