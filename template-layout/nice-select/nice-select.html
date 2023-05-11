@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nice Select 표준화</title>
+  <!-- jQuery CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <!-- NiceSelect -->
+  <script src="./js/nice-select/js/jquery.js"></script>
+  <script src="./js/nice-select/js/jquery.nice-select.js"></script>
+  <link rel="stylesheet" href="./js/nice-select/css/nice-select.css">
+  <style>
+    /* reset.css */
+    * {
+      box-sizing: border-box;
+      margin: 0; padding: 0;
+    }
+
+    /* ----- 공통 ------ */
+
+    .wrap{width:100%; max-width: 1200px; margin: 0 auto; padding-top: 50px;}
+    .title{font-size: 30px; margin-bottom: 30px; text-align: center; padding: 30px 0; border-bottom: 2px solid royalblue;}
+    .sub-title{font-size: 18px; margin-top: 30px; margin-bottom: 15px; color: darkblue;}
+
+    /* ---- Nice Select Custom ---- */
+    select {
+      display: none;
+    }
+
+    .nice-select {
+      width: 180px !important;
+      height: 32px !important;
+      line-height: 32px !important;
+      float: none !important;
+      display: inline-block !important;
+      border: 1px solid #c9c9c9 !important;
+    }
+
+    .nice-select .list {
+      width: 180px;
+    }
+
+    .nice-select:active,
+    .nice-select.open,
+    .nice-select:focus {
+      border-color: #25387B !important;
+    }
+
+    .nice-select .option {
+      border-bottom: 1px solid #ddd;
+      height: 30px !important;
+      min-height: 30px;
+      line-height: 30px !important;
+    }
+
+    .nice-select .option:last-child {
+      border-bottom: none;
+    }
+
+    .nice-select .option.selected {
+      font-weight: normal !important;
+    }
+
+    .nice-select:after {
+      border-bottom: 2px solid #25387B;
+      border-right: 2px solid #25387B;
+    }
+
+  </style>
+</head>
+<body>
+  <!-- #### 조정원 사원 #### -->
+  <div class="wrap">
+    <h1 class="title">nice-select 가이드</h1>
+    <div class="container">
+      <select id="select" class="custom-select">
+        <option value="0">선택</option>
+        <option value="1">옵션1</option>
+        <option value="2">옵션2</option>
+      </select>
+    </div>
+  </div>
+
+  <script>
+    $('.custom-select').niceSelect();
+
+    // select option 변경 이벤트 후 처리 (개발)
+    // $('.custom-select').niceSelect('update');
+  </script>
+</body>
+</html>
