@@ -161,11 +161,25 @@
     }
 
     /* 모바일 메뉴 */
-    .btn_menu {
+    .mo_show {
       display: none;
     }
 
-    .btn-close {
+    .btn-mo__open {
+      position: fixed;
+      right: 20px;
+      top: 20px;
+      float: right;
+      display: block;
+      width: 20px;
+      height: 20px;
+      background-color: transparent;
+      border: none;
+      background: url(./img/icon_menu.svg) no-repeat center center / cover;
+      cursor: pointer;
+    }
+
+    .btn-mo__close {
       display: inline-block;
       width: 16px;
       height: 16px;
@@ -202,7 +216,7 @@
       position: relative;
     }
 
-    .m-nav__header__wrap {
+    .mobile__logo__wrap {
       width: inherit;
       height: inherit;
       display: flex;
@@ -210,18 +224,18 @@
       align-items: center;
     }
 
-    .mobile-nav__logo {
+    .mobile__logo {
       width: 110px;
       height: 16px;
     }
 
-    .mobile-nav__logo img{
+    .mobile__logo img{
       width: inherit;
       height: inherit;
       object-fit: contain;
     }
 
-    .mobile-nav__header .btn-close {
+    .mobile-nav__header .btn-mo__close {
       position: absolute;
       top: 50%;
       right: 10px;
@@ -255,7 +269,7 @@
       position: relative;
     }
 
-    .mobile__gnb>li>a>span.sub-arrow:after {
+    .mobile__gnb>li>a>span.ex_submenu:after {
       content:'';
       position: absolute;
       display: inline-block;
@@ -268,7 +282,7 @@
       background: url(./img/icon_chevron_bottom.png) no-repeat center center / contain;
     }
 
-    .mobile__gnb>li>a>span.sub-arrow.active:after {
+    .mobile__gnb>li>a>span.ex_submenu.active:after {
       transform: translateY(-50%) rotate(-180deg);
     }
 
@@ -276,16 +290,16 @@
       border-bottom: none;
     }
 
-    .mobile__gnb>li>.sub-menu {
+    .mobile__gnb>li>.mobile__sub-menu {
       display: none;
     }
 
-    .mobile__gnb>li>.sub-menu>li {
+    .mobile__gnb>li>.mobile__sub-menu>li {
       height: 40px;
       background-color: #F5F5F5;
     }
 
-    .mobile__gnb>li>.sub-menu>li>a {
+    .mobile__gnb>li>.mobile__sub-menu>li>a {
       display: inline-block;
       width: 100%;
       height: 40px;
@@ -295,26 +309,16 @@
       font-weight: 500;
     }
 
-    .mobile__gnb>li>.sub-menu>li>a.active {
+    .mobile__gnb>li>.mobile__sub-menu>li>a.active {
       color: var(--color-navy);
     }
 
+    /* Mobile */
     @media screen and ( max-width:768px ) {
-      .btn_menu {
-        position: fixed;
-        right: 20px;
-        top: 20px;
-        float: right;
+      .mo_show {
         display: block;
-        width: 20px;
-        height: 20px;
-        background-color: transparent;
-        border: none;
-        background: url(./img/icon_menu.svg) no-repeat center center / cover;
-        cursor: pointer;
       }
     }
-    
   </style>
 </head>
 <body>
@@ -426,44 +430,49 @@
         </ul>
       </div>
     </div>
-    <h1 class="title">모바일 메뉴 (모바일 해상도에서 확인 가능)</h1>
+    <h1 class="title">모바일 메뉴 퍼블리싱 가이드 (모바일 해상도에서 확인 가능)</h1>
     <div class="container">
       <div class="content">
-        <div class="mobile-menu">
-          <button type="button" class="btn_menu"></button>
+        <!-- 헤더에 들어갈 영역(모바일 환경에서만 보이는 영역) -->
+        <!-- .mo_show : 모바일에서만 보임 -->
+        <div class="mo_show">
+          <button type="button" class="btn-mo__open"></button>
         </div>
+        <!-- 모바일에서만 보이는 모바일 메뉴 -->
         <nav id="mobile-nav" class="mobile-nav">
           <div class="mobile-nav__inner">
             <div class="mobile-nav__header">
-              <div class="m-nav__header__wrap">
-                <div class="mobile-nav__logo">
+              <div class="mobile__logo__wrap">
+                <div class="mobile__logo">
                   <img src="./img/logo.png" alt="로고">
                 </div>
               </div>
-              <button type="button" class="btn-close">
+              <button type="button" class="btn-mo__close">
               </button>
             </div>
-            <ul class="mobile__gnb">
-              <li><a href="#"><span>처방 한의원 찾기</span></a></li>
-              <li>
-                <a><span class="sub-arrow">감비정D 소개</span></a>
-                <ul class="sub-menu">
-                  <li><a href="#">감비정D 소개</a></li>
-                  <li><a href="#">체중 감량 예측 프로그램</a></li>
-                </ul>
-              </li>
-              <li><a href="#"><span>다이어트 서포트 제품</span></a></li>
-              <li>
-                <a><span class="sub-arrow">복용법</span></a>
-                <ul class="sub-menu">
-                  <li><a href="#">다이어트 가이드</a></li>
-                  <li><a href="#">가이드 영상 버전</a></li>
-                </ul>
-              </li>
-              <li><a href="#"><span>탕전실 소개</span></a></li>
-            </ul>
+            <div class="mobile-nav__content">
+              <ul class="mobile__gnb">
+                <li><a href="#"><span>처방 한의원 찾기</span></a></li>
+                <li>
+                  <!-- 2depth 메뉴가 있는 경우 클래스 추가 -->
+                  <a><span class="ex_submenu">감비정D 소개</span></a>
+                  <ul class="mobile__sub-menu">
+                    <li><a href="#">감비정D 소개</a></li>
+                    <li><a href="#">체중 감량 예측 프로그램</a></li>
+                  </ul>
+                </li>
+                <li><a href="#"><span>다이어트 서포트 제품</span></a></li>
+                <li>
+                  <a><span class="ex_submenu">복용법</span></a>
+                  <ul class="mobile__sub-menu">
+                    <li><a href="#">다이어트 가이드</a></li>
+                    <li><a href="#">가이드 영상 버전</a></li>
+                  </ul>
+                </li>
+                <li><a href="#"><span>탕전실 소개</span></a></li>
+              </ul>
+            </div>
           </div>
-
         </nav>
       </div>
     </div>
@@ -484,7 +493,7 @@
       })
 
       // mobile menu
-      $('.btn_menu').click(function () {
+      $('.btn-mo__open').click(function () {
         $('.mobile-nav').show()
         $('.mobile-nav__inner').addClass('active')
       })
@@ -492,8 +501,8 @@
       $('ul.mobile__gnb li > a').click(function () {
         $('.mobile__gnb > li >a > span').not($(this).children('span')).removeClass('active')
         $(this).children('span').toggleClass('active')
-        $('ul.sub-menu').not($(this).siblings()).slideUp()
-        $(this).siblings('ul.sub-menu').slideToggle()
+        $('ul.mobile__sub-menu').not($(this).siblings()).slideUp()
+        $(this).siblings('ul.mobile__sub-menu').slideToggle()
       })
 
       var mobileNav = document.getElementById("mobile-nav");
@@ -504,7 +513,7 @@
         }
       };
 
-      $('.mobile-nav__header .btn-close').click(function () {
+      $('.mobile-nav__header .btn-mo__close').click(function () {
         $(".mobile-nav").hide();
         $(".mobile-nav__inner").removeClass("active");
       })
