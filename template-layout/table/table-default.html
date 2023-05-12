@@ -19,7 +19,7 @@
 
     a{text-decoration: none; color: inherit;}
     li{list-style: none;}
-    .blind{
+    .screen--out{
         width: 1px;
         height: 1px;
         position: absolute;
@@ -28,7 +28,7 @@
     }
 
     /* 기본 */
-    .c-table{width: 600px; margin-bottom: 30px; padding-bottom: 30px;}
+    .c-table{width: 100%; max-width: 600px; margin-bottom: 30px; padding-bottom: 30px;}
     table{border-collapse: collapse; text-align: center; width: 100%;}
     table tr{height: 30px;}
     table th, td{border: 1px solid #707070;}
@@ -40,9 +40,9 @@
     .c-table__bottom {position: relative; margin-top: 15px;}
     .pagination{display: flex; justify-content: center; align-items: center;}
     .pagination .page-list{display: flex; justify-content: center; align-items: center; gap: 0 20px; margin: 0 20px;}
-    .pagination .page-list__link{width: 20px; height:20px; font-size: 12px;}
-    .pagination .page-list__link>a{display: block; text-align: center; line-height: 20px;}
-    .pagination .page-list__link.on{background: #efefef; outline: 1px solid #707070;}
+    .pagination .page__link{width: 20px; height:20px; font-size: 12px;}
+    .pagination .page__link>a{display: block; text-align: center; line-height: 20px;}
+    .pagination .page__link.on{background: #efefef; outline: 1px solid #707070;}
     .button__wrap{
         position: absolute;
         right: 0;
@@ -81,19 +81,57 @@
     .c-table--form table td .c-table__button{width: 50px; height: 25px; margin-left: 15px;}
     .c-table--form table td .c-table__textarea{ width:100%; height: 100px; resize: none;}
 
+    @media (max-width: 1200px) {
+        .wrap{width:calc(100% - 30px);}
+    }
+    @media (max-width: 768px) {
+        /* 표 순서대로 설정한 col의 비율을 유지하기 위함 */
+        .c-table--flex table col:nth-child(3),
+        .c-table--flex table col:nth-child(4){
+            display: none;
+        }
+        .c-table--flex table thead th:nth-child(3),
+        .c-table--flex table tbody td:nth-child(3),
+        .c-table--flex table thead th:nth-child(4),
+        .c-table--flex table tbody td:nth-child(4){
+            display: none;
+
+            /* 
+                보이지 않는 셀의 텍스트가 아래로 밀리는 경우
+                테이블의 레이아웃이 깨지는 경우가 있기 때문에
+                폰트 사이즈를 0px로 처리함
+            */
+            font-size: 0px;
+        }
+        .c-table--flex table col:nth-child(1){
+            width: 10% !important;
+        }
+        .c-table--flex table col:nth-child(2),
+        .c-table--flex table col:nth-child(5){
+            width: 45% !important;
+        }
+
+        /* display:none 처리한 요소를 임의로 보이게 하고 싶을 때는 */
+        /* .c-table--flex table col:nth-child(n){display: table-column;} */
+        /* .c-table--flex table thead th:nth-child(n){display: table-cell; font-size:14px;} */
+        /* .c-table--flex table tbody td:nth-child(n){display: table-cell; font-size:14px;} */
+    }
+
 </style>
 <body>
     <div class="wrap">
         <h1 class="title">table 퍼블리싱 가이드</h1>
         <h2 class="sub-title">1. 기본 (c-table)</h2>
-        <div class="c-table">
+        <!-- 모바일에서 No, 이름, 취미만 노출하는 반응형의 예시 -->
+        <div class="c-table c-table--flex">
             <table>
                 <!-- caption태그를 실제로 화면상에 거의 표시하진 않으나, 
                     웹 접근성을 준수하기 위해 표에 대한 설명을 작성하고 숨김처리함 -->
-                <caption class="blind">상품 판매량</caption>
+                <caption class="screen--out">상품 판매량</caption>
                 <colgroup>
-                    <col style="width:16%">
+                    <col style="width:5%">
                     <col style="width:21%">
+                    <col style="width:16%">
                     <col style="width:21%">
                     <col style="width:21%">
                     <col style="width:21%">
@@ -101,41 +139,41 @@
                 <thead>
                     <tr>
                         <!-- scope: th 항목의 방향을 설정 (웹 접근성 준수) -->
-                        <th scope="row">-</th>
-                        <th scope="row">A제품</th>
-                        <th scope="row">B제품</th>
-                        <th scope="row">C제품</th>
-                        <th scope="row">D제품</th>
+                        <th scope="row">No</th>
+                        <th scope="row">이름</th>
+                        <th scope="row">나이</th>
+                        <th scope="row">지역</th>
+                        <th scope="row">취미</th>
                     </tr>
                 </thead>
-                <!-- tfoot까지는 사용하는 경우가 드물지만, 사용하게 된다면 thead 아래에 마크업해준다
-                    (사용자 입장에서 결과정보를 먼저 제공받을 수 있도록 함) -->
-                <tfoot>
-                    <tr>
-                        <th scope="col">재고량</th>
-                        <td>100</td>
-                        <td colspan="2">50</td>
-                        <td>0</td>
-                    </tr>
-                </tfoot>
                 <tbody>
                     <tr>
-                        <th scope="col">제작량</th>
-                        <td>500</td>
-                        <td>600</td>
-                        <td>450</td>
-                        <td rowspan="2">
-                            <div class="td__div">
-                                <p>500</p>
-                                <button type="button">수량보기</button>
-                            </div>
-                        </td>
+                        <td>1</td>
+                        <td>가나다</td>
+                        <td>30</td>
+                        <td>경기</td>
+                        <td>음악감상</td>
                     </tr>
                     <tr>
-                        <th scope="col">판매량</th>
-                        <td>400</td>
-                        <td>550</td>
-                        <td>400</td>
+                        <td>2</td>
+                        <td>라마바</td>
+                        <td>25</td>
+                        <td>전북</td>
+                        <td>독서</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>사아자</td>
+                        <td>37</td>
+                        <td>경남</td>
+                        <td>등산</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>차카타</td>
+                        <td>29</td>
+                        <td>경남</td>
+                        <td>쇼핑</td>
                     </tr>
                 </tbody>
     
@@ -159,44 +197,52 @@
                 </div>
             </div>
             <table>
-                <caption class="blind">상품 판매량</caption>
+                <caption class="screen--out">상품 판매량</caption>
                 <colgroup>
-                    <col style="width:16%">
-                    <col style="width:21%">
-                    <col style="width:21%">
-                    <col style="width:21%">
-                    <col style="width:21%">
+                    <col style="width:15%">
+                    <col style="width:25%">
+                    <col style="width:25%">
+                    <col style="width:25%">
                 </colgroup>
                 <thead>
                     <tr>
                         <th scope="row">-</th>
-                        <th scope="row">A제품</th>
-                        <th scope="row">B제품</th>
-                        <th scope="row">C제품</th>
-                        <th scope="row">D제품</th>
+                        <th scope="row">제작량</th>
+                        <th scope="row">판매량</th>
+                        <th scope="row">재고량</th>
                     </tr>
                 </thead>
+                <!-- tfoot까지는 사용하는 경우가 드물지만, 사용하게 된다면 thead 아래에 마크업해준다
+                    (사용자 입장에서 결과정보를 먼저 제공받을 수 있도록 함) -->
                 <tfoot>
                     <tr>
-                        <th scope="col">재고량</th>
-                        <td>100</td>
-                        <td colspan="2">50</td>
-                        <td>0</td>
+                        <th scope="col">전체</th>
+                        <td>400</td>
+                        <td>500</td>
+                        <td>500</td>
                     </tr>
                 </tfoot>
                 <tbody>
                     <tr>
-                        <th scope="col">제작량</th>
+                        <th scope="col">A제품</th>
                         <td>500</td>
                         <td>600</td>
-                        <td>450</td>
-                        <td rowspan="2">500</td>
+                        <td rowspan="2">
+                            <div class="td__div">
+                                <p>500</p>
+                                <button type="button">수량보기</button>
+                            </div>
+                        </td>
                     </tr>
                     <tr>
-                        <th scope="col">판매량</th>
-                        <td>400</td>
+                        <th scope="col">B제품</th>
+                        <td>500</td>
+                        <td>600</td>
+                    </tr>
+                    <tr>
+                        <th scope="col">C제품</th>
+                        <td colspan="2">400</td>
                         <td>550</td>
-                        <td>400</td>
                     </tr>
                 </tbody>
     
@@ -208,19 +254,19 @@
                 <div class="pagination">
                     <a href="#" class="page__btn btn--prev">&#60;</a>
                     <ul class="page-list">
-                        <li class="page-list__link on">
+                        <li class="page__link on">
                             <a href="#">1</a>
                         </li>
-                        <li class="page-list__link">
+                        <li class="page__link">
                             <a href="#">2</a>
                         </li>
-                        <li class="page-list__link">
+                        <li class="page__link">
                             <a href="#">3</a>
                         </li>
-                        <li class="page-list__link">
+                        <li class="page__link">
                             <a href="#">4</a>
                         </li>
-                        <li class="page-list__link">
+                        <li class="page__link">
                             <a href="#">5</a>
                         </li>
                     </ul>
@@ -240,7 +286,7 @@
         <div class="c-table c-table--scroll">
             <div class="scroll__wrap">
                 <table>
-                    <caption class="blind">상품 판매량</caption>
+                    <caption class="screen--out">상품 판매량</caption>
                     <colgroup>
                         <col style="width:16%">
                         <col style="width:21%">
@@ -349,7 +395,7 @@
         <div class="c-table c-table--scroll-row">
             <div class="scroll__wrap">
                 <table>
-                    <caption class="blind">상품 판매량</caption>
+                    <caption class="screen--out">상품 판매량</caption>
                     <colgroup>
                         <col style="width:10%">
                         <col style="width:11.25%">
@@ -454,7 +500,7 @@
         <div class="c-table c-table--form">
             <form>
                 <table>
-                    <caption class="blind">상품 판매량</caption>
+                    <caption class="screen--out">상품 판매량</caption>
                     <colgroup>
                         <col style="width:20%">
                         <col style="width:80%">
@@ -521,7 +567,7 @@
     </div>
 
     <script>
-        const $pageNum = document.querySelectorAll(".page-list__link");
+        const $pageNum = document.querySelectorAll(".page__link");
         
         for(let i=0; i<$pageNum.length; i++){
             $pageNum[i].addEventListener('click',function(){
