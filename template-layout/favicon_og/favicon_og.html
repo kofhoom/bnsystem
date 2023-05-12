@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ###open gragh### -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:site_name" content="og_sample">
+    <meta property="og:title" content="og_sample">
+    <meta property="og:image" content="./img/og_logo.png">
+    <meta property="og:description" content="opengraph sample web page"/>
+    <!-- ###favicon### -->
+    <!-- ico 파일 사용 -->
+    <link rel="shortcut icon" sizes="16x16" href="./img/favicon_16.ico">
+    <link rel="shortcut icon" sizes="32x32" href="./img/favicon_32.ico">
+    <link rel="shortcut icon" href="data:image/x-icon" type="image/x-icon">
+    <!-- png 파일 사용 -->
+    <!-- <link rel="icon" sizes="16x16" href="./img/favicon_16.png">
+    <link rel="icon" sizes="32x32" href="./img/favicon_32.png">
+    <link rel="icon" href="data:image/png" type="image/png"> -->
+    <title>favicon&og</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        li{list-style-position: inside; line-height: 2; text-indent: -20px;}
+        ol{margin-bottom: 50px;}
+        /* ----- 공통 ------ */
+
+        .wrap{width:100%; max-width: 1200px; margin: 0 auto; padding-top: 50px;}
+        .title{font-size: 30px; margin-bottom: 30px; text-align: center; padding: 30px 0; border-bottom: 2px solid royalblue;}
+        .sub-title{font-size: 18px; margin-top: 30px; margin-bottom: 15px; color: darkblue;}
+
+        /* ---------- */
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <h1 class="title">favicon&og 퍼블리싱 가이드</h1>
+        <h2 class="sub-title">1. Favicon</h2>
+        <ol>
+            <li>favicon에 사용되는 img 파일은 ico 또는 png </li>
+            <li>ico 파일 사용시에는 link rel에 "shortcut" 추가</li>
+            <li>16x16: 브라우저용 / 32x32: 작업표시줄 단축키용 / 48x48: 윈도우즈 사이트 아이콘 /<br> 96x96: 데스크탑 단축키용 / 180x180: 애플 터치용</li>
+            <li>최소한 준비해야할 사이즈는 16x16, 32x32</li>
+            <li>png 파일의 경우에는 필요한 sizes를 반드시 선언한다</li>
+        </ol>
+
+        <hr>
+
+        <h2 class="sub-title">2. Open Gragh</h2>
+        <ol>
+            <li>&#60;meta property="og:type" content="website(기본값)"&#62;</li>
+            <li>&#60;meta property="og:url" content="사이트 표준 url"&#62;</li>
+            <li>&#60;meta property="og:site_name" content="사이트 대표 이름"&#62;</li>
+            <li>&#60;meta property="og:title" content="콘텐츠 제목"&#62;</li>
+            <li>&#60;meta property="og:image" content="사이트 대표 로고(1.9:1 비율 이미지 권장)"&#62;</li>
+            <li>&#60;meta property="og:description" content="사이트 설명"&#62;</li>
+        </ol>
+    </div>
+</body>
+</html>
