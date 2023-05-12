@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#프로젝트명 스타일 가이드</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <!-- jQuery CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
+</head>
+<body>
+    <div class="wrap">
+        <header id="header">
+            <h1 class="project-title">#프로젝트명 스타일 가이드</h1>
+        </header>
+        <main id="contents">
+            <section class="sec-color">
+                <h2 class="section-title">Color</h2>
+                <ul class="color__list">
+                    <li class="color__item">
+                        <div class="color-box color--main"></div>
+                        <p class="color-code">#5f9ea0</p>
+                        <p class="color-name">--color-main</p>
+                    </li>
+                    <li class="color__item">
+                        <div class="color-box color--sub"></div>
+                        <p class="color-code">#faebd7</p>
+                        <p class="color-name">--color-sub</p>
+                    </li>
+                    <li class="color__item">
+                        <div class="color-box color--text-main"></div>
+                        <p class="color-code">#181818</p>
+                        <p class="color-name">--color--text-main</p>
+                    </li>
+                    <li class="color__item">
+                        <div class="color-box color--text-sub"></div>
+                        <p class="color-code">#707070</p>
+                        <p class="color-name">--color--text-sub</p>
+                    </li>
+                </ul>
+            </section>
+            <section class="sec-button">
+                <h2 class="section-title">Button</h2>
+                <div class="style-type">
+                    <h3 class="type-title">btn-typeA (w:150px, h:40px, font-size:14px)</h3>
+                    <div class="type-item">
+                        <p class="type-item__name">btn-typeA.color--main</p>
+                        <button type="button" class="btn-typeA btn-color--main">button</button>
+                    </div>
+                    <div class="type-item">
+                        <p class="type-item__name">btn-typeA.color--sub</p>
+                        <button type="button" class="btn-typeA btn-color--sub">button</button>
+                    </div>
+                </div>
+                <div class="style-type">
+                    <h3 class="type-title">btn-typeA.small (w:60px, h:30px, font-size:12px)</h3>
+                    <div class="type-item">
+                        <p class="type-item__name">btn-typeA.small.color--main</p>
+                        <button type="button" class="btn-typeA small btn-color--main">button</button>
+                    </div>
+                    <div class="type-item">
+                        <p class="type-item__name">btn-typeA.small.color--sub</p>
+                        <button type="button" class="btn-typeA small btn-color--sub">button</button>
+                    </div>
+                </div>
+                <div class="style-type">
+                    <h3 class="type-title">btn-typeB (w:180px, h:40px, font-size:14px)</h3>
+                    <div class="type-item">
+                        <p class="type-item__name">btn-typeB.btn-color--main</p>
+                        <button type="button" class="btn-typeB btn-color--main">button</button>
+                    </div>
+                    <div class="type-item">
+                        <p class="type-item__name">btn-typeB.btn-color--sub</p>
+                        <button type="button" class="btn-typeB btn-color--sub">button</button>
+                    </div>
+                </div>
+            </section>
+            <section class="sec-input">
+                <h2 class="section-title">Input:text</h2>
+                <div class="style-type">
+                    <h3 class="type-title">c-input</h3>
+                    <div class="type-item">
+                        <p class="type-item__name">c-input</p>
+                        <input type="text" class="c-input" placeholder="내용을 입력하세요.">
+                    </div>
+                    <div class="type-item">
+                        <p class="type-item__name">c-input--count</p>
+                        <div class="c-input__wrap">
+                            <input type="number" class="c-input c-input--count">
+                            <span>명</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="style-type">
+                    <h3 class="type-title">c-textarea</h3>
+                    <textarea class="c-textarea" cols="30" rows="10"></textarea>
+                </div>
+            </section>
+            <section class="sec-checkbox">
+                <h2 class="section-title">Checkbox/Radio</h2>
+                <div class="style-type">
+                    <h3 class="type-title">checkbox</h3>
+                    <div class="checkbox__wrap">
+                        <label class="checkbox__label">
+                            <input type="checkbox" class="c-checkbox checkbox--all">
+                            <span>전체</span>
+                        </label>
+                        <label class="checkbox__label">
+                            <input type="checkbox" class="c-checkbox checkbox--chk">
+                            <span> A항목</span>
+                        </label>
+                        <label class="checkbox__label">
+                            <input type="checkbox" class="c-checkbox checkbox--chk">
+                            <span>B항목</span>
+                        </label>
+                        <label class="checkbox__label">
+                            <input type="checkbox" class="c-checkbox checkbox--chk">
+                            <span>C항목</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="style-type">
+                    <h3 class="type-title">radio</h3>
+                    <div class="radio__wrap">
+                        <label class="radio__label">
+                            <input type="radio" name="check-1" class="c-radio" checked>
+                            <span>A항목</span>
+                        </label>
+                        <label class="radio__label">
+                            <input type="radio" name="check-1" class="c-radio">
+                            <span>B항목</span>
+                        </label>
+                        <label class="radio__label">
+                            <input type="radio" name="check-1" class="c-radio">
+                            <span>C항목</span>
+                        </label>
+                        <label class="radio__label">
+                            <input type="radio" name="check-1" class="c-radio">
+                            <span>D항목</span>
+                        </label>
+                    </div>
+                </div>
+            </section>
+            <section class="sec-select">
+                <h2 class="section-title">Select(+scroll)</h2>
+                <select class="c-select">
+                    <option value="0">A</option>
+                    <option value="1">B</option>
+                    <option value="2">C</option>
+                    <option value="2">E</option>
+                    <option value="2">F</option>
+                    <option value="2">G</option>
+                </select>
+            </section>
+            <section class="sec-table">
+                <h2 class="section-title">Table</h2>
+                <div class="style-type">
+                    <h3 class="type-title">common table</h3>
+                    <div class="c-table">
+                        <table>
+                            <caption class="screen--out">상품 판매량</caption>
+                            <colgroup>
+                                <col style="width:16%">
+                                <col style="width:21%">
+                                <col style="width:21%">
+                                <col style="width:21%">
+                                <col style="width:21%">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th scope="row">-</th>
+                                    <th scope="row">A제품</th>
+                                    <th scope="row">B제품</th>
+                                    <th scope="row">C제품</th>
+                                    <th scope="row">D제품</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th scope="col">재고량</th>
+                                    <td>100</td>
+                                    <td colspan="2">50</td>
+                                    <td>0</td>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                <tr>
+                                    <th scope="col">제작량</th>
+                                    <td>500</td>
+                                    <td>600</td>
+                                    <td>450</td>
+                                    <td rowspan="2">
+                                        <div class="td__div">
+                                            <p>500</p>
+                                            <button type="button" class="btn-typeA small btn-color--main">수량보기</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="col">판매량</th>
+                                    <td>400</td>
+                                    <td>550</td>
+                                    <td>400</td>
+                                </tr>
+                            </tbody>
+                
+                        </table>
+                
+                    </div>
+                </div>
+                <div class="style-type">
+                    <h3 class="type-title">column table</h3>
+                    <div class="c-table c-table--form">
+                        <form>
+                            <table>
+                                <caption class="screen--out">상품 판매량</caption>
+                                <colgroup>
+                                    <col style="width:20%">
+                                    <col style="width:80%">
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="col">이름</th>
+                                        <td>
+                                            <div class="td__div">
+                                                <input type="text" class="c-input">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="col">성별</th>
+                                        <td>
+                                            <div class="td__div">
+                                                <label class="checkbox__label c-table__label">
+                                                    <input type="radio" class="c-radio" name="gender" checked>
+                                                    <span>남성</span>
+                                                </label>
+                                                <label class="checkbox__label">
+                                                    <input type="radio" class="c-radio" name="gender">
+                                                    <span>여성</span>
+                                                </label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="col">취미</th>
+                                        <td>
+                                            <div class="td__div">
+                                                <select class="c-select">
+                                                    <option value="0">음악감상</option>
+                                                    <option value="1">독서</option>
+                                                    <option value="2">조깅</option>
+                                                    <option value="3">게임</option>
+                                                    <option value="4">쇼핑</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="col">지역</th>
+                                        <td>
+                                            <div class="td__div">
+                                                <input type="text" class="c-input">
+                                                <button type="button" class="btn-typeA small btn-color--main">검색</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="col">메모</th>
+                                        <td>
+                                            <div class="td__div">
+                                                <textarea class="c-textarea"></textarea>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </section>
+            <section class="sec-pagination">
+                <h2 class="section-title">Pagination</h2>
+                <div class="pagination">
+                    <a href="#" class="page__btn btn--prev">&#60;</a>
+                    <ul class="page-list">
+                        <li class="page-list__link on">
+                            <a href="#">1</a>
+                        </li>
+                        <li class="page-list__link">
+                            <a href="#">2</a>
+                        </li>
+                        <li class="page-list__link">
+                            <a href="#">3</a>
+                        </li>
+                        <li class="page-list__link">
+                            <a href="#">4</a>
+                        </li>
+                        <li class="page-list__link">
+                            <a href="#">5</a>
+                        </li>
+                    </ul>
+                    <a href="#" class="page__btn btn--next">&#62;</a>
+                </div>
+            </section>
+            <section class="sec-modal">
+                <h2 class="section-title">Modal</h2>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        $('.c-select').niceSelect();
+      </script>
+</body>
+</html>
