@@ -13,7 +13,7 @@
   <div class="wrap">
     <h1 class="title">footer 퍼블리싱 가이드</h1>
     <h2 class="sub-title">1. 기본형</h2>
-    <footer class="footer footer--01">
+    <footer class="footer footer-01">
       <div class="footer__inner">
        <section class="logo__section">
         <!-- logo__작명 -->
@@ -89,8 +89,8 @@
 
     <!-- 내용 추가시 hr 태그로 구분해주세요 -->
     <hr>
-    <h2 class="sub-title">2. 기본형</h2>
-    <footer class="footer footer--02">
+    <h2 class="sub-title">2. 관련사이트 셀렉트 박스</h2>
+    <footer class="footer footer-02">
       <div class="footer__inner">
         <section class="footer__top">
           <div class="logo__company">
@@ -110,7 +110,7 @@
                     <dd>홍길동</dd>
                   </dl>
                 </div>
-                <div class="commpany-info__item">
+                <div class="company-info__item">
                   <dl class="address">
                     <dt>주소: </dt>
                     <dd>서울시 노원구 화랑로 419-7, 3층</dd>
@@ -136,6 +136,84 @@
             <li class="service__item"><a href="" target="_blank" class="service__link link__blog">기업블로그</a></li>
           </ul>
           <!-- 감싸주는 항목에서는 유동성 있게 wrap, container, area, box 등 사용 -->
+          <div class="family-site">
+            <label class="screen--out" for="selectbox">관련사이트</label>
+            <select class="family-site__list" id="selectbox" title="선택 구분">
+              <option selected="selected">관련사이트</option>
+              <option class="family-site__item">선택1</option>
+              <option class="family-site__item">선택2</option>
+              <option class="family-site__item">선택3</option>
+              <option class="family-site__item">선택4</option>
+            </select>
+          </div>
+        </section>
+      </div>
+    </footer>
+
+    <hr>
+    <h2 class="sub-title">3. Global Navigation Bar</h2>
+    <footer class="footer footer-03">
+      <div class="footer__inner">
+        <section class="footer__top">
+            <h2 class="screen--out">메인 메뉴</h2>
+            <ul class="footer-nav__list">
+              <li class="footer-nav__title"><strong><a href="">서비스 소개</a></strong>
+                <ul>
+                  <li><a href="">앱 / 웹 개발</a></li>
+                  <li><a href="">IT창업컨설팅</a></li>
+                  <li><a href="">긴급 납기 맞춤</a></li>
+                </ul>
+              </li>
+              <li class="footer-nav__title"><strong><a href="">포트폴리오</a></strong>
+                <ul>
+                  <li><a href="">포트폴리오 소개</a></li>
+                  <li><a href="">시안</a></li>
+                </ul>
+              </li>
+              <li class="footer-nav__title"><strong><a href="">회사소개</a></strong></li>
+              <li class="footer-nav__title"><strong><a href="">무료상담신청</a></strong>
+                <ul>
+                  <li><a href="">FAQ</a></li>
+                  <li><a href="">문의하기</a></li>
+                </ul>
+              </li>
+              <li class="footer-nav__other"><strong class="screen--out"><a href="">서비스 이용정보</a></strong>
+                <ul>
+                  <li class="nav__policy"><a href="">개인정보처리방침</a></li>
+                  <li class="nav__emailCollect"><a href="">이메일무단수집거부</a></li>
+                  <li class="nav__terms"><a href="">이용약관</a></li>
+                </ul>
+              </li>
+            </ul>
+        </section>
+        <section class="footer__bottom">
+          <div class="company-info">
+            <address class="company-info__list">
+              <div class="company-info__item company-info__item-01">
+                <dl class="company">
+                  <dt class="screen--out">회사명: </dt>
+                  <dd><strong>주식회사 비엔시스템</strong></dd>
+                </dl>
+                <dl class="ceo">
+                  <dt>대표이사: </dt>
+                  <dd>홍길동</dd>
+                </dl>
+              </div>
+              <div class="company-info__item company-info__item-02">
+                <dl class="address">
+                  <dt>주소: </dt>
+                  <dd>서울시 노원구 화랑로 419-7, 3층</dd>
+                </dl>
+                <dl class="tel">
+                  <dt>대표전화: </dt>
+                  <dd>
+                    <a href="tel:000-0000-0000">000-0000-0000</a>
+                  </dd>
+                </dl>
+              </div>
+            </address>
+            <p class="copyright">©COPYRIGHT ALL RIGHT RESERVED.</p>
+          </div>
           <div class="family-site">
             <label class="screen--out" for="selectbox">관련사이트</label>
             <select class="family-site__list" id="selectbox" title="선택 구분">

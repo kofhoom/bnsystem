@@ -31,14 +31,57 @@ li {
   margin-bottom: 15px;
   color: darkblue;
 }
-
-/* 그냥 Btn */
-
 button {
   outline: none;
+  border-color: transparent;
   background-color: #fff;
   cursor: pointer;
 }
+
+/* Btn default */
+/*  Btn default common */
+.btn-default__box button {
+  border: 2px solid #ccc;
+}
+.btn-default__box .btn-xxl,
+.btn-default__box .btn-xl,
+.btn-default__box .btn-l {
+  font-size: 20px;
+}
+
+.btn-default__box .btn-xxl {
+  width: 200px;
+  height: 40px;
+}
+
+.btn-default__box .btn-xl {
+  width: 150px;
+  height: 30px;
+}
+.btn-default__box .btn-l {
+  width: 135px;
+  height: 25px;
+  font-size: 18px;
+}
+
+.btn-default__box .btn-m {
+  width: 120px;
+}
+
+.btn-default__box .btn-s {
+  width: 100px;
+}
+
+.btn-default__box .btn-xs {
+  width: 80px;
+}
+
+.btn-default__box .btn-xxs {
+  width: 65px;
+  height: 20px;
+}
+
+/* Btn hover */
 
 .btn-box {
   width: 100%;
@@ -67,13 +110,7 @@ button {
 .btn-box_inner .btn-box__btn2 {
   background-size: 400% 100%;
   border: 0px solid transparent;
-  background-image: linear-gradient(
-    to right,
-    #8a90d2,
-    #485563,
-    #2b5876,
-    #4e4376
-  );
+  background-image: linear-gradient(to right, #8a90d2, #485563, #2b5876, #4e4376);
   box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
 }
 
@@ -94,8 +131,7 @@ button {
 }
 
 .btn-box_inner .btn-box__btn3:hover {
-  box-shadow: 200px 0 0 0 rgba(0, 0, 0, 0.25) inset,
-    -200px 0 0 0 rgba(0, 0, 0, 0.25) inset;
+  box-shadow: 200px 0 0 0 rgba(0, 0, 0, 0.25) inset, -200px 0 0 0 rgba(0, 0, 0, 0.25) inset;
   color: #fff;
 }
 
@@ -105,8 +141,7 @@ button {
 }
 
 .btn-box_inner .btn-box__btn4:hover {
-  box-shadow: 0 75px 0 0 rgba(226, 109, 109, 0.909) inset,
-    0 -75px 0 0 rgba(194, 91, 91, 0.951) inset;
+  box-shadow: 0 75px 0 0 rgba(226, 109, 109, 0.909) inset, 0 -75px 0 0 rgba(194, 91, 91, 0.951) inset;
   color: #fff;
   font-weight: bolder;
 }
@@ -124,7 +159,7 @@ button {
 }
 
 .btn-box_inner .btn-box__btn5::before {
-  content: "";
+  content: '';
   width: 0%;
   height: 100%;
   display: block;
@@ -138,7 +173,7 @@ button {
 }
 
 .btn-box_inner .btn-box__btn5::after {
-  content: "";
+  content: '';
   width: 0%;
   height: 100%;
   display: block;
@@ -166,7 +201,7 @@ button {
   width: 230px;
 }
 
-/* 그냥 Btn common */
+/* Btn hover common */
 .btn-box_inner button {
   width: 200px;
 }
@@ -188,14 +223,7 @@ button {
   border: 1px solid transparent;
 }
 
-:is(
-    .btn-box__big,
-    .btn-box__mid,
-    .btn-box__sm,
-    .btn-box__mini,
-    .btn-box__round,
-
-  ) {
+:is(.btn-box__big, .btn-box__mid, .btn-box__sm, .btn-box__mini, .btn-box__round, ) {
   margin-right: 20px;
 }
 
@@ -307,7 +335,7 @@ button {
 }
 
 /* 체크박스 안보이게 */
-.container__toggle-btn .input-checkbox[type="checkbox"] {
+.container__toggle-btn .input-checkbox[type='checkbox'] {
   overflow: hidden;
   position: absolute;
   width: 0;
@@ -320,7 +348,7 @@ button {
 
 /* 스위치 배경 */
 .container__toggle-btn .label-switch::after {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 1px;
@@ -335,7 +363,7 @@ button {
 
 /* 스위치 안쪽 버튼 모양 */
 .container__toggle-btn .label-switch::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 5px;
   left: 10px;
@@ -349,19 +377,15 @@ button {
 }
 
 /* 클릭시 변경되는 동그라미 */
-.container__toggle-btn
-  .input-checkbox[type="checkbox"]:checked
-  + .label-switch::before {
-  content: "";
+.container__toggle-btn .input-checkbox[type='checkbox']:checked + .label-switch::before {
+  content: '';
   transform: translateX(44px);
   background-color: #fff;
   z-index: 1;
   cursor: pointer;
 }
 /* 클릭시 변경되는 배경 */
-.container__toggle-btn
-  .input-checkbox[type="checkbox"]:checked
-  + .label-switch::after {
-  content: "";
+.container__toggle-btn .input-checkbox[type='checkbox']:checked + .label-switch::after {
+  content: '';
   background-color: #ffde66;
 }
