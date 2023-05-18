@@ -9,11 +9,27 @@
   </head>
   <body>
     <div class="wrap">
+      <!-- 버튼에 대한 참고 자료
+        http://regularbold.co.kr/one-button/ -->
+
+      <h1 class="title">Btn 디폴트 퍼블리싱 가이드</h1>
+
+      <div class="btn-default__box">
+        <button type="button" class="btn-xxl">XXL btn</button>
+        <button type="button" class="btn-xl">XL btn</button>
+        <!-- 1이 아니고 엘L입니다! -->
+        <button type="button" class="btn-l">L btn</button>
+        <!-- 디폴트 사이즈 -->
+        <button type="button" class="btn-m">M btn</button>
+        <!-- button 디폴트값 submit -->
+        <button type="button" class="btn-s">S btn</button>
+        <button type="submit" class="btn-xs">XS btn</button>
+        <button type="reset" class="btn-xxs">XXS btn</button>
+      </div>
+
       <h1 class="title">Btn 퍼블리싱 가이드</h1>
       <div class="btn-box">
-        <h2 class="sub-title">
-          1.오른쪽에서 왼쪽으로 들어오는 호버 (btn-box__btn1)
-        </h2>
+        <h2 class="sub-title">1.오른쪽에서 왼쪽으로 들어오는 호버 (btn-box__btn1)</h2>
         <div class="btn-box_inner">
           <button class="btn-box__btn1">Button1</button>
         </div>
@@ -28,18 +44,14 @@
       </div>
       <hr />
       <div class="btn-box">
-        <h2 class="sub-title">
-          3.왼쪽, 오른쪽에서 들어와서 나가는 호버 (btn-box__btn3)
-        </h2>
+        <h2 class="sub-title">3.왼쪽, 오른쪽에서 들어와서 나가는 호버 (btn-box__btn3)</h2>
         <div class="btn-box_inner">
           <button class="btn-box__btn3">Button3</button>
         </div>
       </div>
       <hr />
       <div class="btn-box">
-        <h2 class="sub-title">
-          4. 위,아래 에서 들어와서 나가는 호버 (btn-box__btn4)
-        </h2>
+        <h2 class="sub-title">4. 위,아래 에서 들어와서 나가는 호버 (btn-box__btn4)</h2>
         <div class="btn-box_inner">
           <button class="btn-box__btn4">Button4</button>
         </div>
@@ -72,29 +84,24 @@
       <!-- Input Toggle Btn -->
       <h2 class="sub-title">3. input 둥근 토글 버튼</h2>
       <div class="container__toggle-btn">
-        <input
-          type="checkbox"
-          name="on-off-switch"
-          id="on-off-switch"
-          class="input-checkbox"
-        />
+        <input type="checkbox" name="on-off-switch" id="on-off-switch" class="input-checkbox" />
         <!-- input id와 label for가 연결되어야함 -->
         <label for="on-off-switch" class="label-switch">버튼</label>
       </div>
     </div>
     <!-- Script Source -->
     <script>
-      const toggleCircle = document.querySelector(".area__toggle-btn span");
-      const toggleSquare = document.querySelector(".swich-btn__toggle--square");
+      const toggleCircle = document.querySelector('.area__toggle-btn span');
+      const toggleSquare = document.querySelector('.swich-btn__home--square span');
 
       toggleCircle.onclick = () => {
-        toggleCircle.parentNode.classList.toggle("active");
-        toggleCircle.classList.toggle("active");
+        toggleCircle.parentNode.classList.toggle('active');
+        toggleCircle.classList.toggle('active');
       };
 
       toggleSquare.onclick = () => {
-        toggleSquare.parentNode.classList.toggle("active");
-        toggleSquare.classList.toggle("active");
+        toggleSquare.parentNode.classList.toggle('active');
+        toggleSquare.classList.toggle('active');
       };
     </script>
   </body>
