@@ -16,14 +16,14 @@
 /* color */
  --basic-black: black; 
  --error-warning-red: red; 
- --total-border-color: #aaaaaa;
+ --common-border-color: #aaaaaa;
 
  /* size */
  --label-width: 136px; 
- --total-form-size: 607px;
+ --common-form-size: 607px;
 
- --total-input-wrap-height: 30px; 
- --total-input-size: 171px; 
+ --common-input-wrap-height: 30px; 
+ --common-input-size: 171px; 
  --email-input-size: 300px; 
 
  --email-select-size: 102px; 
@@ -50,43 +50,43 @@
 // 설명 : 공통 레이아웃 요소 정의
 ********************************************************************/
 * { margin: 0; padding: 0; font-family: sans-serif; box-sizing: border-box; }
-.total__form { max-width: var(--total-form-size); width: 100%; margin: 40px auto 0; } 
-.total-input__wrap { display: flex; align-items: center; margin-bottom: 10px; } 
+.common__form { max-width: var(--common-form-size); width: 100%; margin: 40px auto 0; } 
+.common-input__wrap { display: flex; align-items: center; margin-bottom: 10px; } 
 .main__inner { width: calc(100% - 10px); margin: 0 auto; } 
 
 
 /*******************************************************************
 // 설명 : 공통 인풋 요소 정의
 ********************************************************************/
-.input__inner { display: flex; align-items: center; height: var(--total-input-wrap-height); } 
-.input__inner input { height: var(--total-input-wrap-height); } 
-.total__form input:not(input[type='submit']) { padding: 0 10px; max-width: var(--total-input-size); border: 1px solid var(--total-border-color); height: inherit; min-height: 30px;} 
+.input__inner { display: flex; align-items: center; height: var(--common-input-wrap-height); } 
+.input__inner input { height: var(--common-input-wrap-height); } 
+.common__form input:not(input[type='submit']) { padding: 0 10px; max-width: var(--common-input-size); border: 1px solid var(--common-border-color); height: inherit; min-height: 30px;} 
 
 /* 이메일 */
 .input__inner.email input[type='text'] { max-width: 169px; width: 100%; } 
-.input__inner.email .email-type__select { margin: 0 0 0 5px; border: 1px solid var(--total-border-color); font-size: var(--font-size-12); width: var(--email-select-size); } 
+.input__inner.email .email-type__select { margin: 0 0 0 5px; border: 1px solid var(--common-border-color); font-size: var(--font-size-12); width: var(--email-select-size); } 
 .input__inner.email > .dot { margin: 0 5px; } 
 
 /* 체크박스 */
-.input__inner.checkbox > input[type='radio'] { margin: 0 5px; } 
+.input__inner.radio > input[type='radio'] { margin: 0 5px; } 
 
 /* 주소 */
-.total-box__input.address { display: flex; } 
-.total-box__input.address .input__inner { display: grid; width: calc(100% - 100px); grid-template-columns: repeat(3, minmax(calc(33.333% - 23px), auto)); gap: 0px 5px; } 
-.total-box__input.address input { max-width: var(--email-input-size); width: 100%; } 
+.common-box__input.address { display: flex; } 
+.common-box__input.address .input__inner { display: grid; width: calc(100% - 100px); grid-template-columns: repeat(3, minmax(calc(33.333% - 23px), auto)); gap: 0px 23px; } 
+.common-box__input.address input { max-width: var(--email-input-size); width: 100%; } 
 
 
 /*******************************************************************
 // 설명 : 공통 라벨 요소 정의
 ********************************************************************/
-.total__form .total-box__label { max-width: var(--label-width); width: 100%; font-weight: bold; font-size: var(--font-size-14);}
+.common__form .common-box__label { max-width: var(--label-width); width: 100%; font-weight: bold; font-size: var(--font-size-14);}
 
 
 /*******************************************************************
 // 설명 : 공통 셀렉트 요소 정의
 // 참고 : select 높이는 부모 요소 높이를 참조
 ********************************************************************/
-.total__form select {height: inherit; min-height: 30px;}
+.common__form select {height: inherit; min-height: 30px;}
 
 
 /*******************************************************************
@@ -104,26 +104,26 @@
 .input-box__button { height: inherit; } 
 
 /* 파일첨부 버튼 */
-.file_insert_btn { display: flex; align-items: center; justify-content: center; height: inherit; padding: 0 10px; font-size: var(--font-size-12); border: 1px solid var(--total-border-color); cursor: pointer; } 
+.file_insert_btn { display: flex; align-items: center; justify-content: center; height: inherit; padding: 0 10px; font-size: var(--font-size-12); border: 1px solid var(--common-border-color); cursor: pointer; } 
 
 /* 회원가입 버튼 */
 .submit__btn { width: 100%; max-width: 100px; height: 30px; text-align: center; display: block; margin: 25px auto 0; font-size: var(--font-size-12); cursor: pointer; } 
 
 /* 주소찾기 버튼 */
-.address__btn { width: var(--address-search-btn-size); height: var(--total-input-wrap-height); margin-left: 6px; cursor: pointer; } 
+.address__btn { width: var(--address-search-btn-size); height: var(--common-input-wrap-height); margin-left: 6px; cursor: pointer; } 
 
 
 /*******************************************************************
 // 설명 : 반응형 
 ********************************************************************/
 @media (max-width:640px){
- .total-input__wrap { align-items: start; flex-direction: column; margin-bottom: 15px; } 
- .total__form .total-box__label { font-size: 13px; margin-bottom: 5px; } 
+ .common-input__wrap { align-items: start; flex-direction: column; margin-bottom: 15px; } 
+ .common__form .common-box__label { font-size: 13px; margin-bottom: 5px; } 
 
  /*------- 주소 -------*/
- .total-box__input.address { width: 100%; } 
- .total-box__input.address .input__inner { max-width: 395px; width: 100%; height: auto; grid-template-columns: repeat(1, minmax(100%, auto)); } 
- .total-box__input.address .input__inner input { max-width: 100%; margin-bottom: 5px; } 
+ .common-box__input.address { width: 100%; } 
+ .common-box__input.address .input__inner { max-width: 395px; width: 100%; height: auto; grid-template-columns: repeat(1, minmax(100%, auto)); } 
+ .common-box__input.address .input__inner input { max-width: 100%; margin-bottom: 5px; } 
 
  /* 주소찾기 버튼 */
  .address__btn { width: 70px; } 
@@ -147,13 +147,13 @@
 
 ********************************************************************/
  -->
-
-<body class="sign_up">
-  <div class="wrap">
+<body>
+  <div class="wrap sign-up">
     <!-- 대 타이틀 영역 시작 -->
     <h1 class="title">form 퍼블리싱 가이드</h1>
     <!-- 대 타이틀 영역 끝 -->
-    <main class="main__container">
+    <!-- 메인 영역시작-->
+    <main class="main sign__contents">
       <article class="main__inner">
           <!-- 공통 탬플릿 타이틀 영역 시작 -->
           <div class="sign_main_header">
@@ -163,7 +163,7 @@
           <div class="form__wrap">
             <!-- 폼 영역 시작 -->
             <form 
-              class="total__form" 
+              class="common__form" 
               action="/subpage/member/private_join_check.php" 
               enctype="multipart/form-data"
               method="post" 
@@ -172,8 +172,8 @@
               onsubmit="return form_submit();"
             >
               <!-- 아이디 영역 시작-->
-              <div class="total-input__wrap">
-                <div class="total-box__label">
+              <div class="common-input__wrap">
+                <div class="common-box__label">
                   <!-- 라벨 영역 시작 -->
                   <label>
                     <span class="important__star">*</span>
@@ -182,7 +182,7 @@
                   <!-- 라벨 영역 끝 -->
                 </div>
                 <!-- 인풋 영역 시작 -->
-                <div class="total-box__input">
+                <div class="common-box__input">
                   <div class="input__inner">
                     <input 
                       type="text" 
@@ -197,9 +197,9 @@
               </div>
               <!-- 아이디 영역 끝-->
               <!-- 비밀번호 영역 시작-->
-              <div class="total-input__wrap">
+              <div class="common-input__wrap">
                 <!-- 라벨 영역 시작 -->
-                <div class="total-box__label">
+                <div class="common-box__label">
                   <label>
                     <span class="important__star">*</span>
                     비밀번호
@@ -207,7 +207,7 @@
                 </div>
                 <!-- 라벨 영역 끝 -->
                 <!-- 인풋 영역 시작 -->
-                <div class="total-box__input">
+                <div class="common-box__input">
                   <div class="input__inner">
                     <input 
                       type="password" 
@@ -224,9 +224,9 @@
               </div>
               <!-- 비밀번호 영역 끝-->
               <!-- 비밀번호 확인 영역 시작-->
-              <div class="total-input__wrap">
+              <div class="common-input__wrap">
                 <!-- 라벨 영역 시작 -->
-                <div class="total-box__label">
+                <div class="common-box__label">
                   <label>
                     <span class="important__star">*</span>
                     비밀번호 확인
@@ -234,7 +234,7 @@
                 </div>
                 <!-- 라벨 영역 끝 -->
                 <!-- 인풋 영역 시작 -->
-                <div class="total-box__input">
+                <div class="common-box__input">
                   <div class="input__inner">
                     <input 
                       type="password" 
@@ -251,9 +251,9 @@
               </div>
               <!-- 비밀번호 확인 영역 끝-->
               <!-- 성별 영역 시작-->
-              <div class="total-input__wrap">
+              <div class="common-input__wrap">
                 <!-- 라벨 영역 시작 -->
-                <div class="total-box__label">
+                <div class="common-box__label">
                   <label>
                     <span class="important__star">*</span>
                     성별
@@ -261,8 +261,8 @@
                 </div>
                 <!-- 라벨 영역 끝 -->
                 <!-- 인풋 영역 시작 -->
-                <div class="total-box__input">
-                  <div class="input__inner checkbox">
+                <div class="common-box__input">
+                  <div class="input__inner radio">
                     <label for="gender_check">남</label>
                     <input 
                       type="radio" 
@@ -278,15 +278,32 @@
                       name="gender_check" 
                     />
                   </div>
+                  <!-- 체크박스 영역 -->
+                  <!-- <div class="input__inner checkbox">
+                    <label for="gender_check">남</label>
+                    <input 
+                      type="radio" 
+                      id="gender_check" 
+                      class="gender-check__radio" 
+                      name="gender_check" 
+                    />
+                    <label for="gender_check1">여</label>
+                    <input 
+                      type="radio" 
+                      id="gender_check1" 
+                      class="gender-check__radio" 
+                      name="gender_check" 
+                    />
+                  </div> -->
                   <span class="input-error__message gender_check"></span>
                 </div>
                 <!-- 인풋 영역 시작 -->
               </div>
               <!-- 성별 영역 끝-->
               <!-- 이름 영역 시작-->
-              <div class="total-input__wrap">
+              <div class="common-input__wrap">
                 <!-- 라벨 영역 시작 -->
-                <div class="total-box__label">
+                <div class="common-box__label">
                   <label>
                     <span class="important__star">*</span>
                     이름
@@ -294,7 +311,7 @@
                 </div>
                 <!-- 라벨 영역 끝 -->
                 <!-- 인풋 영역 시작 -->
-                <div class="total-box__input">
+                <div class="common-box__input">
                   <div class="input__inner">
                     <input 
                       type="text" 
@@ -308,9 +325,9 @@
               </div>
               <!-- 이름 영역 끝-->
               <!-- 전화번호 영역 시작-->
-              <div class="total-input__wrap">
+              <div class="common-input__wrap">
                 <!-- 라벨 영역 시작 -->
-                <div class="total-box__label">
+                <div class="common-box__label">
                   <label>
                     <span class="important__star">*</span>
                     전화번호
@@ -318,7 +335,7 @@
                 </div>
                 <!-- 라벨 영역 끝 -->
                 <!-- 인풋 영역 시작 -->
-                <div class="total-box__input">
+                <div class="common-box__input">
                   <div class="input__inner">
                     <input 
                       type="text" 
@@ -335,9 +352,9 @@
               </div>
               <!-- 전화번호 영역 끝-->
               <!-- 사업자등록증 영역 시작-->
-              <div class="total-input__wrap">
+              <div class="common-input__wrap">
                 <!-- 라벨 영역 시작 -->
-                <div class="total-box__label">
+                <div class="common-box__label">
                   <label>
                     <span class="important__star">*</span>
                     사업자 등록증
@@ -345,7 +362,7 @@
                 </div>
                 <!-- 라벨 영역 끝 -->
                 <!-- 인풋 영역 시작 -->
-                <div class="total-box__input">
+                <div class="common-box__input">
                   <div class="input__inner">
                     <input 
                       type="text" 
@@ -386,9 +403,9 @@
               </div>
               <!-- 사업자등록증 영역 끝-->
               <!-- 주소 영역 시작-->
-              <div class="total-input__wrap">
+              <div class="common-input__wrap">
                 <!-- 라벨 영역 시작 -->
-                <div class="total-box__label">
+                <div class="common-box__label">
                   <label>
                     <span class="important__star">*</span>
                     주소
@@ -396,7 +413,7 @@
                 </div>
                 <!-- 라벨 영역 끝 -->
                 <!-- 인풋 영역 시작 -->
-                <div class="total-box__input address">
+                <div class="common-box__input address">
                   <div class="input__inner">
                     <input 
                       type="text" 
@@ -425,14 +442,14 @@
               </div>
               <!-- 주소 끝-->
               <!-- 이메일 시작-->
-              <div class="total-input__wrap">
+              <div class="common-input__wrap">
                 <!-- 라벨 영역 시작 -->
-                <div class="total-box__label">
+                <div class="common-box__label">
                   <label><span class="important__star">*</span>이메일</label>
                 </div>
                 <!-- 라벨 영역 끝 -->
                 <!-- 인풋 영역 시작 -->
-                <div class="total-box__input">
+                <div class="common-box__input">
                   <div class="input__inner email">
                     <input type="text" id="email1" name="email1" />
                     <span class="dot">@</span>

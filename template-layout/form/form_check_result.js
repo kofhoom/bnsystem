@@ -17,7 +17,6 @@ let passwordCheck = false; //일반 비밀번호 일치 확인
 const errorText = (targetClass, message) =>
   (document.querySelector(`.${targetClass}`).innerHTML = message);
 
-
 /**
  * 성별 선택 유효성
  * @param {name} rName radio name
@@ -46,12 +45,11 @@ const valueReset = (targetName) => {
 
   if (inputs.type == "text")
     inputs.setAttribute("onkeyup", "keyEvents('" + targetName + "')");
-    
   else if (inputs.type == "radio") {
     let radioArrs = document.querySelectorAll(".gender-check__radio");
 
     for (i = 0; i < radioArrs.length; i++) {
-        radioArrs[i].addEventListener("click", () => {
+      radioArrs[i].addEventListener("click", () => {
         if (event.target.value == "on") {
           document.querySelector(`.${targetName}`).innerHTML = "";
         }
@@ -59,7 +57,6 @@ const valueReset = (targetName) => {
     }
   }
 };
-
 
 /**
  * 인풋 벨류 초기화 함수
@@ -72,7 +69,6 @@ function keyEvents(errorTextDomName) {
   }
 }
 
-
 /**
  * 종합 문자열 유효성 체크
  * @param {String} str input에 value
@@ -82,19 +78,19 @@ function keyEvents(errorTextDomName) {
 
 function strCheck(str, type) {
   let REGEX = {
-    EMAIL: /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i,
+    EMAIL:
+      /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i,
     ID_RULE: /^[a-z0-9_-]{5,15}$/,
     PWD_RULE: /^(?=.*[a-zA-Z])((?=.*\d)(?=.*\W)).{8,16}$/,
     NAME_RULE: /^[가-힣a-zA-Z]+$/,
   };
-  
+
   if (type === "email") return REGEX.EMAIL.test(str);
   else if (type === "id") return REGEX.ID_RULE.test(str);
   else if (type === "pwd") return REGEX.PWD_RULE.test(str);
   else if (type === "name") return REGEX.NAME_RULE.test(str);
   else return false;
 }
-
 
 // 폼 submit 함수
 function form_submit() {
@@ -112,7 +108,7 @@ function form_submit() {
 
     return false;
   }
-  
+
   // 비밀번호
   if (!form.password.value) {
     alert("비밀번호를 입력해주세요.");
@@ -149,7 +145,7 @@ function form_submit() {
 
     return false;
   }
-  
+
   // 전화번호
   if (!form.insert_tel.value) {
     alert("전화번호를 입력해주세요.");
@@ -219,8 +215,8 @@ function form_submit() {
 
   if (flag == true) {
     alert(
-    '회원가입이 완료되었습니다.\n' +
-    `아이디: ${form.member_id.value}\n
+      "회원가입이 완료되었습니다.\n" +
+        `아이디: ${form.member_id.value}\n
     비밀번호: ${form.password.value}\n
     비밀번호확인: ${form.password_check.value}\n
     성별: ${form.gender_check.value}\n
@@ -241,11 +237,10 @@ function form_submit() {
   }
 }
 
-
 /**
  * 파일 인풋 유효성
  * @param {DOM} data // 이벤트 타겟
- */ 
+ */
 
 function filesed(data) {
   let fileSize = 8 * 1024 * 1024; // 크기 설정
@@ -259,23 +254,22 @@ function filesed(data) {
 
     let ext = data.files[0].name;
 
-        ext = ext.slice(ext.lastIndexOf(".") + 1).toLowerCase();
+    ext = ext.slice(ext.lastIndexOf(".") + 1).toLowerCase();
 
     // 불가능한 파일 확장자 설정
     if (!inArray(ext, ["png", "jpg", "jpeg"])) {
       alert("JPG,PNG,jpeg 만 가능");
 
       return;
-      
     } else {
-      document.querySelector(".input-error__message.co_insert_file").innerHTML = "";
+      document.querySelector(".input-error__message.co_insert_file").innerHTML =
+        "";
     }
   }
 
   const fileName = document.getElementById("co_insert_file");
-        fileName.value = data.files[0].name;
+  fileName.value = data.files[0].name;
 }
-
 
 /**
  * @param {String} val 파일의 확장자명이 문자열로 담김
@@ -288,46 +282,45 @@ function inArray(val, arrValue) {
   else return false;
 }
 
-
 // 비밀번호 유효성
 function passWordCheck(values) {
   let targetClosest = event.target.closest(".total-box__input");
   let passWordCheckText = targetClosest.querySelector("span");
   let passVal = values;
 
-  if (values.length > 0) document.querySelector(".input_text_error.password").innerHTML = "";
+  if (values.length > 0)
+    document.querySelector(".validation__message.password").innerHTML = "";
 
   if (!passVal) {
     passWordCheckText.innerHTML = "*특수문자, 숫자, 영문자 포함 8자리 이상";
     passWordCheckText.style.color = "gray";
 
     return (passwordState = false);
-
   } else {
     if (!strCheck(passVal, "pwd")) {
       passWordCheckText.innerHTML = "*특수문자, 숫자, 영문자 포함 8자리 이상";
       passWordCheckText.style.color = "red";
 
       return (passwordState = false);
-
     } else {
       passWordCheckText.innerHTML = "사용가능한 비밀번호입니다.";
       passWordCheckText.style.color = "blue";
 
       return (passwordState = true);
-
     }
   }
 }
 
-
 // 비밀번호 확인
 function passWordRecheck(values, targetId, idx) {
   const mainPassWord = document.getElementById(`${targetId}`).value;
-  const targetClosest = event.target.closest(".total-box__input").querySelector(".validation__message");
+  const targetClosest = event.target
+    .closest(".total-box__input")
+    .querySelector(".validation__message");
 
   if (values.length > 0) {
-    document.querySelector(".input-error__message.password_check").innerHTML = "";
+    document.querySelector(".input-error__message.password_check").innerHTML =
+      "";
   }
 
   if (!values) targetClosest.innerHTML = "";
@@ -346,7 +339,6 @@ function passWordRecheck(values, targetId, idx) {
   }
 }
 
-
 // 이메일 입력선택
 function emailTypeSelect() {
   let form = document.join_form;
@@ -355,17 +347,14 @@ function emailTypeSelect() {
     form.email2.readOnly = false;
     form.email2.value = "";
     form.email2.focus();
-
   } else if (form.user_email3.value == "b") {
     form.email2.readOnly = true;
     form.email2.value = "";
-
   } else {
     form.email2.readOnly = true;
     form.email2.value = form.user_email3.value;
   }
 }
-
 
 // 주소검색
 window.onload = function () {

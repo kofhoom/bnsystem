@@ -321,7 +321,7 @@ button {
 
 /* input toggle Btn */
 /* 체크박스 부모 틀 잡기 */
-.container__toggle-btn {
+.toggle-btn__box {
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -335,19 +335,19 @@ button {
 }
 
 /* 체크박스 안보이게 */
-.container__toggle-btn .input-checkbox[type='checkbox'] {
+.toggle-btn__box .toggle-btn__checkbox[type='checkbox'] {
   overflow: hidden;
   position: absolute;
   width: 0;
   height: 0;
 }
 
-.container__toggle-btn .label-switch {
+.toggle-btn__box .label-switch {
   cursor: pointer;
 }
 
 /* 스위치 배경 */
-.container__toggle-btn .label-switch::after {
+.toggle-btn__box .label-switch::after {
   content: '';
   position: absolute;
   top: 0;
@@ -362,7 +362,7 @@ button {
 }
 
 /* 스위치 안쪽 버튼 모양 */
-.container__toggle-btn .label-switch::before {
+.toggle-btn__box .label-switch::before {
   content: '';
   position: absolute;
   top: 5px;
@@ -377,7 +377,7 @@ button {
 }
 
 /* 클릭시 변경되는 동그라미 */
-.container__toggle-btn .input-checkbox[type='checkbox']:checked + .label-switch::before {
+.toggle-btn__box .toggle-btn__checkbox[type='checkbox']:checked + .label-switch::before {
   content: '';
   transform: translateX(44px);
   background-color: #fff;
@@ -385,7 +385,7 @@ button {
   cursor: pointer;
 }
 /* 클릭시 변경되는 배경 */
-.container__toggle-btn .input-checkbox[type='checkbox']:checked + .label-switch::after {
+.toggle-btn__box .toggle-btn__checkbox[type='checkbox']:checked + .label-switch::after {
   content: '';
   background-color: #ffde66;
 }
