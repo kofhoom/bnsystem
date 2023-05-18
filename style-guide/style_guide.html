@@ -23,7 +23,7 @@
                     <li class="color__item">
                         <div class="color-box color--main"></div>
                         <p class="color-code">#5f9ea0</p>
-                        <p class="color-name">--color-main</p>
+                        <p class="color-name">--color-primary</p>
                     </li>
                     <li class="color__item">
                         <div class="color-box color--point"></div>
@@ -63,13 +63,31 @@
                         <button type="button" class="btn btn-primary btn-login">Login</button>
                     </div>
                 </div>
+
+                <!-- 같은 타입 버튼, 사이즈에 따른 형태 변화 있을 경우 -->
                 <div class="style-type">
-                    <h3 class="type-title">.btn.btn-primary.small (w:60px, h:30px, font-size:12px)</h3>
+                    <h3 class="type-title">.btn.btn-primary.btn-l (w:200px, h:60px, font-size:16px)</h3>
                     <div class="type-item">
-                        <p class="type-item__name">.btn.btn-primary.small</p>
-                        <button type="button" class="btn btn-primary small">button</button>
+                        <p class="type-item__name">.btn.btn-primary.btn-l</p>
+                        <button type="button" class="btn btn-primary btn-l">button</button>
                     </div>
                 </div>
+                <div class="style-type">
+                    <!-- m은 기본 사이즈 입니다. (xl~xs까지 유동적으로 설정) -->
+                    <h3 class="type-title">.btn.btn-primary.btn-m (w:150px, h:40px, font-size:14px)(기본값)</h3>
+                    <div class="type-item">
+                        <p class="type-item__name">.btn.btn-primary.btn-m</p>
+                        <button type="button" class="btn btn-primary btn-m">button</button>
+                    </div>
+                </div>
+                <div class="style-type">
+                    <h3 class="type-title">.btn.btn-primary.btn-s (w:60px, h:30px, font-size:12px)</h3>
+                    <div class="type-item">
+                        <p class="type-item__name">.btn.btn-primary.btn-s</p>
+                        <button type="button" class="btn btn-primary btn-s">button</button>
+                    </div>
+                </div>
+
                 <div class="style-type">
                     <h3 class="type-title">.btn.btn-round (w:180px, h:40px, font-size:14px)</h3>
                     <div class="type-item">
@@ -81,22 +99,22 @@
             <section class="sec-input">
                 <h2 class="section-title">Input:text</h2>
                 <div class="style-type">
-                    <h3 class="type-title">c-input</h3>
+                    <h3 class="type-title">common-input</h3>
                     <div class="type-item">
-                        <p class="type-item__name">c-input</p>
-                        <input type="text" class="c-input" placeholder="내용을 입력하세요.">
+                        <p class="type-item__name">common-input</p>
+                        <input type="text" class="common-input" placeholder="내용을 입력하세요.">
                     </div>
                     <div class="type-item">
-                        <p class="type-item__name">c-input--count</p>
-                        <div class="c-input__wrap">
-                            <input type="number" class="c-input c-input--count">
+                        <p class="type-item__name">common-input--count</p>
+                        <div class="common-input__wrap">
+                            <input type="number" class="common-input common-input--count">
                             <span>명</span>
                         </div>
                     </div>
                 </div>
                 <div class="style-type">
-                    <h3 class="type-title">c-textarea</h3>
-                    <textarea class="c-textarea" cols="30" rows="10"></textarea>
+                    <h3 class="type-title">common-textarea</h3>
+                    <textarea class="common-textarea" cols="30" rows="10"></textarea>
                 </div>
             </section>
             <section class="sec-checkbox">
@@ -105,19 +123,19 @@
                     <h3 class="type-title">checkbox</h3>
                     <div class="checkbox__wrap">
                         <label class="checkbox__label">
-                            <input type="checkbox" class="c-checkbox checkbox--all">
+                            <input type="checkbox" class="common-checkbox checkbox--all">
                             <span>전체</span>
                         </label>
                         <label class="checkbox__label">
-                            <input type="checkbox" class="c-checkbox checkbox--chk">
+                            <input type="checkbox" class="common-checkbox checkbox--chk">
                             <span> A항목</span>
                         </label>
                         <label class="checkbox__label">
-                            <input type="checkbox" class="c-checkbox checkbox--chk">
+                            <input type="checkbox" class="common-checkbox checkbox--chk">
                             <span>B항목</span>
                         </label>
                         <label class="checkbox__label">
-                            <input type="checkbox" class="c-checkbox checkbox--chk">
+                            <input type="checkbox" class="common-checkbox checkbox--chk">
                             <span>C항목</span>
                         </label>
                     </div>
@@ -126,19 +144,19 @@
                     <h3 class="type-title">radio</h3>
                     <div class="radio__wrap">
                         <label class="radio__label">
-                            <input type="radio" name="check-1" class="c-radio" checked>
+                            <input type="radio" name="check-1" class="common-radio" checked>
                             <span>A항목</span>
                         </label>
                         <label class="radio__label">
-                            <input type="radio" name="check-1" class="c-radio">
+                            <input type="radio" name="check-1" class="common-radio">
                             <span>B항목</span>
                         </label>
                         <label class="radio__label">
-                            <input type="radio" name="check-1" class="c-radio">
+                            <input type="radio" name="check-1" class="common-radio">
                             <span>C항목</span>
                         </label>
                         <label class="radio__label">
-                            <input type="radio" name="check-1" class="c-radio">
+                            <input type="radio" name="check-1" class="common-radio">
                             <span>D항목</span>
                         </label>
                     </div>
@@ -146,7 +164,7 @@
             </section>
             <section class="sec-select">
                 <h2 class="section-title">Select(+scroll)</h2>
-                <select class="c-select">
+                <select class="common-select">
                     <option value="0">A</option>
                     <option value="1">B</option>
                     <option value="2">C</option>
@@ -159,7 +177,7 @@
                 <h2 class="section-title">Table</h2>
                 <div class="style-type">
                     <h3 class="type-title">common table</h3>
-                    <div class="c-table">
+                    <div class="common-table">
                         <table>
                             <caption class="screen--out">상품 판매량</caption>
                             <colgroup>
@@ -195,7 +213,7 @@
                                     <td rowspan="2">
                                         <div class="td__div">
                                             <p>500</p>
-                                            <button type="button" class="btn btn-primary small">수량보기</button>
+                                            <button type="button" class="btn btn-primary btn-s">수량보기</button>
                                         </div>
                                     </td>
                                 </tr>
@@ -213,7 +231,7 @@
                 </div>
                 <div class="style-type">
                     <h3 class="type-title">column table</h3>
-                    <div class="c-table c-table--form">
+                    <div class="common-table common-table--form">
                         <form>
                             <table>
                                 <caption class="screen--out">상품 판매량</caption>
@@ -226,7 +244,7 @@
                                         <th scope="col">이름</th>
                                         <td>
                                             <div class="td__div">
-                                                <input type="text" class="c-input">
+                                                <input type="text" class="common-input">
                                             </div>
                                         </td>
                                     </tr>
@@ -234,12 +252,12 @@
                                         <th scope="col">성별</th>
                                         <td>
                                             <div class="td__div">
-                                                <label class="checkbox__label c-table__label">
-                                                    <input type="radio" class="c-radio" name="gender" checked>
+                                                <label class="checkbox__label common-table__label">
+                                                    <input type="radio" class="common-radio" name="gender" checked>
                                                     <span>남성</span>
                                                 </label>
                                                 <label class="checkbox__label">
-                                                    <input type="radio" class="c-radio" name="gender">
+                                                    <input type="radio" class="common-radio" name="gender">
                                                     <span>여성</span>
                                                 </label>
                                             </div>
@@ -249,7 +267,7 @@
                                         <th scope="col">취미</th>
                                         <td>
                                             <div class="td__div">
-                                                <select class="c-select">
+                                                <select class="common-select">
                                                     <option value="0">음악감상</option>
                                                     <option value="1">독서</option>
                                                     <option value="2">조깅</option>
@@ -263,8 +281,8 @@
                                         <th scope="col">지역</th>
                                         <td>
                                             <div class="td__div">
-                                                <input type="text" class="c-input">
-                                                <button type="button" class="btn btn-primary small">검색</button>
+                                                <input type="text" class="common-input">
+                                                <button type="button" class="btn btn-primary btn-s">검색</button>
                                             </div>
                                         </td>
                                     </tr>
@@ -272,7 +290,7 @@
                                         <th scope="col">메모</th>
                                         <td>
                                             <div class="td__div">
-                                                <textarea class="c-textarea"></textarea>
+                                                <textarea class="common-textarea"></textarea>
                                             </div>
                                         </td>
                                     </tr>
@@ -334,7 +352,7 @@
 
     <script>
         // nice select
-        $('.c-select').niceSelect();
+        $('.common-select').niceSelect();
 
         // pagination
         const $pageNum = document.querySelectorAll(".page__link");

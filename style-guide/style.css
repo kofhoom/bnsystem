@@ -130,7 +130,16 @@ body{
     color: #fff;
 }
 
-.btn.btn-primary.small{
+.btn.btn-primary.btn-l{
+    max-width: 200px;
+    height: 60px;
+    border-radius: 15px;
+    font-size: 16px;
+}
+.btn.btn-primary.btn-m{
+    max-width: 150px;
+}
+.btn.btn-primary.btn-s{
     max-width: 60px;
     height: 30px;
     border-radius: 5px;
@@ -155,22 +164,22 @@ body{
     background-color: var(--color-main);
 }
 
-/* c-input */
-.c-input{
+/* common-input */
+.common-input{
     width: 100%;
     max-width: 300px;
     height: 30px;
     border: 1px solid var(--color-main);
     padding: 0 10px;
 }
-.c-input::placeholder{
+.common-input::placeholder{
     font-size: 12px;
 }
-.c-input--count{
+.common-input--count{
     max-width: 50px;
     text-align: right;
 }
-.c-textarea{
+.common-textarea{
     width: 100%;
     max-width: 300px;
     height: 100px;
@@ -186,7 +195,7 @@ body{
 .checkbox__label{
     margin-right: 1%;
 }
-.c-checkbox{
+.common-checkbox{
     width: 15px;
     height: 15px;
     border: 1px solid var(--color-main);
@@ -194,7 +203,7 @@ body{
     vertical-align: middle;
     cursor: pointer;
 }
-.c-checkbox:checked{
+.common-checkbox:checked{
     background: url(/img/check.png) no-repeat center center/cover #fff;
 }
 .radio__wrap{
@@ -207,7 +216,7 @@ body{
     align-items: center;
     gap: 15px;
 }
-.c-radio{
+.common-radio{
     width: 15px;
     height: 15px;
     border: 1px solid var(--color-main);
@@ -216,7 +225,7 @@ body{
     vertical-align: middle;
     cursor: pointer;
 }
-.c-radio:checked{
+.common-radio:checked{
     background: url(/img/check.png) no-repeat center center/cover #fff;
 }
 
@@ -224,17 +233,17 @@ body{
 .nice-select{
     float: none;
 }
-.c-select{
+.common-select{
     width: 200px;
     border: 1px solid var(--color-main);
     border-radius: 0;
 }
-.c-select.open,
-.c-select:active,
-.c-select:focus{
+.common-select.open,
+.common-select:active,
+.common-select:focus{
     border: 1px solid var(--color-main);
 }
-.c-select>.list{
+.common-select>.list{
     width: 100%;
     height: 200px;
     border-radius: 0;
@@ -243,41 +252,41 @@ body{
     margin-top: 1px;
     transform: scale(1) translateY(0);
 }
-.c-select .option.focus,
-.c-select .option.selected.focus,
-.c-select .option:hover{
+.common-select .option.focus,
+.common-select .option.selected.focus,
+.common-select .option:hover{
     background-color: var(--color-bluegray);
 }
 
 /* scroll */
-.c-select>.list::-webkit-scrollbar{
+.common-select>.list::-webkit-scrollbar{
     width: 8px;
 }
-.c-select>.list::-webkit-scrollbar-thumb{
+.common-select>.list::-webkit-scrollbar-thumb{
     /* background-clip: padding-box;
 	border: 1px solid transparent; */
 	background-color: var(--color-main);
 	border-radius: 10px;
 }
-.c-select>.list::-webkit-scrollbar-track{
+.common-select>.list::-webkit-scrollbar-track{
     border-radius: 10px;
     /* background-color: var(--color-bluegray); */
 }
 
 /* table */
-.c-table{width: 600px; margin-bottom: 30px; padding-bottom: 30px;}
-.c-table table{border-collapse: collapse; text-align: center; width: 100%;}
-.c-table table tr{height: 30px;}
-.c-table table th, td{border: 1px solid #111;}
-.c-table table thead th{border-bottom: none;}
-.c-table table th{background: var(--color-bluegray);}
+.common-table{width: 600px; margin-bottom: 30px; padding-bottom: 30px;}
+.common-table table{border-collapse: collapse; text-align: center; width: 100%;}
+.common-table table tr{height: 30px;}
+.common-table table th, td{border: 1px solid #111;}
+.common-table table thead th{border-bottom: none;}
+.common-table table th{background: var(--color-bluegray);}
 
-.c-table--form table th{text-align: left; padding: 0 10px;}
-.c-table--form table td{text-align: left; padding: 5px 10px;}
-.c-table--form table td .td__div{display: flex; align-items: center;}
-.c-table--form table td .c-select{ width: 200px; height: 25px; line-height: 25px;}
-.c-table--form table td .c-table__label{margin-right: 10px;}
-.c-table--form table td .btn-primary.small{margin-left: 15px;}
+.common-table--form table th{text-align: left; padding: 0 10px;}
+.common-table--form table td{text-align: left; padding: 5px 10px;}
+.common-table--form table td .td__div{display: flex; align-items: center;}
+.common-table--form table td .common-select{ width: 200px; height: 25px; line-height: 25px;}
+.common-table--form table td .common-table__label{margin-right: 10px;}
+.common-table--form table td .btn-primary.btn-s{margin-left: 15px;}
 
 /* pagination */
 .pagination{display: flex; justify-content: center; align-items: center;}
