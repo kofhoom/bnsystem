@@ -48,7 +48,7 @@ const valueReset = (targetName) => {
     inputs.setAttribute("onkeyup", "keyEvents('" + targetName + "')");
     
   else if (inputs.type == "radio") {
-    let radioArrs = document.querySelectorAll(".radio_gender_check");
+    let radioArrs = document.querySelectorAll(".gender-check__radio");
 
     for (i = 0; i < radioArrs.length; i++) {
         radioArrs[i].addEventListener("click", () => {
@@ -268,7 +268,7 @@ function filesed(data) {
       return;
       
     } else {
-      document.querySelector(".input_text_error.co_insert_file").innerHTML = "";
+      document.querySelector(".input-error__message.co_insert_file").innerHTML = "";
     }
   }
 
@@ -291,7 +291,7 @@ function inArray(val, arrValue) {
 
 // 비밀번호 유효성
 function passWordCheck(values) {
-  let targetClosest = event.target.closest(".total_input_box");
+  let targetClosest = event.target.closest(".total-box__input");
   let passWordCheckText = targetClosest.querySelector("span");
   let passVal = values;
 
@@ -324,10 +324,10 @@ function passWordCheck(values) {
 // 비밀번호 확인
 function passWordRecheck(values, targetId, idx) {
   const mainPassWord = document.getElementById(`${targetId}`).value;
-  const targetClosest = event.target.closest(".total_input_box").querySelector(".validation-message");
+  const targetClosest = event.target.closest(".total-box__input").querySelector(".validation__message");
 
   if (values.length > 0) {
-    document.querySelector(".input_text_error.password_check").innerHTML = "";
+    document.querySelector(".input-error__message.password_check").innerHTML = "";
   }
 
   if (!values) targetClosest.innerHTML = "";
