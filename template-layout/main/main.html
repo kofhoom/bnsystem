@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -6,19 +7,26 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>main</title>
+  <link rel="stylesheet" href="main.css">
 </head>
 
 <body>
-  <div class="wrap">
+  <div id="skipnav screen--out">
+    <a href="#gnbContent">메뉴 바로가기</a>
+    <a href="#mainContent">본문 바로가기</a>
+  </div>
+  <div class="wrapper">
+    <h1 class="title">main 퍼블리싱 가이드</h1>
+    <h2 class="sub-title">1. 기본형</h2>
     <!-- main -->
-    <main class="main 1depth__contents">
+    <main class="main">
       <section class="main__inner">
-        <h2 class="screen-out">1depth 제목</h2>
-        <div class="main__contents 1depth__container">
+        <h2 class="screen--out">1depth 제목</h2>
+        <div class="main__container depth1__container">
           <!-- 페이지 경로 -->
-          <section class="content__feature">
-            <div class="section__path">
-              <h3 class="screen-out">현재 페이지 위치</h3>
+          <section class="feature__contents">
+            <div class="path__section">
+              <h3 class="screen--out">현재 페이지 위치</h3>
               <div class="path__inner">
                 <ol class="path__list">
                   <li>
@@ -36,29 +44,37 @@
               </div>
             </div>
           </section>
-          <article id="mainContent" class="2depth__contents">
+          <article id="mainContent" class="depth2__contents">
             <!-- 비주얼 -->
-            <section class="visual_section 2depth__visual">
+            <section class="visual__section depth2__visual">
               <div class="visual__wrap">
                 <div class="visual__inner">
                   <h3 class="visual__title">2depth 제목</h3>
-                  <p class="visual__sub">2depth 설명</p>
+                  <p class="visual__info">2depth 설명</p>
                 </div>
               </div>
             </section>
-            <!-- 비주얼 섹션이 없을 경우 h3 -->
-            <h3 class="2depth__title">2depth 제목</h3>
-            <!-- 컨텐츠 -->
-            <section class="section__search">
+            <!-- 비주얼 섹션이 없을 경우 h3:  type1 -->
+            <section class="head__section depth2__head screen--out">
+              <h3 class="depth2__title">2depth 제목</h3>
+              <p class="depth2__info">2depth 설명</p>
+            </section>
+            <!-- 비주얼 섹션이 없을 경우 h3:  type2 -->
+            <h3 class="depth2__head screen--out">
+              <em class="depth2__title">2depth 제목</em>
+              <span class="depth2__info">2depth 설명</span>
+            </h3>
+             <!-- 컨텐츠 -->
+             <section class="search__section">
               <div class="search__inner">
                 <h2 class="search__title title--color-gray">검색</h2>
                 <div class="search__area">
                   <form class="search__form">
                     <fieldset class="search__form__field">
-                      <legend class="screen-out">Smart Match 통합검색</legend>
+                      <legend class="screen--out">Smart Match 통합검색</legend>
                       <div class="search__form__wrap">
                         <input type="text" id="" name="" class="search__form__input" title="검색어 입력" placeholder="검색어를 입력해주세요">
-                        <label for="" class="screen-out">검색어</label>
+                        <label for="" class="screen--out">검색어</label>
                       </div>
                       <div class="search__button__wrap">
                         <input type="submit" value="검색" class="search__button search__button--black">
@@ -66,43 +82,45 @@
                     </fieldset>
                   </form>
                   <div class="tag__wrap">
-                    <a class="tag__link" title="">#</a>
-                    <a class="tag__link" title="">#</a>
+                    <a class="tag__link" title="">직원을 위한</a>
+                    <a class="tag__link" title="">함께</a>
                   </div>
                 </div>
               </div>
             </section>
-            <section class="영역__section">
-              <div class="영역__inner">
-                <div class="영역__intro">
-                  <h4 class="영역__title">영역 제목</h4>
-                  <strong class="영역__text">영역 부제목</strong>
-                  <p class="영역__desc">영역 설명</p>
+            <section class="영역1__section">
+              <div class="영역1__inner">
+                <div class="영역1__intro">
+                <!-- <div class="영역1__info"> -->
+                  <h4 class="영역1__title">영역 제목</h4>
+                  <strong class="영역1__text">영역 부제목</strong>
+                  <p class="영역1__desc">영역 설명</p>
+                  <!-- <p class="영역1__info">영역 설명</p> -->
                 </div>
-                <ul class="영역__list">
-                  <li class="영역__list__item"></li>
-                  <li class="영역__list__item"></li>
-                  <li class="영역__list__item"></li>
-                  <li class="영역__list__item"></li>
+                <ul class="영역1__list">
+                  <li class="영역1__item"></li>
+                  <li class="영역1__item"></li>
+                  <li class="영역1__item"></li>
+                  <li class="영역1__item"></li>
                 </ul>
               </div>
             </section>
-            <section class="영역__section">
-              <div class="영역__inner">
-                <div class="영역__image">
-                  <a href="" class="영역__link">
+            <section class="영역2__section">
+              <div class="영역2__inner">
+                <div class="영역2__image">
+                  <a href="" class="영역2__link">
                     <img src="" alt="">
                   </a>
                 </div>
-                <div class="영역__intro">
-                  <h4 class="영역__title">영역 제목</h4>
-                  <strong class="영역__text">영역 부제목</strong>
-                  <p class="영역__desc">영역 설명</p>
+                <div class="영역2__info">
+                  <h4 class="영역2__title">영역 제목</h4>
+                  <strong class="영역2__text">영역 부제목</strong>
+                  <p class="영역2__desc">영역 설명</p>
                 </div>
-                <div class="영역__detail">
-                  <strong class="영역__detail__title"></strong>
-                  <p class="영역__detail__text"></p>
-                  <p class="영역__detail__desc"></p>
+                <div class="영역2__content">
+                  <strong class="영역2__content__title">영역 컨텐츠 제목</strong>
+                  <p class="영역2__content__text">영역 컨텐츠 부제목</p>
+                  <div class="영역2__content__desc">영역 컨텐츠 설명</div>
                 </div>
               </div>
             </section>
