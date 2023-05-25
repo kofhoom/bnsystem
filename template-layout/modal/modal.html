@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
             /* ----- 공통 ------ */
             *{margin: 0; padding: 0;box-sizing: border-box;}
@@ -8,6 +9,7 @@
             .title{font-size: 30px; margin-bottom: 30px; text-align: center; padding: 30px 0; border-bottom: 2px solid royalblue;}
             .sub-title{font-size: 18px; margin-top: 30px; margin-bottom: 15px; color: darkblue;}
             .modal-box {padding-bottom: 30px;}
+            textarea {width: 100%; height: 100%; resize: none;}
             /* ---------- */
             /* 모달 팝업 스타일 */
             .modal-layer {
@@ -32,10 +34,17 @@
                 transform: translate(-50%, -50%);
                 background-color: #fefefe; /* 팝업창 배경색 */
                 border: 1px solid #888;
-                width: 50%; /* 팝업창 크기 조정 */
-                height: fit-content;
+                width: 100%; /* 팝업창 크기 조정 */
+                max-width: 40%;
+                height: 40%;
             }
-            .modal-layer__window-header {
+            
+            @media (max-width: 960px){.modal-layer__window {max-width: 50%;}}
+            @media (max-width: 720px){.modal-layer__window {max-width: 60%;}}
+            @media (max-width: 600px){.modal-layer__window {max-width: 70%;}}
+            @media (max-width: 480px){.modal-layer__window {max-width: 80%;}}
+
+            .modal-header {
                 position: relative;
                 background-color: #040214;
                 color: #eee;
@@ -47,14 +56,41 @@
             .modal-header-title {
                 padding-left: 0.5em;  /* 해당 셀렉터에 정한 폰트 사이즈의 배수 만큼 내어쓰기 */
             }
-            .modal-layer__window-body {
+            .modal-body {
                 position: relative;
                 background-color: whitesmoke;
                 width: 100%;
+                height: 100%;
                 font-size: 14px;
                 padding: 0.8em;  /* 해당 셀렉터에 정한 폰트 사이즈의 배수 만큼 패딩 */
             }
-            .modal-layer__window-body p {
+            .modal-body__inner {
+                position: relative;
+                margin: 0 auto;
+                padding: 1% 0;
+                width: 95%;
+                height: 100%;
+            }
+            .modal-body__inner textarea {
+                height: 80%;
+                font-size: 14px;
+                font-family: 'Times New Roman', Times, serif;
+                overflow-y: auto;
+            }
+            .modal-body__inner .confirm-btn-wrap {
+                position: relative;
+                width: 100%;
+                height: 20%;
+            }
+            .modal-body__inner .confirm-btn-wrap #confirm-btn {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 15%;
+                height: 60%;
+            }
+            .modal-body p {
                 word-break: break-all;
             }
             .close {
@@ -86,11 +122,11 @@
             <!-- 모달 팝업 -->
             <div class="modal-layer fixed inner-close">
                 <div class="modal-layer__window">
-                    <div class="modal-layer__window-header">
+                    <div class="modal-header">
                         <strong class="modal-header-title">모달</strong> 
                         <span class="close">&times;</span>
                     </div>                
-                    <div class="modal-layer__window-body">
+                    <div class="modal-body">
                         <p>모달 팝업 내용</p>
                     </div>
                 </div>
@@ -104,11 +140,11 @@
             <!-- 모달 팝업 -->
             <div class="modal-layer fixed outer-close">
                 <div class="modal-layer__window">
-                    <div class="modal-layer__window-header">
+                    <div class="modal-header">
                         <strong class="modal-header-title">모달</strong> 
                         <span class="close">&times;</span>
                     </div>                
-                    <div class="modal-layer__window-body">
+                    <div class="modal-body">
                         <p>모달 팝업 내용</p>
                     </div>
                 </div>
@@ -122,11 +158,11 @@
             <!-- 모달 팝업 -->
             <div class="modal-layer scrollable inner-close">
                 <div class="modal-layer__window">
-                    <div class="modal-layer__window-header">
+                    <div class="modal-header">
                         <strong class="modal-header-title">모달</strong> 
                         <span class="close">&times;</span>
                     </div>                
-                    <div class="modal-layer__window-body">
+                    <div class="modal-body">
                         <p>모달 팝업 내용</p>
                     </div>
                 </div>
@@ -140,30 +176,36 @@
             <!-- 모달 팝업 -->
             <div class="modal-layer scrollable outer-close">
                 <div class="modal-layer__window">
-                    <div class="modal-layer__window-header">
+                    <div class="modal-header">
                         <strong class="modal-header-title">모달</strong> 
                         <span class="close">&times;</span>
                     </div>                
-                    <div class="modal-layer__window-body">
+                    <div class="modal-body">
                         <p>모달 팝업 내용</p>
                     </div>
                 </div>
             </div>
             <hr>
             <!-- 모달 팝업 버튼 -->
-            <h2 class="sub-title">5. 내부 스크롤형 (Height 고정) - 추가 예정</h2>
-            <div class="modal-box">
-                <button id="modal-toggle">모달 팝업 열기</button>
+            <h2 class="sub-title">5. 내부 스크롤형 (Height 고정)</h2>
+            <div class="modal-box fixed outer-close">
+                <button id="inner-scroll-modal-toggle">모달 팝업 열기</button>
             </div>
             <!-- 모달 팝업 -->
-            <div class="modal-layer">
+            <div class="modal-layer fixed outer-close inner-scroll-modal">
                 <div class="modal-layer__window">
-                    <div class="modal-layer__window-header">
+                    <div class="modal-header">
                         <strong class="modal-header-title">모달</strong> 
                         <span class="close">&times;</span>
                     </div>                
-                    <div class="modal-layer__window-body">
-                        <p>모달 팝업 내용</p>
+                    <div class="modal-body">
+                        <div class="modal-body__inner">
+                            <textarea name="내용" id="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In suscipit, lorem et ultricies blandit, dolor dui molestie neque, nec eleifend est magna ac urna. Nulla dapibus magna elit, eu suscipit mauris maximus sit amet. Nunc at ligula faucibus, dictum lacus quis, condimentum risus. Quisque iaculis sodales dolor molestie aliquam. Etiam eget neque tellus. Sed vel diam ac neque eleifend cursus id sit amet metus. Aliquam et facilisis magna. Praesent aliquet ligula neque, at interdum diam venenatis eu. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse quis efficitur tortor. Aliquam ultrices sit amet dui at venenatis. Sed imperdiet tortor non ornare malesuada. Cras a porttitor lectus, vulputate feugiat sapien. Vivamus non accumsan ex, a gravida libero. Quisque commodo consequat odio, et pulvinar quam interdum in. In risus dolor, tincidunt in sodales eu, tincidunt ac quam. Aenean condimentum ornare odio, vel rutrum justo lobortis elementum. Aenean non semper augue, nec vehicula massa. Ut in rhoncus quam, luctus euismod tortor. Maecenas tempus nunc in lacinia hendrerit. Cras feugiat nibh eu consequat varius. Fusce aliquet pretium velit at auctor. Integer id efficitur orci. Sed luctus mi eros, nec rhoncus leo imperdiet id. Phasellus efficitur fringilla diam ac placerat. Sed mattis eget felis a gravida. Maecenas at urna libero. Nulla faucibus lorem quam, vitae tristique eros faucibus vel. Pellentesque eu tellus erat. Phasellus bibendum vestibulum nibh id rhoncus. Mauris eu vulputate tellus, ut condimentum lacus. Mauris elementum bibendum eros placerat consectetur. Nam a luctus quam, in maximus lorem. Donec justo urna, pretium nec justo faucibus, porta tempor lacus. Vivamus id bibendum tellus. Phasellus eget hendrerit risus. Duis arcu elit, placerat non risus vitae, interdum sodales orci. Nulla sit amet interdum mauris. Proin vehicula, justo ac dignissim placerat, lacus eros iaculis nibh, id tristique nibh mi id urna. Ut et cursus ipsum, quis vehicula eros. Nullam maximus magna purus, ut consequat sapien aliquet non. Fusce posuere massa a volutpat pulvinar. Sed ac elit diam. Vestibulum ex orci, placerat eget risus nec, volutpat condimentum felis.
+                            </textarea>
+                            <div class="confirm-btn-wrap">
+                                <button id="confirm-btn">확인</button>
+                            </div>
+                        </div>                        
                     </div>
                 </div>
             </div>
@@ -176,11 +218,11 @@
             <!-- 모달 팝업 -->
             <div class="modal-layer">
                 <div class="modal-layer__window">
-                    <div class="modal-layer__window-header">
+                    <div class="modal-header">
                         <strong class="modal-header-title">모달</strong> 
                         <span class="close">&times;</span>
                     </div>                
-                    <div class="modal-layer__window-body">
+                    <div class="modal-body">
                         <p>모달 팝업 내용</p>
                     </div>
                 </div>
@@ -194,11 +236,11 @@
             <!-- 모달 팝업 -->
             <div class="modal-layer">
                 <div class="modal-layer__window">
-                    <div class="modal-layer__window-header">
+                    <div class="modal-header">
                         <strong class="modal-header-title">모달</strong> 
                         <span class="close">&times;</span>
                     </div>                
-                    <div class="modal-layer__window-body">
+                    <div class="modal-body">
                         <p>모달 팝업 내용</p>
                     </div>
                 </div>
@@ -212,11 +254,11 @@
             <!-- 모달 팝업 -->
             <div class="modal-layer">
                 <div class="modal-layer__window">
-                    <div class="modal-layer__window-header">
+                    <div class="modal-header">
                         <strong class="modal-header-title">모달</strong> 
                         <span class="close">&times;</span>
                     </div>                
-                    <div class="modal-layer__window-body">
+                    <div class="modal-body">
                         <p>모달 팝업 내용</p>
                     </div>
                 </div>
@@ -230,11 +272,11 @@
             <!-- 모달 팝업 -->
             <div class="modal-layer">
                 <div class="modal-layer__window">
-                    <div class="modal-layer__window-header">
+                    <div class="modal-header">
                         <strong class="modal-header-title">모달</strong> 
                         <span class="close">&times;</span>
                     </div>                
-                    <div class="modal-layer__window-body">
+                    <div class="modal-body">
                         <p>모달 팝업</p>
                     </div>
                 </div>
@@ -294,6 +336,20 @@
                 this.parentElement.parentElement.parentElement.style.display = "none";
             };
 
+            /* 내부 스크롤형 */
+            const innerScrollModalToggle = document.querySelector("#inner-scroll-modal-toggle");
+            const innerScrollModal = document.querySelector(".inner-scroll-modal");
+            const confirmButton = document.querySelector("#confirm-btn");
+
+            confirmButton.onclick = function () {  // 모달 팝업 닫기 버튼 클릭 시 이벤트 처리
+                innerScrollModal.style.display = "none";
+                document.body.style.overflow = "visible"; 
+            };
+            innerScrollModalToggle.onclick = function () {
+                innerScrollModal.style.display = "block";          
+                document.body.style.overflow = "hidden";
+            };
+            
             /* 공용 (닫기: 외부) */
             window.onclick = function (event) {  // 모달 팝업 외부 클릭 시 이벤트 처리
                 if (event.target == modalFixedOuter || event.target == modalScrollableOuter) {
