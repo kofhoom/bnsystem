@@ -68,7 +68,7 @@
             .modal-body__inner {
                 position: relative;
                 margin: 0 auto;
-                padding: 1% 0;
+                padding: 2% 0;
                 width: 95%;
                 height: 100%;
             }
@@ -83,7 +83,7 @@
                 width: 100%;
                 height: 20%;
             }
-            .modal-body__inner .confirm-btn-wrap #confirm-btn {
+            .modal-body__inner .confirm-btn-wrap > button {
                 position: absolute;
                 top: 50%;
                 left: 50%;
@@ -119,7 +119,7 @@
             <!-- 모달 팝업 버튼 -->
             <h2 class="sub-title">1. 기본형 (스크롤: 고정) (닫기: 버튼)</h2>
             <div class="modal-box fixed inner-close">
-                <button id="modal-toggle">모달 팝업 열기</button>
+                <button id="modal-toggle" class="">모달 팝업 열기</button>
             </div>
             <!-- 모달 팝업 -->
             <div class="modal-layer fixed inner-close">
@@ -137,7 +137,7 @@
             <!-- 모달 팝업 버튼 -->
             <h2 class="sub-title">2. 기본형 (스크롤: 고정) (닫기: 버튼 + 외부)</h2>
             <div class="modal-box fixed outer-close">
-                <button id="modal-toggle">모달 팝업 열기</button>
+                <button id="modal-toggle" class="">모달 팝업 열기</button>
             </div>
             <!-- 모달 팝업 -->
             <div class="modal-layer fixed outer-close">
@@ -155,7 +155,7 @@
             <!-- 모달 팝업 버튼 -->
             <h2 class="sub-title">3. 기본형 (스크롤: 가변) (닫기: 버튼)</h2>
             <div class="modal-box scrollable inner-close">
-                <button id="modal-toggle">모달 팝업 열기</button>
+                <button id="modal-toggle" class="">모달 팝업 열기</button>
             </div>
             <!-- 모달 팝업 -->
             <div class="modal-layer scrollable inner-close">
@@ -173,7 +173,7 @@
             <!-- 모달 팝업 버튼 -->
             <h2 class="sub-title">4. 기본형 (스크롤: 가변) (닫기: 버튼 + 외부)</h2>
             <div class="modal-box scrollable outer-close">
-                <button id="modal-toggle">모달 팝업 열기</button>
+                <button id="modal-toggle" class="">모달 팝업 열기</button>
             </div>
             <!-- 모달 팝업 -->
             <div class="modal-layer scrollable outer-close">
@@ -191,7 +191,7 @@
             <!-- 모달 팝업 버튼 -->
             <h2 class="sub-title">5. 내부 스크롤형 (Textarea, Button)</h2>
             <div class="modal-box fixed outer-close inner-scroll-modal">
-                <button id="modal-toggle">모달 팝업 열기</button>
+                <button id="modal-toggle" class="">모달 팝업 열기</button>
             </div>
             <!-- 모달 팝업 -->
             <div class="modal-layer fixed outer-close inner-scroll-modal">
@@ -202,10 +202,10 @@
                     </div>                
                     <div class="modal-body">
                         <div class="modal-body__inner">
-                            <textarea name="내용" id="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In suscipit, lorem et ultricies blandit, dolor dui molestie neque, nec eleifend est magna ac urna. Nulla dapibus magna elit, eu suscipit mauris maximus sit amet. Nunc at ligula faucibus, dictum lacus quis, condimentum risus. Quisque iaculis sodales dolor molestie aliquam. Etiam eget neque tellus. Sed vel diam ac neque eleifend cursus id sit amet metus. Aliquam et facilisis magna. Praesent aliquet ligula neque, at interdum diam venenatis eu. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse quis efficitur tortor. Aliquam ultrices sit amet dui at venenatis. Sed imperdiet tortor non ornare malesuada. Cras a porttitor lectus, vulputate feugiat sapien. Vivamus non accumsan ex, a gravida libero. Quisque commodo consequat odio, et pulvinar quam interdum in. In risus dolor, tincidunt in sodales eu, tincidunt ac quam. Aenean condimentum ornare odio, vel rutrum justo lobortis elementum. Aenean non semper augue, nec vehicula massa. Ut in rhoncus quam, luctus euismod tortor. Maecenas tempus nunc in lacinia hendrerit. Cras feugiat nibh eu consequat varius. Fusce aliquet pretium velit at auctor. Integer id efficitur orci. Sed luctus mi eros, nec rhoncus leo imperdiet id. Phasellus efficitur fringilla diam ac placerat. Sed mattis eget felis a gravida. Maecenas at urna libero. Nulla faucibus lorem quam, vitae tristique eros faucibus vel. Pellentesque eu tellus erat. Phasellus bibendum vestibulum nibh id rhoncus. Mauris eu vulputate tellus, ut condimentum lacus. Mauris elementum bibendum eros placerat consectetur. Nam a luctus quam, in maximus lorem. Donec justo urna, pretium nec justo faucibus, porta tempor lacus. Vivamus id bibendum tellus. Phasellus eget hendrerit risus. Duis arcu elit, placerat non risus vitae, interdum sodales orci. Nulla sit amet interdum mauris. Proin vehicula, justo ac dignissim placerat, lacus eros iaculis nibh, id tristique nibh mi id urna. Ut et cursus ipsum, quis vehicula eros. Nullam maximus magna purus, ut consequat sapien aliquet non. Fusce posuere massa a volutpat pulvinar. Sed ac elit diam. Vestibulum ex orci, placerat eget risus nec, volutpat condimentum felis.
+                            <textarea disabled name="내용" id="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In suscipit, lorem et ultricies blandit, dolor dui molestie neque, nec eleifend est magna ac urna. Nulla dapibus magna elit, eu suscipit mauris maximus sit amet. Nunc at ligula faucibus, dictum lacus quis, condimentum risus. Quisque iaculis sodales dolor molestie aliquam. Etiam eget neque tellus. Sed vel diam ac neque eleifend cursus id sit amet metus. Aliquam et facilisis magna. Praesent aliquet ligula neque, at interdum diam venenatis eu. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse quis efficitur tortor. Aliquam ultrices sit amet dui at venenatis. Sed imperdiet tortor non ornare malesuada. Cras a porttitor lectus, vulputate feugiat sapien. Vivamus non accumsan ex, a gravida libero. Quisque commodo consequat odio, et pulvinar quam interdum in. In risus dolor, tincidunt in sodales eu, tincidunt ac quam. Aenean condimentum ornare odio, vel rutrum justo lobortis elementum. Aenean non semper augue, nec vehicula massa. Ut in rhoncus quam, luctus euismod tortor. Maecenas tempus nunc in lacinia hendrerit. Cras feugiat nibh eu consequat varius. Fusce aliquet pretium velit at auctor. Integer id efficitur orci. Sed luctus mi eros, nec rhoncus leo imperdiet id. Phasellus efficitur fringilla diam ac placerat. Sed mattis eget felis a gravida. Maecenas at urna libero. Nulla faucibus lorem quam, vitae tristique eros faucibus vel. Pellentesque eu tellus erat. Phasellus bibendum vestibulum nibh id rhoncus. Mauris eu vulputate tellus, ut condimentum lacus. Mauris elementum bibendum eros placerat consectetur. Nam a luctus quam, in maximus lorem. Donec justo urna, pretium nec justo faucibus, porta tempor lacus. Vivamus id bibendum tellus. Phasellus eget hendrerit risus. Duis arcu elit, placerat non risus vitae, interdum sodales orci. Nulla sit amet interdum mauris. Proin vehicula, justo ac dignissim placerat, lacus eros iaculis nibh, id tristique nibh mi id urna. Ut et cursus ipsum, quis vehicula eros. Nullam maximus magna purus, ut consequat sapien aliquet non. Fusce posuere massa a volutpat pulvinar. Sed ac elit diam. Vestibulum ex orci, placerat eget risus nec, volutpat condimentum felis.
                             </textarea>
                             <div class="confirm-btn-wrap">
-                                <button id="confirm-btn">확인</button>
+                                <button id="confirm-btn" class="">확인</button>
                             </div>
                         </div>                        
                     </div>
@@ -215,7 +215,7 @@
             <!-- 모달 팝업 버튼 -->
             <h2 class="sub-title">6. 내부 폼형 (Input, Button) - 추가 예정</h2>
             <div class="modal-box">
-                <button id="modal-toggle">모달 팝업 열기</button>
+                <button id="modal-toggle" class="">모달 팝업 열기</button>
             </div>
             <!-- 모달 팝업 -->
             <div class="modal-layer">
@@ -233,7 +233,7 @@
             <!-- 스크롤 가변 확인용 가상 공간 1 -->
             <h2 class="sub-title">X. 싱하형 (스크롤 가변 확인용)</h2>
             <div class="modal-box">
-                <button id="modal-toggle">모달 팝업 열기</button>
+                <button id="modal-toggle" class="">모달 팝업 열기</button>
             </div>
             <!-- 모달 팝업 -->
             <div class="modal-layer">
@@ -251,7 +251,7 @@
             <!-- 스크롤 가변 확인용 가상 공간 2 -->
             <h2 class="sub-title">X. 동네형 (스크롤 가변 확인용)</h2>
             <div class="modal-box">
-                <button id="modal-toggle">모달 팝업 열기</button>
+                <button id="modal-toggle" class="">모달 팝업 열기</button>
             </div>
             <!-- 모달 팝업 -->
             <div class="modal-layer">
@@ -269,7 +269,7 @@
             <!-- 스크롤 가변 확인용 가상 공간 3 -->
             <h2 class="sub-title">X. 너네형 (스크롤 가변 확인용)</h2>
             <div class="modal-box">
-                <button id="modal-toggle">모달 팝업 열기</button>
+                <button id="modal-toggle" class="">모달 팝업 열기</button>
             </div>
             <!-- 모달 팝업 -->
             <div class="modal-layer">
