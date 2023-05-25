@@ -269,7 +269,7 @@
       position: relative;
     }
 
-    .mobile__gnb>li>a>span.ex_submenu:after {
+    .mobile__gnb>li>a>span.is_submenu:after {
       content:'';
       position: absolute;
       display: inline-block;
@@ -282,7 +282,7 @@
       background: url(./img/icon_chevron_bottom.png) no-repeat center center / contain;
     }
 
-    .mobile__gnb>li>a>span.ex_submenu.active:after {
+    .mobile__gnb>li>a>span.is_submenu.active:after {
       transform: translateY(-50%) rotate(-180deg);
     }
 
@@ -455,7 +455,7 @@
                 <li><a href="#"><span>처방 한의원 찾기</span></a></li>
                 <li>
                   <!-- 2depth 메뉴가 있는 경우 클래스 추가 -->
-                  <a><span class="ex_submenu">감비정D 소개</span></a>
+                  <a><span class="is_submenu">감비정D 소개</span></a>
                   <ul class="mobile__sub-menu">
                     <li><a href="#">감비정D 소개</a></li>
                     <li><a href="#">체중 감량 예측 프로그램</a></li>
@@ -463,7 +463,7 @@
                 </li>
                 <li><a href="#"><span>다이어트 서포트 제품</span></a></li>
                 <li>
-                  <a><span class="ex_submenu">복용법</span></a>
+                  <a><span class="is_submenu">복용법</span></a>
                   <ul class="mobile__sub-menu">
                     <li><a href="#">다이어트 가이드</a></li>
                     <li><a href="#">가이드 영상 버전</a></li>
