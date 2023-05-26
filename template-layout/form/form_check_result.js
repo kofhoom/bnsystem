@@ -78,8 +78,7 @@ function keyEvents(errorTextDomName) {
 
 function strCheck(str, type) {
   let REGEX = {
-    EMAIL:
-      /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i,
+    EMAIL: /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i,
     ID_RULE: /^[a-z0-9_-]{5,15}$/,
     PWD_RULE: /^(?=.*[a-zA-Z])((?=.*\d)(?=.*\W)).{8,16}$/,
     NAME_RULE: /^[가-힣a-zA-Z]+$/,
@@ -216,19 +215,19 @@ function form_submit() {
   if (flag == true) {
     alert(
       "회원가입이 완료되었습니다.\n" +
-        `아이디: ${form.member_id.value}\n
-    비밀번호: ${form.password.value}\n
-    비밀번호확인: ${form.password_check.value}\n
-    성별: ${form.gender_check.value}\n
-    이름: ${form.user_name.value}\n
-    전화번호: ${form.insert_tel.value}\n
-    사업자등록증: ${form.co_insert_file.value}\n
-    우편번호: ${form.zipcode.value}\n
-    주소: ${form.address1.value}\n
-    상세주소: ${form.address2.value}\n
-    이메일: ${form.email1.value}\n
-    이메일 상세: ${form.email2.value}\n
-    `
+      `아이디: ${form.member_id.value}\n
+비밀번호: ${form.password.value}\n
+비밀번호확인: ${form.password_check.value}\n
+성별: ${form.gender_check.value}\n
+이름: ${form.user_name.value}\n
+전화번호: ${form.insert_tel.value}\n
+사업자등록증: ${form.co_insert_file.value}\n
+우편번호: ${form.zipcode.value}\n
+주소: ${form.address1.value}\n
+상세주소: ${form.address2.value}\n
+이메일: ${form.email1.value}\n
+이메일 상세: ${form.email2.value}\n
+`
     );
 
     form.submit();
@@ -284,27 +283,26 @@ function inArray(val, arrValue) {
 
 // 비밀번호 유효성
 function passWordCheck(values) {
-  let targetClosest = event.target.closest(".total-box__input");
-  let passWordCheckText = targetClosest.querySelector("span");
+  let passWordErrorText = document.querySelector(".input-error__message.password");
   let passVal = values;
 
   if (values.length > 0)
-    document.querySelector(".validation__message.password").innerHTML = "";
+    passWordErrorText.innerHTML = "";
 
   if (!passVal) {
-    passWordCheckText.innerHTML = "*특수문자, 숫자, 영문자 포함 8자리 이상";
-    passWordCheckText.style.color = "gray";
+    passWordErrorText.innerHTML = "*특수문자, 숫자, 영문자 포함 8자리 이상";
+    passWordErrorText.style.color = "gray";
 
     return (passwordState = false);
   } else {
     if (!strCheck(passVal, "pwd")) {
-      passWordCheckText.innerHTML = "*특수문자, 숫자, 영문자 포함 8자리 이상";
-      passWordCheckText.style.color = "red";
+      passWordErrorText.innerHTML = "*특수문자, 숫자, 영문자 포함 8자리 이상";
+      passWordErrorText.style.color = "red";
 
       return (passwordState = false);
     } else {
-      passWordCheckText.innerHTML = "사용가능한 비밀번호입니다.";
-      passWordCheckText.style.color = "blue";
+      passWordErrorText.innerHTML = "사용가능한 비밀번호입니다.";
+      passWordErrorText.style.color = "blue";
 
       return (passwordState = true);
     }
@@ -314,26 +312,23 @@ function passWordCheck(values) {
 // 비밀번호 확인
 function passWordRecheck(values, targetId, idx) {
   const mainPassWord = document.getElementById(`${targetId}`).value;
-  const targetClosest = event.target
-    .closest(".total-box__input")
-    .querySelector(".validation__message");
+  const passWordErrorText = document.querySelector(".input-error__message.password_check");
 
   if (values.length > 0) {
-    document.querySelector(".input-error__message.password_check").innerHTML =
-      "";
+    passWordErrorText.innerHTML = "";
   }
 
-  if (!values) targetClosest.innerHTML = "";
+  if (!values) passWordErrorText.innerHTML = "";
   else if (values == mainPassWord) {
-    targetClosest.classList.remove("error");
-    targetClosest.innerHTML = "비밀번호가 일치합니다.";
-    targetClosest.style.color = "blue";
+    passWordErrorText.classList.remove("error");
+    passWordErrorText.innerHTML = "비밀번호가 일치합니다.";
+    passWordErrorText.style.color = "blue";
 
     return (passwordCheck = true);
   } else {
-    targetClosest.classList.add("error");
-    targetClosest.innerHTML = "비밀번호가 일치하지 않습니다.";
-    targetClosest.style.color = "red";
+    passWordErrorText.classList.add("error");
+    passWordErrorText.innerHTML = "비밀번호가 일치하지 않습니다.";
+    passWordErrorText.style.color = "red";
 
     return (passwordCheck = false);
   }
