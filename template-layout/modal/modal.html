@@ -9,7 +9,33 @@
             .title{font-size: 30px; margin-bottom: 30px; text-align: center; padding: 30px 0; border-bottom: 2px solid royalblue;}
             .sub-title{font-size: 18px; margin-top: 30px; margin-bottom: 15px; color: darkblue;}
             .modal-box {padding-bottom: 30px;}
-            textarea {width: 100%; height: 100%; resize: none;}
+            li {list-style: none;}
+            a {text-decoration: none; color: inherit;}
+            form {position:relative; width: 100%;}
+            textarea {font-family:'Malgun Gothic'; width: 100%; resize: none;}
+            input::placeholder {
+                color: #888;
+            }
+            input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+                color: #888;
+            }
+            input::-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+                color: #888;
+                opacity:  1;
+            }
+            input::-moz-placeholder { /* Mozilla Firefox 19+ */
+                color: #888;
+                opacity:  1;
+            }
+            input::-ms-input-placeholder { /* Internet Explorer 10-11 */
+                color: #888;
+            }
+            select {
+                width: 100%;
+                -moz-appearance: none;
+                -webkit-appearance: none;
+                appearance: none;
+            }
             /* ---------- */
             /* 모달 팝업 스타일 */
             .modal-layer {
@@ -32,14 +58,12 @@
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
-                background-color: #fefefe; /* 팝업창 배경색 */
-                border: 1px solid #888;
                 width: 100%; /* 팝업창 크기 조정 */
-                max-width: 40%;
+                max-width: 30%;
                 height: 40%;
             }
-            
-            @media (max-width: 960px){.modal-layer__window {max-width: 50%;}}
+            @media (max-width: 960px){.modal-layer__window {max-width: 40%;}}
+            @media (max-width: 840px){.modal-layer__window {max-width: 50%;}}
             @media (max-width: 720px){.modal-layer__window {max-width: 60%;}}
             @media (max-width: 600px){.modal-layer__window {max-width: 70%;}}
             @media (max-width: 480px){.modal-layer__window {max-width: 80%;}}
@@ -56,6 +80,8 @@
                 height: 3rem;
                 line-height: 3rem;  /* 해당 셀렉터에 정한 폰트 사이즈의 배수 만큼 높이 */
                 padding: 0 0.7rem;
+                border-start-start-radius: 0.5rem;
+                border-start-end-radius: 0.5rem;
             }
             .modal-body {
                 position: relative;
@@ -64,6 +90,8 @@
                 height: 100%;
                 font-size: 14px;
                 padding: 0.8em;  /* 해당 셀렉터에 정한 폰트 사이즈의 배수 만큼 패딩 */
+                border-end-start-radius: 0.5rem;
+                border-end-end-radius: 0.5rem;
             }
             .modal-body__inner {
                 position: relative;
@@ -72,11 +100,172 @@
                 width: 95%;
                 height: 100%;
             }
-            .modal-body__inner textarea {
-                height: 80%;
+            /* inquiry modal ---------------------------------------- */
+            .inquiry .modal-layer__window {
+                display: flex;
+                display: -ms-flexbox;
+                flex-flow: column;
+                -ms-flex-flow: column;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 100%; /* 팝업창 크기 조정 */
+                max-width: 30%;
+                height: auto;
+                border-radius: 5px;
+            }
+            .inquiry .modal-body {
+                position: relative;
+                background-color: whitesmoke;
+                width: 100%;
+                height: auto;
                 font-size: 14px;
-                font-family: 'Times New Roman', Times, serif;
+                padding: 0.8em;  /* 해당 셀렉터에 정한 폰트 사이즈의 배수 만큼 패딩 */
+                border-end-start-radius: 0.5rem;
+                border-end-end-radius: 0.5rem;
+            }
+            .inquiry .modal-body__inner {
+                position: relative;
+                margin: 0 auto;
+                padding: 2% 0;
+                width: 90%;
+                height: 100%;
+            }
+            .inquiry-category {
+                display: flex;
+                position: relative;
+                flex-direction: column;
+                width: 100%;
+                height: auto;
+            }
+            button.inquiry-category__selector {
+                position: relative;
+                text-indent: 0.5em;
+                font-size: 14px;
+                width: 100%;
+                height: 2.4em;
+                font-weight: bold;
+                text-align: left;
+                background-color: #fff;
+            }
+            button.inquiry-category__selector span {                
+                position: absolute;
+                top: 50%;
+                left: 100%;
+                transform: translate(calc(-2.4em), -50%);
+                width: fit-content;
+                height: fit-content;
+            }
+            :root {
+                --toggle-degree: 0deg;
+            }
+
+            button.inquiry-category__selector span::after{
+                content: '';
+                display: block;
+                position: relative;
+                width: 1.5em;
+                height: 1em;
+                transform: rotate(var(--toggle-degree));
+                /* transition: 0.2s; */
+                background-image: url(./img/arrow_dropdown.png);
+                background-repeat:no-repeat;
+                background-size: 1.5em auto;
+                background-position: 100%;    
+            }
+            ul.inquiry-category__list {
+                z-index: 1;
+                flex-flow: column;
+                position: absolute;
+                font-size: 14px;
+                top: 2.4em;
+                background-color: #fff;
+                width: 100%;
+                border-collapse: collapse;
+            }
+            li.inquiry-category__index,
+            li.inquiry-category__item {
+                z-index: 2;
+                display: inherit;
+                line-height: 1.6;
+                border: 1px solid #aaa;
+                border-bottom: none;
+            }
+            ul.inquiry-category__list li:last-child {
+                border-bottom: 1px solid #aaa;
+            }
+            li.inquiry-category__item {
+                text-indent: 1.5em;
+            }
+            li.inquiry-category__index {
+                font-weight: bold;
+                text-indent: 0.5em;
+            }
+            li.inquiry-category__item:hover {
+                cursor: pointer;
+                background-color: #a39ccf;
+            }
+            form.inquiry-form {
+                display: flex;
+                position: relative;
+                flex-direction: column;
+                height: auto;
+            }
+            form.inquiry-form label {
+                font-weight: bold;                
+                height: 1.8;
+                line-height: 1.8;
+                text-indent: 0.5em;
+            }
+            .inquiry-title,
+            .inquiry-textarea,
+            .inquiry-category__selector {
+                margin-bottom: 20px;
+                border: 1px solid #aaa;
+                border-radius: 0.3rem;
+            }
+            .inquiry-textarea {
+                display: block;
+                font-size: 14px;
+                padding: 0.8em;
+                font-size: 16px;
+                line-height: 1.5em;
+                height: 12em;
+                margin-bottom: 30px;
+            }
+            .inquiry-title {
+                font-size: 14px;
+                text-indent: 0.8em;
+                height: 2em;
+                line-height: 2em;
+            }
+            input.inquiry-submit {
+                font-size: 18px;
+                height: 3em;
+                line-height: 3em;
+                border-radius: 0.3rem;
+                width: 80%;
+                font-weight: bold;                
+                color: #fff;
+                border: none;
+                background-color: #040214;
+                cursor: pointer;
+                margin: 0 auto;
+                margin-bottom: 30px;
+            }
+            input.inquiry-submit:hover {
+                transition: 0.2s;
+                background-color: #0e0742;
+            }
+            /* ---------------------------------------- inquiry modal */
+            .modal-body__inner textarea {
+                font-size: 14px;
                 overflow-y: auto;
+            }
+            
+            .modal-body__inner textarea:not(.inquiry-textarea) {
+                height: 80%;
             }
             .modal-body__inner .confirm-btn-wrap {
                 position: relative;
@@ -109,6 +298,9 @@
             .close:hover, .close:focus {
                 color: #fff;
                 text-decoration: none;
+                cursor: pointer;                
+            }
+            button {
                 cursor: pointer;
             }
         </style>
@@ -213,19 +405,36 @@
             </div>
             <hr>
             <!-- 모달 팝업 버튼 -->
-            <h2 class="sub-title">6. 내부 폼형 (Input, Button) - 추가 예정</h2>
-            <div class="modal-box">
+            <h2 class="sub-title">6. 내부 폼형 (Form, Submit)</h2>
+            <div class="modal-box inquiry">
                 <button id="modal-toggle" class="">모달 팝업 열기</button>
             </div>
             <!-- 모달 팝업 -->
-            <div class="modal-layer">
+            <div class="modal-layer inquiry">
                 <div class="modal-layer__window">
                     <div class="modal-header">
-                        <strong class="modal-header-title">TITLE</strong> 
+                        <strong class="modal-header-title">문의하기</strong> 
                         <span class="close">&times;</span>
                     </div>                
                     <div class="modal-body">
-                        <p>모달 팝업 내용</p>
+                        <div class="modal-body__inner">
+                            <div class="inquiry-category">
+                                <button class="inquiry-category__selector active" onclick="inquirySelector(this)">문의유형<span></span></button>
+                                <ul class="inquiry-category__list">
+                                    <li class="inquiry-category__index">계정</li>
+                                    <li data-inquiry-category-index="0" class="inquiry-category__item" onclick="inquiryTypeChoice(this)">한놈</li>
+                                    <li data-inquiry-category-index="1" class="inquiry-category__item" onclick="inquiryTypeChoice(this)">두시기</li>
+                                    <li data-inquiry-category-index="2" class="inquiry-category__item" onclick="inquiryTypeChoice(this)">석삼</li>
+                                </ul>
+                            </div>
+                            <form action="" name="inquiryForm" id="inquiryForm" class="inquiry-form" onsubmit="return checkSubmit()">
+                                <label for="inquiryTitle">제목</label>
+                                <input type="text" name="inquiryTitle" id="inquiryTitle" class="inquiry-title" placeholder="제목을 입력해주세요." oninput="checkInputValue(this)">
+                                <label for="inquiryDetail">내용</label>
+                                <textarea name="inquiryDetail" id="inquiryDetail" class="inquiry-textarea" placeholder="제목을 입력해주세요." oninput="checkInputValue(this)"></textarea>
+                                <input class="inquiry-submit" type="submit" name="inquirySubmit" id="inquirySubmit"value="문의 등록">
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -292,11 +501,13 @@
             const modalFixedInnerToggle = document.querySelector(".modal-box.fixed.inner-close > #modal-toggle");
 
             modalFixedInnerToggle.onclick = function () {
-                this.parentElement.nextElementSibling.style.display = "block";          
+                modalFixedInner.style.display = "block";  
+                modalFixedInner.classList.add("active");          
                 document.body.style.overflow = "hidden";
             };
             modalFixedInnerClose.onclick = function () {  // 모달 팝업 닫기 버튼 클릭 시 이벤트 처리
-                this.parentElement.parentElement.parentElement.style.display = "none";
+                modalFixedInner.style.display = "none";
+                modalFixedInner.classList.remove("active");  
                 document.body.style.overflow = "visible"; 
             };
 
@@ -306,11 +517,13 @@
             const modalFixedOuterToggle = document.querySelector(".modal-box.fixed.outer-close > #modal-toggle");
 
             modalFixedOuterToggle.onclick = function () {
-                this.parentElement.nextElementSibling.style.display = "block";          
+                modalFixedOuter.style.display = "block";   
+                modalFixedOuter.classList.add("active");       
                 document.body.style.overflow = "hidden";
             };
             modalFixedOuterClose.onclick = function () {  // 모달 팝업 닫기 버튼 클릭 시 이벤트 처리
-                this.parentElement.parentElement.parentElement.style.display = "none";
+                modalFixedOuter.style.display = "none";
+                modalFixedOuter.classList.remove("active");
                 document.body.style.overflow = "visible"; 
             };
 
@@ -320,10 +533,12 @@
             const modalScrollableInnerToggle = document.querySelector(".modal-box.scrollable.inner-close > #modal-toggle");
 
             modalScrollableInnerToggle.onclick = function () {
-                this.parentElement.nextElementSibling.style.display = "block";
+                modalScrollableInner.style.display = "block";
+                modalScrollableInner.classList.add("active");
             };
             modalScrollableInnerClose.onclick = function () {  // 모달 팝업 닫기 버튼 클릭 시 이벤트 처리
-                this.parentElement.parentElement.parentElement.style.display = "none";
+                modalScrollableInner.style.display = "none";
+                modalScrollableInner.classList.remove("active");
             };
 
             /* 기본형 (스크롤: 가변) (닫기: 버튼 + 외부)*/
@@ -332,10 +547,12 @@
             const modalScrollableOuterToggle = document.querySelector(".modal-box.scrollable.outer-close > #modal-toggle");
 
             modalScrollableOuterToggle.onclick = function () {
-                this.parentElement.nextElementSibling.style.display = "block";
+                modalScrollableOuter.style.display = "block";
+                modalScrollableOuter.classList.add("active");
             };
             modalScrollableOuterClose.onclick = function () {  // 모달 팝업 닫기 버튼 클릭 시 이벤트 처리
-                this.parentElement.parentElement.parentElement.style.display = "none";
+                modalScrollableOuter.style.display = "none";
+                modalScrollableOuter.classList.remove("active");
             };
 
             /* 내부 스크롤형 */
@@ -346,24 +563,156 @@
 
             innerScrollModalClose.onclick = function () {  // 모달 팝업 닫기 버튼 클릭 시 이벤트 처리
                 innerScrollModal.style.display = "none";
+                innerScrollModal.classList.remove("active");
                 document.body.style.overflow = "visible"; 
             };            
             innerScrollModalConfirm.onclick = function () {  // 모달 팝업 닫기 버튼 클릭 시 이벤트 처리
                 innerScrollModal.style.display = "none";
-                document.body.style.overflow = "visible"; 
+                innerScrollModal.classList.remove("active");
+                document.body.style.overflow = "visible";
             };
             innerScrollModalToggle.onclick = function () {
-                innerScrollModal.style.display = "block";          
+                innerScrollModal.style.display = "block";
+                innerScrollModal.classList.add("active");
                 document.body.style.overflow = "hidden";
             };
             
+            /* 내부 폼형 */
+            const inquiryModal = document.querySelector(".modal-layer.inquiry");            
+            const inquiryCategoryList = document.querySelector("ul.inquiry-category__list");
+            const inquiryModalClose = document.querySelector(".modal-layer.inquiry .close");
+            const inquiryToggle = document.querySelector(".modal-box.inquiry > #modal-toggle");
+
+            inquiryToggle.onclick = function () {
+                inquiryModal.style.display = "block";
+                inquiryModal.classList.add("active");
+                document.body.style.overflow = "hidden";
+            };
+            inquiryModalClose.onclick = function () {
+                inquiryModal.style.display = "none";
+                inquiryModal.classList.remove("active");
+                document.body.style.overflow = "visible";
+            };
+
+            var form = document.inquiryForm;
+            const inquirySelectorToggle = document.querySelector(".inquiry-category__selector");
+            const inquiryTitleInput = form.inquiryTitle;
+            const inquiryDetailInput = form.inquiryDetail;
+            var alertCategory = document.createElement('span');
+            var alertTitle = document.createElement('span');
+            var alertDetail = document.createElement('span');
+
+            checkInputValue = (event) => {
+                    console.log(event.nextElementSibling);
+                    if (event.value) {
+                        console.log(3)
+                        event.nextElementSibling.innerText = "";
+                }
+            }
+
+            alertBlankInput = (inquiryInput, alertText, inputText) => {
+                inquiryInput.insertAdjacentElement("afterend", alertText);
+                alertText.style.cssText = `display: block; width: 100%; height: 2em; line-height: 2em; margin-bottom: calc(${window.getComputedStyle(inquiryInput).getPropertyValue('margin-bottom')} - 1.5em); text-indent: 0.5em; color: red; font-size: 11px`;
+                inquiryInput.style.cssText = "margin-bottom: 0";
+            }
+
+            (() => {alertBlankInput(inquirySelectorToggle, alertCategory);})();
+            (() => {alertBlankInput(inquiryTitleInput, alertTitle);})();
+            (() => {alertBlankInput(inquiryDetailInput, alertDetail);})();
+            
+            // 선택한 카테고리 선언
+            var selectedCategory;
+            
+            // submit 내용 체크
+            function checkSubmit () {
+                event.preventDefault();  // submit 후 닫힘 방지
+                if(selectedCategory === undefined) {
+                    if(!alertCategory.innerText) {
+                        alertCategory.innerText = "※유형을 선택해 주세요.";
+                    }
+                    inquirySelectorToggle.focus();
+                    return false;
+                }
+                if(!inquiryTitleInput.value) {
+                    if(!alertTitle.innerText) {
+                        alertTitle.innerText = "※제목을 입력해 주세요.";
+                    }
+                    inquiryTitleInput.focus();
+                    return false; 
+                }
+                if(!inquiryDetailInput.value) {
+                    if(!alertDetail.innerText) {
+                        alertDetail.innerText = "※내용을 입력해 주세요.";
+                    }
+                    inquiryDetailInput.focus();
+                    return false;
+                }
+                form.submit();
+                inquiryModal.classList.remove("active");
+                return true;
+            };
+
+            // 문의 유형 카테고리
+            const inquiryCategory = document.querySelectorAll("li.inquiry-category__item");
+
+            // 문의 유형 토글
+            function inquirySelector(event) {
+                if (inquiryCategoryList.style.display === "none") {
+                    inquiryCategoryList.style.display = "flex";
+                    document.documentElement.style.setProperty('--toggle-degree', '180deg');
+                } else if (inquiryCategoryList.style.display !== "none") {
+                    inquiryCategoryList.style.display = "none"
+                    if (event.classList.contains("active") == false) {                                        
+                        event.innerText = selectedCategory.innerText;
+                    }
+                    document.documentElement.style.setProperty('--toggle-degree', '0deg');
+                }
+            };
+
+            // 문의 유형 선택
+            function inquiryTypeChoice(event) {
+                document.documentElement.style.setProperty('--toggle-degree', '0deg');
+                Array.from(inquiryCategory).forEach((category) => {
+                    category.classList.remove("active");
+                });
+                event.classList.add("active");
+                inquirySelectorToggle.classList.remove("active");
+                inquirySelectorToggle.innerText = "";
+                inquirySelectorToggle.insertAdjacentHTML("beforeend", `${event.innerText}<span></span>`);
+                inquirySelectorToggle.nextElementSibling.innerText = "";
+                inquiryCategoryList.style.display = "none";
+                selectedCategory = document.querySelector("li.inquiry-category__item.active");                
+            };
+
+            // 문의 유형 가리기 최초 선언
+            (function(){
+                inquiryCategoryList.style.display = "none";
+            })();
+
+            window.addEventListener("keydown", pressEsc, false); 
+
+            function pressEsc(e){
+                if(e.keyCode === 27) {
+                    console.log(activedModal = document.querySelector(".modal-layer.active"))
+                    var activedModal = document.querySelector(".modal-layer.active");
+                    if (activedModal) {
+                        if (document.body.style.overflow == "hidden") {
+                            document.body.style.overflow == "visible";
+                        }                    
+                        activedModal.style.display = "none";
+                        activedModal.classList.remove("active");
+                    }
+                }
+            }
+
             /* 공용 (닫기: 외부) */
             window.onclick = function (event) {  // 모달 팝업 외부 클릭 시 이벤트 처리
                 if (event.target == modalFixedOuter || event.target == modalScrollableOuter) {
                     event.target.style.display = "none";
-                    document.body.style.overflow = "visible"; 
+                    document.body.style.overflow = "visible";
                 } 
             };
+
         </script>
     </body>
 </html>
