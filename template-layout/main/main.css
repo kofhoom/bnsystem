@@ -260,6 +260,7 @@ body {
   height: 30rem;
   margin: 0 auto;
 }
+
 .visual__wrap {
   width: 100%;
   height: 100%;
@@ -267,6 +268,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
 .visual__inner {
   position: relative;
   max-width: 115rem;
@@ -275,6 +277,7 @@ body {
   padding: 0 4rem;
   text-align: left;
 }
+
 .visual__title {
   display: block;
   padding-top: 4rem;
@@ -284,7 +287,8 @@ body {
   line-height: 1.2;
   color: #fff;
 }
-.visual__info{
+
+.visual__info {
   display: block;
   padding-top: 1rem;
   font-size: 2rem;
@@ -296,6 +300,7 @@ body {
 .depth2__visual .visual__wrap {
   background-image: url("img/main_banner_02.png")
 }
+
 /* 컨텐츠 */
 .depth2__title {
   display: block;
@@ -304,7 +309,8 @@ body {
   font-weight: 700;
   line-height: 1.2;
 }
-.depth2__info{
+
+.depth2__info {
   display: block;
   padding-top: 1rem;
   font-size: 2rem;
@@ -312,26 +318,24 @@ body {
   line-height: 1.4;
   color: #fff;
 }
+
 .search__section {
   overflow: hidden;
   position: relative;
   width: 100%;
   padding: 4rem 4rem;
 }
-.search__inner {
-  max-width: 128rem;
-  min-width: 120rem;
-  margin: 0 auto;
-}
+
 .search__form__field {
   display: flex;
   align-items: center;
 }
+
 .search__form__wrap {
   margin-right: 10px;
 }
 
-.tag__wrap > .tag__link {
+.tag__wrap>.tag__link {
   margin: 0.8rem 0.8rem 0 0;
   padding: 0.7rem 1.4rem;
   color: #999;
@@ -341,17 +345,20 @@ body {
   display: inline-block;
   transition: .3s ease all;
 }
-.tag__wrap > .tag__link.active, 
-.tag__wrap > .tag__link:hover {
+
+.tag__wrap>.tag__link.active,
+.tag__wrap>.tag__link:hover {
   color: #fff;
   border-color: #2AC1BC;
   background-color: #2AC1BC;
 }
-.tag__wrap > .tag__link:before {
+
+.tag__wrap>.tag__link:before {
   color: inherit;
   display: inline-block;
   content: "#";
 }
+
 .영역1__section {
   overflow: hidden;
   position: relative;
@@ -359,70 +366,151 @@ body {
   background: #f5f5f5;
   padding: 4rem 4rem;
 }
-.영역1__inner {
-  max-width: 115rem;
-  min-width: 115rem;
-  margin: 0 auto;
+
+.영역1__intro {
+  margin-bottom: 2rem;
 }
-.영역1__title{
+
+.영역1__title {
   font-size: 2.4rem;
   font-weight: 700;
   line-height: 1.4;
 }
-.영역1__text{
+
+.영역1__text {
   font-size: 1.6rem;
   font-weight: 400;
   line-height: 1.4;
 }
-.영역1__desc{
+
+.영역1__desc {
   font-size: 1.4rem;
   font-weight: 400;
   line-height: 1.4;
 }
+
+.영역1__list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.영역1__item {
+  position: relative;
+  max-width: calc((100% - 82px) / 4);
+  width: 100%;
+  height: 134px;
+  padding: 24px 25px 84px;
+  border-radius: 20px;
+  background-color: white;
+  box-sizing: border-box;
+}
+
+.영역1_content .icon__comn {
+  position: relative;
+  display: inline-block;
+  width: 3.5rem;
+  height: 3.5rem;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: contain;
+}
+
+.영역1_content-title {
+  display: inline-block;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #1A1A1A;
+}
+
+.영역1_content-desc {
+  padding-left: 4.2rem;
+}
+
+.영역1_content .icon__comn.ico_name1 {
+  top: .6rem;
+  background-image: url("img/facebook_i.png");
+}
+
+.영역1_content .icon__comn.ico_name2 {
+  background-image: url("img/facebook_i.png");
+}
+
+.영역1_content .icon__comn.ico_name3 {
+  background-image: url("img/facebook_i.png");
+}
+
+.영역1_content .icon__comn.ico_name4 {
+  background-image: url("img/facebook_i.png");
+}
+
 .영역2__section {
   overflow: hidden;
   position: relative;
   width: 100%;
   padding: 4rem 4rem;
 }
+
 .영역2__inner {
-  max-width: 115rem;
-  min-width: 115rem;
-  margin: 0 auto;
+  display: flex;
 }
+
+.영역2__link {
+  display: block;
+  position: relative;
+  width: 340px;
+  height: 524px;
+  border-top-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  overflow: hidden;
+}
+
+.영역2__content_wrap {
+  margin-top: 10rem;
+  margin-left: 14rem;
+}
+
 .영역2__info {
-  margin-bottom: 20px;
+  margin-bottom: 2rem;
 }
-.영역2__title{
-  font-size: 2.4rem;
+
+.영역2__title {
+  font-size: 4rem;
   font-weight: 700;
   line-height: 1.4;
 }
-.영역2__text{
+
+.영역2__text {
   font-size: 1.6rem;
   font-weight: 400;
   line-height: 1.4;
 }
-.영역2__desc{
+
+.영역2__desc {
   font-size: 1.4rem;
   font-weight: 400;
   line-height: 1.4;
 }
-.영역2__content__title{
+
+.영역2__content__title {
   font-size: 1.8rem;
   font-weight: 700;
   line-height: 1.4;
 }
-.영역2__content__text{
+
+.영역2__content__text {
   font-size: 1.4rem;
   font-weight: 700;
   line-height: 1.4;
 }
-.영역2__content__desc{
+
+.영역2__content__desc {
   font-size: 1.4rem;
   font-weight: 400;
   line-height: 1.4;
 }
+
 @media screen and (max-width:1023px) {}
 
 
