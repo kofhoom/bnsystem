@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -101,6 +102,22 @@
                 height: 100%;
             }
             /* inquiry modal ---------------------------------------- */
+            .inquiry .modal-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                position: relative;
+                background-color: #0e0742;background: rgb(4,2,20);
+                background: linear-gradient(140deg, rgba(4,2,20,1) 0%, rgba(10,64,118,1) 53%, rgba(0,212,255,1) 100%);                
+                color: #eee;
+                width: 100%;
+                font-size: 18px;
+                height: 3rem;
+                line-height: 3rem;  /* 해당 셀렉터에 정한 폰트 사이즈의 배수 만큼 높이 */
+                padding: 0 0.7rem;
+                border-start-start-radius: 0.5rem;
+                border-start-end-radius: 0.5rem;
+            }
             .inquiry .modal-layer__window {
                 display: flex;
                 display: -ms-flexbox;
@@ -180,15 +197,22 @@
                 position: absolute;
                 font-size: 14px;
                 top: 2.4em;
+                left: 50%;
+                transform: translateX(-50%);
                 background-color: #fff;
-                width: 100%;
+                width: calc(100% - 0.4em);
                 border-collapse: collapse;
+            }
+            li.inquiry-category__index {
+                color: #fff;
+                background-color: #192e72;
             }
             li.inquiry-category__index,
             li.inquiry-category__item {
                 z-index: 2;
                 display: inherit;
-                line-height: 1.6;
+                height: 2em;
+                line-height: 1.6em;
                 border: 1px solid #aaa;
                 border-bottom: none;
             }
@@ -213,9 +237,10 @@
                 height: auto;
             }
             form.inquiry-form label {
-                font-weight: bold;                
-                height: 1.8;
-                line-height: 1.8;
+                font-weight: bold;
+                font-size: 14px;
+                height: 1.5;
+                line-height: 1.5;
                 text-indent: 0.5em;
             }
             .inquiry-title,
@@ -237,7 +262,7 @@
             .inquiry-title {
                 font-size: 14px;
                 text-indent: 0.8em;
-                height: 2em;
+                height: 2.4em;
                 line-height: 2em;
             }
             input.inquiry-submit {
@@ -249,14 +274,15 @@
                 font-weight: bold;                
                 color: #fff;
                 border: none;
-                background-color: #040214;
+                background: linear-gradient(90deg, #fcff9e 0%, #c67700 100%);
+                box-shadow: 5.6px 6.1px 20px rgba(0, 0, 0, 0.15), 10px 11px 20px rgba(0, 0, 0, 0.1);
                 cursor: pointer;
                 margin: 0 auto;
                 margin-bottom: 30px;
             }
             input.inquiry-submit:hover {
                 transition: 0.2s;
-                background-color: #0e0742;
+                
             }
             /* ---------------------------------------- inquiry modal */
             .modal-body__inner textarea {
@@ -410,7 +436,7 @@
                 <button id="modal-toggle" class="">모달 팝업 열기</button>
             </div>
             <!-- 모달 팝업 -->
-            <div class="modal-layer inquiry">
+            <div class="modal-layer inquiry" style="display: block">
                 <div class="modal-layer__window">
                     <div class="modal-header">
                         <strong class="modal-header-title">문의하기</strong> 
@@ -419,7 +445,7 @@
                     <div class="modal-body">
                         <div class="modal-body__inner">
                             <div class="inquiry-category">
-                                <button class="inquiry-category__selector active" onclick="inquirySelector(this)">문의유형<span></span></button>
+                                <button class="inquiry-category__selector active" onclick="inquirySelector(this)">문의 유형<span></span></button>
                                 <ul class="inquiry-category__list">
                                     <li class="inquiry-category__index">계정</li>
                                     <li data-inquiry-category-index="0" class="inquiry-category__item" onclick="inquiryTypeChoice(this)">한놈</li>
@@ -431,7 +457,7 @@
                                 <label for="inquiryTitle">제목</label>
                                 <input type="text" name="inquiryTitle" id="inquiryTitle" class="inquiry-title" placeholder="제목을 입력해주세요." oninput="checkInputValue(this)">
                                 <label for="inquiryDetail">내용</label>
-                                <textarea name="inquiryDetail" id="inquiryDetail" class="inquiry-textarea" placeholder="제목을 입력해주세요." oninput="checkInputValue(this)"></textarea>
+                                <textarea name="inquiryDetail" id="inquiryDetail" class="inquiry-textarea" placeholder="내용을 입력해주세요." oninput="checkInputValue(this)"></textarea>
                                 <input class="inquiry-submit" type="submit" name="inquirySubmit" id="inquirySubmit"value="문의 등록">
                             </form>
                         </div>
